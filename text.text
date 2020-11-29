@@ -1,0 +1,8 @@
+CREATE TABLE 'users' ('id' INTEGER PRIMARY KEY, 'username' VARCHAR(255), 'hash' TEXT);
+
+>>> from sqlalchemy import create_engine
+>>> engine = create_engine('sqlite:///beautygifts.db', echo=True)
+>>> from sqlalchemy import Table, Column, Integer, String, MetaData
+>>> metadata = MetaData()
+>>> users = Table('users', metadata, Column('id', Integer, primary_key=True), Column('username', String), Column('hash', String))
+>>> metadata.create_all(engine)
