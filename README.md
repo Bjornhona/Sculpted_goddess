@@ -1,6 +1,5 @@
-## Project title
-A financial independence calculator
-It is a tool that calculates, based on my: current savings, investments, income, retirement accounts, and expenses, how far away I am from financial independence.
+## Sculpting Goddess
+Sculpting Goddess - A web application that helps women sculpt and take care of their bodies in a healthy way. Keeps track and helps by creating healthy habits regarding bothe exercise suggestions and healthy recipes.
 
 ## Motivation
 This is a web application that calculates how far away I am from financial freedom. It will save and invest as much of my income as possible so that I don’t need to work for money. It is also my Final Project as part of the Harvard course CS50x on edX, Introduction to Computer Science.
@@ -40,8 +39,17 @@ Show what the library does as concisely as possible, developers should be able t
 Provide step by step series of examples and explanations about how to get a development env running.
 
 ## API Reference
+https://developer.edamam.com/edamam-docs-recipe-api
 
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+Application ID
+a8f807ca
+This is the application ID, you should send with each API request.
+
+Application Keys
+9e763f1edd4c3c936eb2506f1dbdddf5	—
+These are application keys used to authenticate requests.
+
+Example: curl "https://api.edamam.com/search?q=chicken&app_id=${a8f807ca}&app_key=${9e763f1edd4c3c936eb2506f1dbdddf5}&from=0&to=3&calories=591-722&health=alcohol-free"
 
 ## Tests
 Describe and show how to run the tests with code examples.

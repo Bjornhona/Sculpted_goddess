@@ -1,0 +1,9 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(closest-side, #56BBBF, #56BBBF, #37969A);
+  height: 100vh;
+}
+
+/*# sourceMappingURL=login.css.map */

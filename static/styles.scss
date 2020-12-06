@@ -1,0 +1,293 @@
+@use "constants";
+
+/* --- reusables --- */
+
+%shared-box {
+  display: flex;
+  align-items: center;
+  padding: 6vw 0;
+  width: 100vw;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+%shared-box-content {
+  padding: 3.5vw 5vw;
+  width: 55vw;
+  z-index: 100;
+}
+
+%shared-background-box {
+  position: absolute;
+  top: 6vw;
+  bottom: 9vw;
+  width: 55vw;
+}
+
+%link-text {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: constants.$white;
+  text-decoration: none;
+}
+
+.cropped {
+  width: 40vw;
+  height: 32vw;
+  overflow: hidden;
+  z-index: 100;
+  img {
+    max-height: 32vw;
+  }
+}
+
+.image-position-right {
+  margin: 3.5vw 7vw 0 4vw;
+}
+
+.image-position-left {
+  margin: 3.5vw 4vw 0 7vw;
+}
+
+.text-box {
+  width: 30vw;
+}
+
+.left-background-box {
+  @extend %shared-background-box;
+  background-color: constants.$light-grey;
+  left: 10vw;
+}
+
+.right-background-box {
+  @extend %shared-background-box;
+  background-color: constants.$white;
+  right: 10vw;
+}
+
+/* --- components --- */
+
+body {
+  font-family: "Open Sans regular", sans-serif;
+  color: constants.$white;
+  margin: 0;
+  padding: 0;
+  *, ::after, ::before {
+    box-sizing: border-box;
+  }
+}
+
+h1 { 
+  font-family: "Open Sans semibold";
+  font-size: 4.5vw;
+  text-transform: uppercase;
+  line-height: 4vw;
+  margin: 0;
+}
+
+p {
+  font-size: constants.$font-p-size;
+  padding: 2vw 0;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+button {
+  @extend %link-text;
+  font-size: constants.$font-p-size - 0.3vw;
+  padding: 0.8vw 3vw;
+  background-color: transparent;
+  border: 1.5px solid constants.$white;
+  border-radius: 5px;
+}
+
+/* --- navigation --- */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 2vw;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  height: 7vw;
+  margin-top: -7vw;
+  background-image: linear-gradient(rgba(black , 0.6), transparent);
+}
+
+nav, .upper-footer {
+  ul {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    li {
+      display: inline-block;
+    }
+  }
+  a:link, a:visited {
+    @extend %link-text;
+    padding: 0 1vw;
+    font-size: constants.$font-p-size - 0.5vw;
+  }
+  a:hover, a:active {
+    color: constants.$light-pink;
+  }
+  a.navbar-brand {
+    font-family: "Trajan Pro 3";
+    font-size: 2vw;
+    width: 13vw;
+    text-align: left;
+  }
+}
+
+.upper-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vw;
+  background-color: constants.$dark-blue;
+  .social-media li {
+    font-size: 2vw;
+    padding: 2vw 3vw;
+  }
+}
+
+/* --- header section --- */
+
+.carousel {
+  @extend %shared-box;
+  background: radial-gradient(closest-side, constants.$light-blue, constants.$light-blue, constants.$dark-blue);
+  height: 45vw;
+  span {
+    color: constants.$light-green;
+  }
+  .header-image {
+    height: 40vw;
+    img {
+      max-height: 40vw;
+      position: absolute;
+      right: 21vw;
+      bottom: 0;
+    }
+  }
+  .carousel-box {
+    @extend %shared-box-content;
+    margin: 9vw 0 0 25vw;
+    z-index: 100;
+  }
+}
+
+/* --- training plan section --- */
+
+.training-plan {
+  @extend %shared-box;
+  background-color: constants.$white;
+  .training-plan-box {
+    @extend %shared-box-content;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    text-align: right;
+    background-color: constants.$dark-green;
+    span {
+      color: constants.$dark-pink;
+    }
+    button:hover {
+      color: constants.$dark-pink;
+      border: 1.5px solid constants.$dark-pink;
+    }
+  }
+}
+
+/* --- healthy recipes section --- */
+
+.healthy-recipes {
+  @extend %shared-box;
+  background-color: constants.$light-grey;
+  justify-content: flex-end;
+  .healthy-recipes-box {
+    @extend %shared-box-content;
+    background-color: constants.$orange;
+    span {
+      color: constants.$light-green;
+    }
+    button:hover {
+      color: constants.$light-green;
+      border: 1.5px solid constants.$light-green;
+    }
+  }
+}
+
+/* --- weight loss section --- */
+
+.weightloss-program {
+  @extend %shared-box;
+  padding: 10vw 0;
+  background: radial-gradient(closest-side, constants.$medium-pink, constants.$dark-pink);
+  span {
+    color: constants.$yellow;
+  }
+  img {
+    max-height: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .weightloss-box {
+    padding-left: 14vw;
+    z-index: 100;
+  }
+  button:hover {
+    color: constants.$yellow;
+    border: 1.5px solid constants.$yellow;
+  }
+}
+
+/* --- contact us section --- */
+
+.contact-us {
+  @extend %shared-box;
+  background-color: constants.$white;
+  .contact-us-box {
+    @extend %shared-box-content;
+    background-color: constants.$light-blue;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    text-align: right;
+    span {
+      color: constants.$light-pink;
+    }
+    button:hover {
+      color: constants.$light-pink;
+      border: 1.5px solid constants.$light-pink;
+    }
+  }
+}
+
+/* --- footer --- */
+
+.lower-footer {
+  @extend %link-text;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: constants.$dark-grey;
+  p {
+    font-size: constants.$font-p-size - 0.5vw;
+    line-height: constants.$font-p-size - 0.5vw;
+  }
+  span {
+    color: constants.$light-pink;
+  }
+  a:link, a:visited {
+    color: constants.$light-pink;
+    text-decoration: none;
+  }
+  a:hover, a:active {
+    color: constants.$medium-pink;
+  }
+}

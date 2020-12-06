@@ -1,0 +1,268 @@
+/* --- reusables --- */
+.contact-us, .weightloss-program, .healthy-recipes, .training-plan, .carousel {
+  display: flex;
+  align-items: center;
+  padding: 6vw 0;
+  width: 100vw;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.contact-us .contact-us-box, .healthy-recipes .healthy-recipes-box, .training-plan .training-plan-box, .carousel .carousel-box {
+  padding: 3.5vw 5vw;
+  width: 55vw;
+  z-index: 100;
+}
+
+.right-background-box, .left-background-box {
+  position: absolute;
+  top: 6vw;
+  bottom: 9vw;
+  width: 55vw;
+}
+
+.lower-footer, nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited, button {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.cropped {
+  width: 40vw;
+  height: 32vw;
+  overflow: hidden;
+  z-index: 100;
+}
+.cropped img {
+  max-height: 32vw;
+}
+
+.image-position-right {
+  margin: 3.5vw 7vw 0 4vw;
+}
+
+.image-position-left {
+  margin: 3.5vw 4vw 0 7vw;
+}
+
+.text-box {
+  width: 30vw;
+}
+
+.left-background-box {
+  background-color: #E6E6E6;
+  left: 10vw;
+}
+
+.right-background-box {
+  background-color: #FFFFFF;
+  right: 10vw;
+}
+
+/* --- components --- */
+body {
+  font-family: "Open Sans regular", sans-serif;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+}
+body *, body ::after, body ::before {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: "Open Sans semibold";
+  font-size: 4.5vw;
+  text-transform: uppercase;
+  line-height: 4vw;
+  margin: 0;
+}
+
+p {
+  font-size: 1.4vw;
+  padding: 2vw 0;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+button {
+  font-size: 1.1vw;
+  padding: 0.8vw 3vw;
+  background-color: transparent;
+  border: 1.5px solid #FFFFFF;
+  border-radius: 5px;
+}
+
+/* --- navigation --- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 2vw;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  height: 7vw;
+  margin-top: -7vw;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), transparent);
+}
+
+nav ul, .upper-footer ul {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+nav ul li, .upper-footer ul li {
+  display: inline-block;
+}
+nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
+  padding: 0 1vw;
+  font-size: 0.9vw;
+}
+nav a:hover, nav a:active, .upper-footer a:hover, .upper-footer a:active {
+  color: #FAD5EE;
+}
+nav a.navbar-brand, .upper-footer a.navbar-brand {
+  font-family: "Trajan Pro 3";
+  font-size: 2vw;
+  width: 13vw;
+  text-align: left;
+}
+
+.upper-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vw;
+  background-color: #37969A;
+}
+.upper-footer .social-media li {
+  font-size: 2vw;
+  padding: 2vw 3vw;
+}
+
+/* --- header section --- */
+.carousel {
+  background: radial-gradient(closest-side, #56BBBF, #56BBBF, #37969A);
+  height: 45vw;
+}
+.carousel span {
+  color: #ADFCAE;
+}
+.carousel .header-image {
+  height: 40vw;
+}
+.carousel .header-image img {
+  max-height: 40vw;
+  position: absolute;
+  right: 21vw;
+  bottom: 0;
+}
+.carousel .carousel-box {
+  margin: 9vw 0 0 25vw;
+  z-index: 100;
+}
+
+/* --- training plan section --- */
+.training-plan {
+  background-color: #FFFFFF;
+}
+.training-plan .training-plan-box {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  text-align: right;
+  background-color: #82EB84;
+}
+.training-plan .training-plan-box span {
+  color: #D993C8;
+}
+.training-plan .training-plan-box button:hover {
+  color: #D993C8;
+  border: 1.5px solid #D993C8;
+}
+
+/* --- healthy recipes section --- */
+.healthy-recipes {
+  background-color: #E6E6E6;
+  justify-content: flex-end;
+}
+.healthy-recipes .healthy-recipes-box {
+  background-color: #FFB55F;
+}
+.healthy-recipes .healthy-recipes-box span {
+  color: #ADFCAE;
+}
+.healthy-recipes .healthy-recipes-box button:hover {
+  color: #ADFCAE;
+  border: 1.5px solid #ADFCAE;
+}
+
+/* --- weight loss section --- */
+.weightloss-program {
+  padding: 10vw 0;
+  background: radial-gradient(closest-side, #EFB6DD, #D993C8);
+}
+.weightloss-program span {
+  color: #FDFD97;
+}
+.weightloss-program img {
+  max-height: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.weightloss-program .weightloss-box {
+  padding-left: 14vw;
+  z-index: 100;
+}
+.weightloss-program button:hover {
+  color: #FDFD97;
+  border: 1.5px solid #FDFD97;
+}
+
+/* --- contact us section --- */
+.contact-us {
+  background-color: #FFFFFF;
+}
+.contact-us .contact-us-box {
+  background-color: #56BBBF;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  text-align: right;
+}
+.contact-us .contact-us-box span {
+  color: #FAD5EE;
+}
+.contact-us .contact-us-box button:hover {
+  color: #FAD5EE;
+  border: 1.5px solid #FAD5EE;
+}
+
+/* --- footer --- */
+.lower-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #454444;
+}
+.lower-footer p {
+  font-size: 0.9vw;
+  line-height: 0.9vw;
+}
+.lower-footer span {
+  color: #FAD5EE;
+}
+.lower-footer a:link, .lower-footer a:visited {
+  color: #FAD5EE;
+  text-decoration: none;
+}
+.lower-footer a:hover, .lower-footer a:active {
+  color: #EFB6DD;
+}
+
+/*# sourceMappingURL=styles.css.map */

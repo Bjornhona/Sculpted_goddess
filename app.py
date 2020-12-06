@@ -1,3 +1,4 @@
+import requests
 from sqlalchemy import create_engine, select
 
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
@@ -111,3 +112,42 @@ def logout():
 
     # Redirect user to login form
     return redirect("/")
+
+
+@app.route("/about_us")
+@login_required
+def about_us():
+    """Show about_us page"""
+    return render_template("about_us.html")
+
+
+@app.route("/eat_healthy")
+@login_required
+def eat_healthy():
+    """Select and show recipes from Edamam API"""
+    response = requests.get("https://api.edamam.com/search?q=chicken&app_id=a8f807ca&app_key=9e763f1edd4c3c936eb2506f1dbdddf5&calories=591-722&health=alcohol-free")
+    if response.status_code == 200:
+        hits = response.json()["hits"]
+    else:
+        hits = []
+
+    return render_template("eat_healthy.html", hits=hits)
+
+
+@app.route("/get_toned")
+@login_required
+def get_toned():
+    """Show get_toned page"""
+    return render_template("get_toned.html")
+
+@app.route("/manage_weight")
+@login_required
+def manage_weight():
+    """Show manage_weight page"""
+    return render_template("manage_weight.html")
+
+@app.route("/contact_us")
+@login_required
+def contact_us():
+    """Show contact page"""
+    return render_template("contact_us.html")

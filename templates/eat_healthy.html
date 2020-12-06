@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block title %}Eat healthy{% endblock %}
+
+{% block main %}
+  <h1>Eat healthy</h1>
+  {% for row in hits: %}
+    <p>{{row["recipe"]["label"]}}</p>
+    <img src={{row["recipe"]["image"]}} alt="recipe"/>
+  {% endfor %}
+{% endblock %}
