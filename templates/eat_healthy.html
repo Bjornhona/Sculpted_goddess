@@ -3,9 +3,42 @@
 {% block title %}Eat healthy{% endblock %}
 
 {% block main %}
-  <h1>Eat healthy</h1>
-  {% for row in hits: %}
-    <p>{{row["recipe"]["label"]}}</p>
-    <img src={{row["recipe"]["image"]}} alt="recipe"/>
-  {% endfor %}
+  <header class="eat-healthy-header">
+    <div class="eat-healthy-header-box">
+      <h1><span>Healthy</span> Recipes</h1>
+      <div class="text-box">
+        <h3>We help you create your personally adapted meal plans so that you can achieve your goals.</h3>
+      </div>
+    </div>
+    <div class="eat-healthy-header-image">
+      <img src="static/images/tomato.png" alt="Tomato" />
+    </div>
+  </header>
+  <div class="eat-healthy">
+    <h1>Eat healthy</h1>
+    <form action="/eat_healthy" method="POST">
+      <input autocomplete="off" autofocus name="search_word" type="name" />
+      <button type="submit">Search</button>
+    </form>
+    {% for row in hits: %}
+      <div>
+        <p>{{row["recipe"]["label"]}}</p>
+        <div>
+          <p>{{row["recipe"]["totalTime"]}} min</p>
+          <p>{{row["recipe"]["mealType"]}}</p>
+          <p>Calories: {{round(row["recipe"]["totalNutrients"]["ENERC_KCAL"]["quantity"])}} {{row["recipe"]["totalNutrients"]["ENERC_KCAL"]["unit"]}}</p>
+          <p>Proteins: {{row["recipe"]["totalNutrients"]["PROCNT"]["quantity"]}} {{row["recipe"]["totalNutrients"]["PROCNT"]["unit"]}}</p>
+          <p>Fat: {{row["recipe"]["totalNutrients"]["FAT"]["quantity"]}} {{row["recipe"]["totalNutrients"]["FAT"]["unit"]}}</p>
+          <p>Carbs: {{row["recipe"]["totalNutrients"]["CHOCDF"]["quantity"]}} {{row["recipe"]["totalNutrients"]["CHOCDF"]["unit"]}}</p>
+        </div>
+      </div>
+      <img src={{row["recipe"]["image"]}} alt="recipe"/>
+      <div class="ingredients">
+        <h2>Ingredients</h2>
+        {% for ingredient in row["recipe"]["ingredients"]: %}
+          <p>&#8729; {{ingredient["text"]}} ({{round(ingredient["weight"])}} g)</p>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
 {% endblock %}

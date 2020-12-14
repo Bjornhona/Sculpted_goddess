@@ -1,5 +1,5 @@
 /* --- reusables --- */
-.contact-us, .weightloss-program, .healthy-recipes, .training-plan, .carousel {
+.eat-healthy-header, .contact-us, .weightloss-program, .healthy-recipes, .training-plan, .carousel {
   display: flex;
   align-items: center;
   padding: 6vw 0;
@@ -9,7 +9,7 @@
   left: 0;
 }
 
-.contact-us .contact-us-box, .healthy-recipes .healthy-recipes-box, .training-plan .training-plan-box, .carousel .carousel-box {
+.eat-healthy-header .eat-healthy-header-box, .contact-us .contact-us-box, .healthy-recipes .healthy-recipes-box, .training-plan .training-plan-box, .carousel .carousel-box {
   padding: 3.5vw 5vw;
   width: 55vw;
   z-index: 100;
@@ -20,13 +20,6 @@
   top: 6vw;
   bottom: 9vw;
   width: 55vw;
-}
-
-.lower-footer, nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited, button {
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  text-decoration: none;
 }
 
 .cropped {
@@ -63,7 +56,7 @@
 
 /* --- components --- */
 body {
-  font-family: "Open Sans regular", sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #FFFFFF;
   margin: 0;
   padding: 0;
@@ -80,17 +73,53 @@ h1 {
   margin: 0;
 }
 
-p {
+h2 {
+  font-weight: 900;
+  font-size: 2.5vw;
+  text-transform: uppercase;
+  line-height: 2vw;
+  margin: 0;
+}
+
+h3 {
   font-size: 1.4vw;
+  font-weight: 400;
   padding: 2vw 0;
   line-height: 2.5vw;
   margin: 0;
 }
 
+p {
+  font-size: 0.9vw;
+  line-height: 0.9vw;
+}
+
+a {
+  font-size: 0.9vw;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  color: #FAD5EE;
+}
+
+a.navbar-brand {
+  font-family: "Trajan Pro 3";
+  font-size: 2vw;
+  width: 13vw;
+  text-align: left;
+}
+
 button {
   font-size: 1.1vw;
+  font-family: "Open Sans semibold";
   padding: 0.8vw 3vw;
   background-color: transparent;
+  color: #FFFFFF;
+  text-transform: uppercase;
   border: 1.5px solid #FFFFFF;
   border-radius: 5px;
 }
@@ -120,23 +149,13 @@ nav ul li, .upper-footer ul li {
 }
 nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   padding: 0 1vw;
-  font-size: 0.9vw;
-}
-nav a:hover, nav a:active, .upper-footer a:hover, .upper-footer a:active {
-  color: #FAD5EE;
-}
-nav a.navbar-brand, .upper-footer a.navbar-brand {
-  font-family: "Trajan Pro 3";
-  font-size: 2vw;
-  width: 13vw;
-  text-align: left;
 }
 
 .upper-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5vw;
+  padding: 4vw;
   background-color: #37969A;
 }
 .upper-footer .social-media li {
@@ -250,10 +269,6 @@ nav a.navbar-brand, .upper-footer a.navbar-brand {
   align-items: center;
   background-color: #454444;
 }
-.lower-footer p {
-  font-size: 0.9vw;
-  line-height: 0.9vw;
-}
 .lower-footer span {
   color: #FAD5EE;
 }
@@ -263,6 +278,148 @@ nav a.navbar-brand, .upper-footer a.navbar-brand {
 }
 .lower-footer a:hover, .lower-footer a:active {
   color: #EFB6DD;
+}
+
+.auth .auth-content, .auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth .auth-content .signup-left-container, .auth .auth-content .login-right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #56BBBF;
+  width: 26vw;
+  height: 100%;
+}
+.auth .auth-content .signup-left-container h3, .auth .auth-content .login-right-container h3 {
+  padding-top: 0;
+}
+.auth .auth-content .signup-left-container div, .auth .auth-content .login-right-container div {
+  display: flex;
+  align-items: center;
+}
+.auth .auth-content .signup-left-container div span, .auth .auth-content .login-right-container div span {
+  font-size: 0.9vw;
+  padding-right: 1vw;
+}
+
+.auth {
+  background: radial-gradient(closest-side, #56BBBF, #56BBBF, #37969A);
+  height: 100vh;
+  flex-direction: column;
+}
+.auth .auth-content {
+  justify-content: space-between;
+  background-color: #56BBBF;
+  width: 65vw;
+  border-radius: 0.5vw;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  margin-top: 8vw;
+}
+.auth .auth-content .login-left-container, .auth .auth-content .signup-right-container {
+  background-color: #FAD5EE;
+  width: 40vw;
+  height: 100%;
+  border-radius: 0.5vw;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+.auth .auth-content .login-left-container h2, .auth .auth-content .signup-right-container h2 {
+  background-color: #D993C8;
+  border-radius: 0.5vw 0.5vw 0 0;
+  padding: 3vw 0;
+  text-align: center;
+}
+.auth .auth-content .login-left-container h2 span, .auth .auth-content .signup-right-container h2 span {
+  color: #ADFCAE;
+}
+.auth .auth-content .login-left-container form, .auth .auth-content .signup-right-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3vw;
+}
+.auth .auth-content .login-left-container form ::placeholder, .auth .auth-content .signup-right-container form ::placeholder {
+  color: #B5B5B5;
+  opacity: 1;
+  font-size: 1.1vw;
+}
+.auth .auth-content .login-left-container form div, .auth .auth-content .signup-right-container form div {
+  display: flex;
+  flex-direction: row;
+}
+.auth .auth-content .login-left-container form div span, .auth .auth-content .signup-right-container form div span {
+  background-color: #D993C8;
+  padding: 1vw 2vw;
+  margin: 1vw 0;
+  border-radius: 5px 0 0 5px;
+}
+.auth .auth-content .login-left-container form div input, .auth .auth-content .signup-right-container form div input {
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 1vw 2vw;
+  margin: 1vw 0;
+}
+.auth .auth-content .login-left-container form button, .auth .auth-content .signup-right-container form button {
+  background-color: #D993C8;
+  border: 2px solid #D993C8;
+  margin: 3vw auto 1vw;
+}
+.auth .auth-content .login-left-container form button:hover, .auth .auth-content .signup-right-container form button:hover {
+  background-color: #EFB6DD;
+  border: 2px solid #FFFFFF;
+}
+.auth .auth-content .login-right-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0 3vw 0 4vw;
+}
+.auth .auth-content .signup-left-container {
+  padding: 0 3vw;
+}
+.auth .signup-link {
+  font-size: 1.4vw;
+  font-weight: 900;
+  text-transform: lowercase;
+}
+
+/* --- header section --- */
+.eat-healthy-header {
+  background: radial-gradient(closest-side, #EFB6DD, #EFB6DD, #D993C8);
+  height: 35vw;
+  overflow: hidden;
+}
+.eat-healthy-header span {
+  color: #FDFD97;
+}
+.eat-healthy-header .eat-healthy-header-image {
+  height: 40vw;
+}
+.eat-healthy-header .eat-healthy-header-image img {
+  max-height: 40vw;
+  position: absolute;
+  right: 21vw;
+  bottom: -10vw;
+}
+.eat-healthy-header .eat-healthy-header-box {
+  margin: 7vw 0 0 22vw;
+  z-index: 100;
+}
+
+/* --- main section --- */
+.eat-healthy {
+  background-color: blue;
+}
+
+.ingredients {
+  background-color: white;
+  color: black;
 }
 
 /*# sourceMappingURL=styles.css.map */

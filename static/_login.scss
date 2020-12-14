@@ -1,0 +1,115 @@
+@use "constants";
+
+%centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%features-common-design {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: constants.$light-blue;
+  width: 25vw + 1vw;
+  height: 100%;
+  h3 {
+    padding-top: 0
+  }
+  div {
+    display: flex;
+    align-items: center;
+    span {
+      font-size: constants.$font-p-size;
+      padding-right: 1vw;
+    }
+  }
+}
+
+.auth {
+  @extend %centered-content;
+  background: radial-gradient(closest-side, constants.$light-blue, constants.$light-blue, constants.$dark-blue);
+  height: 100vh;
+  flex-direction: column;
+  .auth-content {
+    @extend %centered-content;
+    justify-content: space-between;
+    background-color: constants.$light-blue;
+    width: 65vw;
+    border-radius: 0.5vw;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 3px 12px rgba(#000000, 0.3);
+    margin-top: 8vw;
+    .login-left-container, .signup-right-container {
+      background-color: constants.$light-pink;
+      width: 40vw;
+      height: 100%;
+      border-radius: 0.5vw;
+      box-shadow: 0 3px 12px rgba(#000000, 0.3);
+      z-index: 100;
+      h2 {
+        background-color: constants.$dark-pink;
+        border-radius: 0.5vw 0.5vw 0 0;
+        padding: 3vw 0;
+        text-align: center;
+        span {
+          color: constants.$light-green;
+        }
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 3vw;
+        ::placeholder {
+          color: constants.$medium-grey;
+          opacity: 1;
+          font-size: constants.$font-button-size;
+        }
+        div {
+          display: flex;
+          flex-direction: row;
+          span {
+            background-color: constants.$dark-pink;
+            padding: 1vw 2vw;
+            margin: 1vw 0;
+            border-radius: 5px 0 0 5px;
+          }
+          input {
+            border: none;
+            border-radius: 0 5px 5px 0;
+            padding: 1vw 2vw;
+            margin: 1vw 0;
+          }
+        }
+        button {
+          background-color: constants.$dark-pink;
+          border: 2px solid constants.$dark-pink;
+          margin: 3vw auto 1vw;
+        }
+        button:hover {
+          background-color: constants.$medium-pink;
+          border: 2px solid constants.$white;
+        }
+      }
+    }
+    .login-right-container {
+      @extend %features-common-design;
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 0 3vw 0 4vw;
+    }
+    .signup-left-container {
+      @extend %features-common-design;
+      padding: 0 3vw;
+    }
+  }
+  .signup-link {
+    font-size: constants.$font-h3-size;
+    font-weight: 900;
+    text-transform: lowercase;
+  }
+}
+

@@ -3,12 +3,27 @@
 {% block style %}<link href="/static/login.css" rel="stylesheet">{% endblock %}
 
 {% block main %}
-<div class="login">
-  <h1>Login</h1>
-  <form action="/login" method="post">
-    <input name="username" placeholder="Username" type="text">
-    <input name="password" placeholder="Password" type="password">
-    <button type="submit">Log In</button>
-  </form>
+<div class="auth">
+  <div class="auth-content">
+    <div class="login-left-container">
+      <h2><span>Who's</span> there?</h2>
+      <form action="/login" method="post">
+        <div>
+          <span><i class="fas fa-envelope"></i></span><input autocomplete="off" autofocus name="username" placeholder="Username" type="text" />
+        </div>
+        <div>
+          <span><i class="fas fa-lock"></i></span><input name="password" placeholder="Password" type="password" />
+        </div>
+        <button type="submit">Let me in</button>
+      </form>
+    </div>
+    <div class="login-right-container">
+      <h3>Signing in gives you free access to our content:</h3>
+      <div><span><i class="fas fa-check"></i></span><p>Healthy recipes adapted to your goals.</p></div>
+      <div><span><i class="fas fa-check"></i></span><p>Muscle Mass and Body Index counter.</p></div>
+      <div><span><i class="fas fa-check"></i></span><p>Personal training recommendations.</p></div>
+    </div>
+  </div>
+  <h3>Don’t have an account yet? Sign up <a href="/register"><span class="signup-link">here</span></a>.</h3>
 </div>
 {% endblock %}

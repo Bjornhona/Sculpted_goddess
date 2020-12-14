@@ -6,7 +6,6 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
-# from datetime import datetime
 
 from helpers import login_required, apology
 
@@ -34,7 +33,6 @@ Session(app)
 engine = create_engine("sqlite:///beautygifts.db", echo=True)
 
 @app.route("/")
-@login_required
 def index():
     """Show home page"""
 
@@ -60,7 +58,7 @@ def login():
 
         # Query database for username
         result = engine.execute("SELECT * FROM users WHERE username = :username",
-                          username=request.form.get("username"))
+            username=request.form.get("username"))
 
         # Ensure username exists and password is correct
         if not result:
@@ -115,23 +113,28 @@ def logout():
 
 
 @app.route("/about_us")
-@login_required
 def about_us():
     """Show about_us page"""
     return render_template("about_us.html")
 
 
-@app.route("/eat_healthy")
+@app.route("/eat_healthy", methods=["GET", "POST"])
 @login_required
 def eat_healthy():
     """Select and show recipes from Edamam API"""
-    response = requests.get("https://api.edamam.com/search?q=chicken&app_id=a8f807ca&app_key=9e763f1edd4c3c936eb2506f1dbdddf5&calories=591-722&health=alcohol-free")
+    if request.method == "GET":
+        response = requests.get("https://api.edamam.com/search?q=chicken&app_id=a8f807ca&app_key=9e763f1edd4c3c936eb2506f1dbdddf5")
+    else:
+        search_word = request.form.get("search_word")
+        response = requests.get("https://api.edamam.com/search?q=" + search_word + "&app_id=a8f807ca&app_key=9e763f1edd4c3c936eb2506f1dbdddf5")
+    
     if response.status_code == 200:
         hits = response.json()["hits"]
     else:
         hits = []
-
-    return render_template("eat_healthy.html", hits=hits)
+    def rounded(r):
+        return round(r)
+    return render_template("eat_healthy.html", hits=hits, round=rounded)
 
 
 @app.route("/get_toned")
@@ -147,7 +150,6 @@ def manage_weight():
     return render_template("manage_weight.html")
 
 @app.route("/contact_us")
-@login_required
 def contact_us():
     """Show contact page"""
     return render_template("contact_us.html")

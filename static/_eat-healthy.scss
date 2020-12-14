@@ -1,0 +1,38 @@
+@use "constants";
+
+/* --- header section --- */
+
+.eat-healthy-header {
+  @extend %shared-box;
+  background: radial-gradient(closest-side, constants.$medium-pink, constants.$medium-pink, constants.$dark-pink);
+  height: 35vw;
+  overflow: hidden;
+  span {
+    color: constants.$yellow;
+  }
+  .eat-healthy-header-image {
+    height: 40vw;
+    img {
+      max-height: 40vw;
+      position: absolute;
+      right: 21vw;
+      bottom: -10vw;
+    }
+  }
+  .eat-healthy-header-box {
+    @extend %shared-box-content;
+    margin: 7vw 0 0 22vw;
+    z-index: 100;
+  }
+}
+
+/* --- main section --- */
+
+.eat-healthy {
+  background-color: blue;
+}
+
+.ingredients {
+  background-color: white;
+  color: black;
+}

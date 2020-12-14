@@ -20,12 +20,16 @@ Include logo/demo screenshot etc.
 
 ## Tech/framework used
 <b>Built with</b>
-- Visual Studio Code
-- Backend in Python with Flask
-- Frontend in Javascipt, HTML and CSS
-- Database in SQL
+- Python
+- Flask
+- Javascipt
+- HTML
+- SCSS
+- SQL
+- Flexbox
 
 <b>Other tools used<b>
+- Visual Studio Code
 - Design in Adobe XD
 - Trello Board
 
@@ -39,17 +43,8 @@ Show what the library does as concisely as possible, developers should be able t
 Provide step by step series of examples and explanations about how to get a development env running.
 
 ## API Reference
+Edamam recipe search API
 https://developer.edamam.com/edamam-docs-recipe-api
-
-Application ID
-a8f807ca
-This is the application ID, you should send with each API request.
-
-Application Keys
-9e763f1edd4c3c936eb2506f1dbdddf5	—
-These are application keys used to authenticate requests.
-
-Example: curl "https://api.edamam.com/search?q=chicken&app_id=${a8f807ca}&app_key=${9e763f1edd4c3c936eb2506f1dbdddf5}&from=0&to=3&calories=591-722&health=alcohol-free"
 
 ## Tests
 Describe and show how to run the tests with code examples.

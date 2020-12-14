@@ -19,7 +19,6 @@
   <body>
     <nav>
       <a class="navbar-brand" href="/">Sculpted Goddess</a>
-      {% if session.user_id %}
         <ul>
           <li><a href="/about_us">about us</a></li>
           <li><a href="/eat_healthy">eat healthy</a></li>
@@ -27,6 +26,7 @@
           <li><a href="/manage_weight">manage weight</a></li>
           <li><a href="/contact_us">contact us</a></li>
         </ul>
+      {% if session.user_id %}
         <ul>
           <a href="/logout">Log Out</a>
         </ul>
@@ -50,7 +50,7 @@
       {% block main %}
       {% endblock %}
     </main>
-    {% if session.user_id %}
+    {% if not (request.path.endswith("login") or request.path.endswith("register")) %}
     <footer>
       <div class="upper-footer">
         <a class="navbar-brand" href="/">Sculpted Goddess</a>
@@ -68,7 +68,7 @@
         </ul>
       </div>
       <div class="lower-footer">
-        <p>Made with <span><i class="fas fa-heart"></i></span> by <a href="https://www.graphicsbyasa.com/" target="_blank">Graphics by Åsa</a></p>
+        <p>MADE WITH <span><i class="fas fa-heart"></i></span> BY <a href="https://www.graphicsbyasa.com/" target="_blank">Graphics by Åsa</a></p>
         <div id="edamam-badge" data-color="badge"></div>
       </div>
     </footer>
