@@ -61,13 +61,28 @@
     color: constants.$dark-grey;
   }
 }
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  padding: 1vw;
+  h3 {
+    padding: 0 0 0 1vw;
+  }
+  .search-icon {
+    font-size: 1.8vw;
+    color: constants.$fuccia;
+  }
+}
+
 .featured-recipes-area {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
   .small-recipe-container {
-    margin: 1.2vw;
+    margin: 1vw;
     color: constants.$dark-grey;
+    cursor: pointer;
     .small-recipe-image {
       height: 14vw;
       width: 20vw;
@@ -92,18 +107,8 @@
           overflow: hidden;
         }
       }
-      .save-recipe {
-        display: flex;
-        align-items: center;
+      .icon-container {
         border-top: 1px solid constants.$medium-grey;
-        padding: 1vw;
-        h3 {
-          padding: 0 0 0 1vw;
-        }
-        .search-icon {
-          font-size: 1.8vw;
-          color: constants.$fuccia;
-        }
       }
     }
   }
@@ -111,74 +116,142 @@
 
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 200; /* Sit on top */
+  display: none;
+  position: fixed;
+  z-index: 200;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  // background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(255, 255, 255, 0.6); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  .close {
+    color: constants.$dark-grey;
+    float: right;
+    font-size: constants.$font-h2-size;
+    padding: 1vw;
+  }
+  .close:hover,
+  .close:focus {
+    color: constants.$fuccia;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .modal-content {
+    background-color: constants.$white;
+    margin: 10vw auto;
+    width: 80vw;
+    .large-recipe-image {
+      height: 40vw;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      img {
+        display: block;
+        width: 80vw;
+        height: 80vw;
+      }
+    }
+    .modal-header {
+      background-color: constants.$dark-blue;
+      display: flex;
+      justify-content: space-between;
+      padding: 1vw 3vw;
+      .modal-header-left {
+        h2 {
+          color: constants.$light-green;
+        }
+        .macro-nutrients {
+          display: flex;
+          h3 {
+            color: constants.$white;
+            padding: 1vw 1vw 0.5vw 0;
+          }
+        }
+        .modal-header-bottom-row {
+          display: flex;
+          .icon-container {
+            padding: 0;
+            margin-right: 2vw;
+            h3 {
+              color: constants.$white;
+            }
+            .icon {
+              font-size: constants.$font-h3-size;
+            }
+          }
+        }
+      }
+      .modal-header-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        button {
+          margin: 0 auto 0.5vw auto;
+          border: none;
+          background-color: constants.$dark-orange;
+        }
+        button:hover {
+          background-color: constants.$light-orange;
+        }
+        .icon-container {
+          justify-content: flex-end;
+          padding: 0 0 1vw 0;
+          h3 {
+            color: constants.$white;
+          }
+          .search-icon {
+            color: constants.$light-pink;
+          }
+        }
+      }
+    }
+    .modal-bottom {
+      background-color: constants.$dark-blue;
+      padding: 2vw;
+      display: flex;
+      h3 {
+        padding: 0;
+      }
+      .ingredients {
+        padding: 1vw;
+        width: 50%;
+        h2 {
+          background-color: constants.$dark-pink;
+          color: constants.$yellow;
+          border-radius: 0.5vw 0.5vw 0 0;
+          padding: 2vw;
+        }
+        button {
+          margin: 2vw auto 0 auto;
+          border: none;
+          background-color: constants.$dark-orange;
+        }
+        button:hover {
+          background-color: constants.$light-orange;
+        }
+      }
+      .nutrients {
+        padding: 1vw;
+        width: 50%;
+        h2 {
+          background-color: constants.$dark-green;
+          color: constants.$fuccia;
+          border-radius: 0.5vw 0.5vw 0 0;
+          padding: 2vw;
+        }
+      }
+      .content-box {
+        background-color: constants.$white;
+        border-radius: 0 0 0.5vw 0.5vw;
+        padding: 2vw;
+        .nutrients-box {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
 }
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-// .modal
-//   position: fixed
-//   left: 0
-//   top: 0
-//   width: 100%
-//   height: 100%
-//   background-color: rgba(0, 0, 0, 0.5)
-//   opacity: 0
-//   display: flex
-//   justify-content: center
-//   align-items: center
-//   visibility: hidden
-//   transform: scale(1.1)
-//   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s
-//   &-content
-//     align-self: center
-//     background-color: white
-//     padding: 1rem 1.5rem
-//     width: 24rem
-//     border-radius: 0.5rem
-
-// .btn-close
-//   float: right
-//   width: 1.5rem
-//   line-height: 1.5rem
-//   text-align: center
-//   cursor: pointer
-//   border-radius: 0.25rem
-//   background-color: lightgray
-
-// .show-modal
-//   opacity: 1
-//   visibility: visible
-//   transform: scale(1.0)
-//   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s

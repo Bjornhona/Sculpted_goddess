@@ -457,14 +457,28 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   color: #454444;
 }
 
+.icon-container {
+  display: flex;
+  align-items: center;
+  padding: 1vw;
+}
+.icon-container h3 {
+  padding: 0 0 0 1vw;
+}
+.icon-container .search-icon {
+  font-size: 1.8vw;
+  color: #F747AD;
+}
+
 .featured-recipes-area {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
 }
 .featured-recipes-area .small-recipe-container {
-  margin: 1.2vw;
+  margin: 1vw;
   color: #454444;
+  cursor: pointer;
 }
 .featured-recipes-area .small-recipe-container .small-recipe-image {
   height: 14vw;
@@ -491,64 +505,148 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   height: 4.8vw;
   overflow: hidden;
 }
-.featured-recipes-area .small-recipe-container .small-recipe-text .save-recipe {
-  display: flex;
-  align-items: center;
+.featured-recipes-area .small-recipe-container .small-recipe-text .icon-container {
   border-top: 1px solid #B5B5B5;
-  padding: 1vw;
-}
-.featured-recipes-area .small-recipe-container .small-recipe-text .save-recipe h3 {
-  padding: 0 0 0 1vw;
-}
-.featured-recipes-area .small-recipe-container .small-recipe-text .save-recipe .search-icon {
-  font-size: 1.8vw;
-  color: #F747AD;
 }
 
 /* The Modal (background) */
 .modal {
   display: none;
-  /* Hidden by default */
   position: fixed;
-  /* Stay in place */
   z-index: 200;
-  /* Sit on top */
   left: 0;
   top: 0;
   width: 100%;
-  /* Full width */
   height: 100%;
-  /* Full height */
   overflow: auto;
-  /* Enable scroll if needed */
-  background-color: rgba(255, 255, 255, 0.6);
-  /* Black w/ opacity */
+  background-color: rgba(255, 255, 255, 0.8);
 }
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
+.modal .close {
+  color: #454444;
   float: right;
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 2.5vw;
+  padding: 1vw;
 }
-
-.close:hover,
-.close:focus {
-  color: black;
+.modal .close:hover,
+.modal .close:focus {
+  color: #F747AD;
   text-decoration: none;
   cursor: pointer;
+}
+.modal .modal-content {
+  background-color: #FFFFFF;
+  margin: 10vw auto;
+  width: 80vw;
+}
+.modal .modal-content .large-recipe-image {
+  height: 40vw;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.modal .modal-content .large-recipe-image img {
+  display: block;
+  width: 80vw;
+  height: 80vw;
+}
+.modal .modal-content .modal-header {
+  background-color: #37969A;
+  display: flex;
+  justify-content: space-between;
+  padding: 1vw 3vw;
+}
+.modal .modal-content .modal-header .modal-header-left h2 {
+  color: #ADFCAE;
+}
+.modal .modal-content .modal-header .modal-header-left .macro-nutrients {
+  display: flex;
+}
+.modal .modal-content .modal-header .modal-header-left .macro-nutrients h3 {
+  color: #FFFFFF;
+  padding: 1vw 1vw 0.5vw 0;
+}
+.modal .modal-content .modal-header .modal-header-left .modal-header-bottom-row {
+  display: flex;
+}
+.modal .modal-content .modal-header .modal-header-left .modal-header-bottom-row .icon-container {
+  padding: 0;
+  margin-right: 2vw;
+}
+.modal .modal-content .modal-header .modal-header-left .modal-header-bottom-row .icon-container h3 {
+  color: #FFFFFF;
+}
+.modal .modal-content .modal-header .modal-header-left .modal-header-bottom-row .icon-container .icon {
+  font-size: 1.4vw;
+}
+.modal .modal-content .modal-header .modal-header-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.modal .modal-content .modal-header .modal-header-right button {
+  margin: 0 auto 0.5vw auto;
+  border: none;
+  background-color: #FD8902;
+}
+.modal .modal-content .modal-header .modal-header-right button:hover {
+  background-color: #FFB55F;
+}
+.modal .modal-content .modal-header .modal-header-right .icon-container {
+  justify-content: flex-end;
+  padding: 0 0 1vw 0;
+}
+.modal .modal-content .modal-header .modal-header-right .icon-container h3 {
+  color: #FFFFFF;
+}
+.modal .modal-content .modal-header .modal-header-right .icon-container .search-icon {
+  color: #FAD5EE;
+}
+.modal .modal-content .modal-bottom {
+  background-color: #37969A;
+  padding: 2vw;
+  display: flex;
+}
+.modal .modal-content .modal-bottom h3 {
+  padding: 0;
+}
+.modal .modal-content .modal-bottom .ingredients {
+  padding: 1vw;
+  width: 50%;
+}
+.modal .modal-content .modal-bottom .ingredients h2 {
+  background-color: #D993C8;
+  color: #FDFD97;
+  border-radius: 0.5vw 0.5vw 0 0;
+  padding: 2vw;
+}
+.modal .modal-content .modal-bottom .ingredients button {
+  margin: 2vw auto 0 auto;
+  border: none;
+  background-color: #FD8902;
+}
+.modal .modal-content .modal-bottom .ingredients button:hover {
+  background-color: #FFB55F;
+}
+.modal .modal-content .modal-bottom .nutrients {
+  padding: 1vw;
+  width: 50%;
+}
+.modal .modal-content .modal-bottom .nutrients h2 {
+  background-color: #82EB84;
+  color: #F747AD;
+  border-radius: 0.5vw 0.5vw 0 0;
+  padding: 2vw;
+}
+.modal .modal-content .modal-bottom .content-box {
+  background-color: #FFFFFF;
+  border-radius: 0 0 0.5vw 0.5vw;
+  padding: 2vw;
+}
+.modal .modal-content .modal-bottom .content-box .nutrients-box {
+  display: flex;
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=styles.css.map */

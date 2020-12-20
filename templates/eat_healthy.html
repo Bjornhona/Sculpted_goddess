@@ -21,52 +21,125 @@
     </div>
   </header>
   <div class="eat-healthy container">
-    <h3>Featured Meals - {{count}} recipes found</h3>
+    <h3>Featured Meals - {{search_word}} - {{count}} recipes found</h3>
     <div class="featured-recipes-area">
       {% for row in hits: %}
-          <div id="myBtn" value={{row["recipe"]}} class="small-recipe-container">
-            <div class="small-recipe-image"><img src={{row["recipe"]["image"]}} alt="recipe"/></div>
-            <div class="small-recipe-text">
-              <div class="recipe-content">
-                <h3>{{row["recipe"]["label"]}}</h3>
-                <h4>{{round(row["recipe"]["totalNutrients"]["ENERC_KCAL"]["quantity"]/row["recipe"]["yield"])}} {{row["recipe"]["totalNutrients"]["ENERC_KCAL"]["unit"]}}/Serving</h4>
-              </div>
-              <div class="save-recipe">
-                <div class="search-icon"><i class="far fa-bookmark"></i></div>
-                <h3>Save recipe</h3>
-              </div>
+        <div class="small-recipe-container">
+          <div class="small-recipe-image"><img src={{row["recipe"]["image"]}} alt="recipe"/></div>
+          <div class="small-recipe-text">
+            <div class="recipe-content">
+              <h3>{{row["recipe"]["label"]}}</h3>
+              <h4>{{round(row["recipe"]["totalNutrients"]["ENERC_KCAL"]["quantity"]/row["recipe"]["yield"])}} {{row["recipe"]["totalNutrients"]["ENERC_KCAL"]["unit"]}}/Serving</h4>
+            </div>
+            <div class="icon-container">
+              <div class="search-icon"><i class="far fa-bookmark"></i></div>
+              <h3>Save recipe</h3>
             </div>
           </div>
+        </div>
 
         <!-- The Modal -->
-        <div id="myModal" class="modal">
+        <div class="modal">
+          <span class="close">&times;</span>
           <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Some text in the Modal..</h3>
+            <div class="modal-header">
+              <div class="modal-header-left">
+                <h2>{{row["recipe"]["label"]}}</h2>
+                <div class="macro-nutrients">
+                  <h3>{{round(row["recipe"]["totalNutrients"]["ENERC_KCAL"]["quantity"])}} {{row["recipe"]["totalNutrients"]["ENERC_KCAL"]["unit"]}} cal</h3>
+                  <h3>|</h3>
+                  <h3>{{round(row["recipe"]["totalNutrients"]["PROCNT"]["quantity"])}} {{row["recipe"]["totalNutrients"]["PROCNT"]["unit"]}} proteins</h3>
+                  <h3>|</h3>
+                  <h3>{{round(row["recipe"]["totalNutrients"]["FAT"]["quantity"])}} {{row["recipe"]["totalNutrients"]["FAT"]["unit"]}} fat</h3>
+                  <h3>|</h3>
+                  <h3>{{round(row["recipe"]["totalNutrients"]["CHOCDF"]["quantity"])}} {{row["recipe"]["totalNutrients"]["CHOCDF"]["unit"]}} carbs</h3>
+                </div>
+                <div class="modal-header-bottom-row">
+                  <div class="icon-container">
+                    <div class="icon"><i class="fas fa-user"></i></div>
+                    <h3>{{round(row["recipe"]["yield"])}} servings</h3>
+                  </div>
+                  <div class="icon-container">
+                    <div class="icon"><i class="fas fa-clock"></i></div>
+                    <h3>{{row["recipe"]["totalTime"]}} min</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-header-right">
+                <div class="icon-container">
+                  <div class="search-icon"><i class="far fa-bookmark"></i></div>
+                  <h3>Save recipe</h3>
+                </div>
+                <button>add to meal plan</button>
+              </div>
+            </div>
+            <div class="large-recipe-image"><img src={{row["recipe"]["image"]}} alt="recipe"/></div>
+            <div class="modal-bottom">
+              <div class="ingredients">
+                <h2>Ingredients</h2>
+                <div class="content-box">
+                  {% for ingredient in row["recipe"]["ingredients"]: %}
+                    <h3>&#8729; {{ingredient["text"]}} ({{round(ingredient["weight"])}} g)</h3>
+                  {% endfor %}
+                  <a href={{row["recipe"]["url"]}} target="_blank"><button>See instructions</button></a>
+                </div>
+              </div>
+              <div class="nutrients">
+                <h2>Nutrients</h2>
+                <div class="content-box">
+                  <div class="nutrients-box">
+                    <h3>Calories</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["ENERC_KCAL"]["quantity"])}} {{row["recipe"]["totalNutrients"]["ENERC_KCAL"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Fat</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["FAT"]["quantity"])}} {{row["recipe"]["totalNutrients"]["FAT"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Saturated fat</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["FASAT"]["quantity"])}} {{row["recipe"]["totalNutrients"]["FASAT"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Polyunsaturated fat</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["FAPU"]["quantity"])}} {{row["recipe"]["totalNutrients"]["FAPU"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Monounsaturated fat</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["FAMS"]["quantity"])}} {{row["recipe"]["totalNutrients"]["FAMS"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Carbohydrates</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["CHOCDF"]["quantity"])}} {{row["recipe"]["totalNutrients"]["CHOCDF"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Sugar</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["SUGAR"]["quantity"])}} {{row["recipe"]["totalNutrients"]["SUGAR"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Fiber</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["FIBTG"]["quantity"])}} {{row["recipe"]["totalNutrients"]["FIBTG"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Protein</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["PROCNT"]["quantity"])}} {{row["recipe"]["totalNutrients"]["PROCNT"]["unit"]}}</h3>
+                  </div>
+                  <div class="nutrients-box">
+                    <h3>Sodium</h3>
+                    <h3>{{round(row["recipe"]["totalNutrients"]["NA"]["quantity"])}} {{row["recipe"]["totalNutrients"]["NA"]["unit"]}}</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- 
           <div>
-            <p>Servings: {{row["recipe"]["yield"]}}</p>
             <p>Diet Labels: {{row["recipe"]["dietLabels"]}}</p>
             <p>Health labels: {{row["recipe"]["healthLabels"]}}</p>
-            <p>{{row["recipe"]["totalTime"]}} min</p>
             <p>{{row["recipe"]["mealType"]}}</p>
-            <p>Calories: {{round(row["recipe"]["totalNutrients"]["ENERC_KCAL"]["quantity"])}} {{row["recipe"]["totalNutrients"]["ENERC_KCAL"]["unit"]}}</p>
-            <p>Proteins: {{row["recipe"]["totalNutrients"]["PROCNT"]["quantity"]}} {{row["recipe"]["totalNutrients"]["PROCNT"]["unit"]}}</p>
-            <p>Fat: {{row["recipe"]["totalNutrients"]["FAT"]["quantity"]}} {{row["recipe"]["totalNutrients"]["FAT"]["unit"]}}</p>
-            <p>Carbs: {{row["recipe"]["totalNutrients"]["CHOCDF"]["quantity"]}} {{row["recipe"]["totalNutrients"]["CHOCDF"]["unit"]}}</p>
           </div> -->
           <!-- <p style="color: black;" >{{row}}</p> -->
-          <!-- 
-          <div class="ingredients">
-            <h2>Ingredients</h2>
-            {% for ingredient in row["recipe"]["ingredients"]: %}
-              <p>&#8729; {{ingredient["text"]}} ({{round(ingredient["weight"])}} g)</p>
-            {% endfor %}
-          </div> -->
-
       {% endfor %}
     </div>
   </div>

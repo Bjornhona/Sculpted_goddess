@@ -123,10 +123,12 @@ def about_us():
 def eat_healthy():
     """Select and show recipes from Edamam API"""
     if request.method == "GET":
-        response = requests.get("https://api.edamam.com/search?q=chicken&app_id=a8f807ca&app_key=9e763f1edd4c3c936eb2506f1dbdddf5")
+        search_word = "chicken"
+        # response = requests.get("https://api.edamam.com/search?q=chicken&app_id=a8f807ca&app_key=9e763f1edd4c3c936eb2506f1dbdddf5")
     else:
         search_word = request.form.get("search_word")
-        response = requests.get("https://api.edamam.com/search?q=" + search_word + "&app_id=a8f807ca&app_key=9e763f1edd4c3c936eb2506f1dbdddf5")
+
+    response = requests.get("https://api.edamam.com/search?q=" + search_word + "&app_id=a8f807ca&app_key=9e763f1edd4c3c936eb2506f1dbdddf5")
     
     if response.status_code == 200:
         hits = response.json()["hits"]
@@ -138,7 +140,7 @@ def eat_healthy():
     def rounded(r):
         return round(r)
         
-    return render_template("eat_healthy.html", hits=hits, count=count, round=rounded)
+    return render_template("eat_healthy.html", hits=hits, count=count, round=rounded, search_word=search_word)
 
 
 @app.route("/get_toned")
