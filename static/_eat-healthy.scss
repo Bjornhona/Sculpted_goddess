@@ -4,11 +4,11 @@
 
 .eat-healthy-header {
   @extend %shared-box;
-  background: radial-gradient(closest-side, constants.$medium-pink, constants.$medium-pink, constants.$dark-pink);
+  background: radial-gradient(closest-side, constants.$light-orange, constants.$light-orange, constants.$dark-orange);
   height: 35vw;
   overflow: hidden;
   span {
-    color: constants.$yellow;
+    color: constants.$light-green;
   }
   .eat-healthy-header-image {
     height: 40vw;
@@ -21,18 +21,164 @@
   }
   .eat-healthy-header-box {
     @extend %shared-box-content;
-    margin: 7vw 0 0 22vw;
+    margin: 3vw 0 0 22vw;
     z-index: 100;
+    input {
+      font-size: constants.$font-button-size;
+      font-family: "Open Sans semibold";
+      background-color: transparent;
+      // text-transform: uppercase;
+      border: none;
+      color: constants.$white;
+      width: 100%;
+      padding-right: 1.5vw;
+    }
+    ::placeholder {
+      color: constants.$white;
+      opacity: 0.6;
+    }
+    textarea:focus, input:focus {
+      outline: none;
+    }
+    .search {
+      font-size: constants.$font-button-size;
+      display: flex;
+      border: 1.5px solid constants.$white;
+      border-radius: 5px;
+      .search-icon {
+        padding: 0.8vw 1.5vw;
+      }
+    }
   }
 }
 
 /* --- main section --- */
 
 .eat-healthy {
-  background-color: blue;
+  background-color: constants.$light-grey;
+  h3 {
+    padding-top: 0;
+    color: constants.$dark-grey;
+  }
+}
+.featured-recipes-area {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  .small-recipe-container {
+    margin: 1.2vw;
+    color: constants.$dark-grey;
+    .small-recipe-image {
+      height: 14vw;
+      width: 20vw;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      border-radius: 1vw 1vw 0 0;
+      img {
+        max-width: 100%;
+      }
+    }
+    .small-recipe-text {
+      background-color: constants.$white;
+      height: 15vw;
+      width: 20vw;
+      border-radius: 0 0 1vw 1vw;
+      padding: 1vw;
+      .recipe-content {
+        padding-left: 1vw;
+        h3 {
+          height: 4.8vw;
+          overflow: hidden;
+        }
+      }
+      .save-recipe {
+        display: flex;
+        align-items: center;
+        border-top: 1px solid constants.$medium-grey;
+        padding: 1vw;
+        h3 {
+          padding: 0 0 0 1vw;
+        }
+        .search-icon {
+          font-size: 1.8vw;
+          color: constants.$fuccia;
+        }
+      }
+    }
+  }
 }
 
-.ingredients {
-  background-color: white;
-  color: black;
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 200; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  // background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(255, 255, 255, 0.6); /* Black w/ opacity */
 }
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+// .modal
+//   position: fixed
+//   left: 0
+//   top: 0
+//   width: 100%
+//   height: 100%
+//   background-color: rgba(0, 0, 0, 0.5)
+//   opacity: 0
+//   display: flex
+//   justify-content: center
+//   align-items: center
+//   visibility: hidden
+//   transform: scale(1.1)
+//   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s
+//   &-content
+//     align-self: center
+//     background-color: white
+//     padding: 1rem 1.5rem
+//     width: 24rem
+//     border-radius: 0.5rem
+
+// .btn-close
+//   float: right
+//   width: 1.5rem
+//   line-height: 1.5rem
+//   text-align: center
+//   cursor: pointer
+//   border-radius: 0.25rem
+//   background-color: lightgray
+
+// .show-modal
+//   opacity: 1
+//   visibility: visible
+//   transform: scale(1.0)
+//   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s

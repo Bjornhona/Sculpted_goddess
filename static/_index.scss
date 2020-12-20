@@ -95,6 +95,13 @@ h3 {
   margin: 0;
 }
 
+h4 {
+  font-size: constants.$font-button-size;
+  font-family: "Open Sans semibold";
+  color: constants.$dark-grey;
+  text-transform: uppercase;
+}
+
 p {
   font-size: constants.$font-p-size;
   line-height: constants.$font-p-size;
@@ -128,6 +135,10 @@ button {
   text-transform: uppercase;
   border: 1.5px solid constants.$white;
   border-radius: 5px;
+}
+
+.container {
+  padding: 5vw 5vw 7vw 5vw;
 }
 
 /* --- navigation --- */
@@ -227,7 +238,7 @@ nav, .upper-footer {
   justify-content: flex-end;
   .healthy-recipes-box {
     @extend %shared-box-content;
-    background-color: constants.$orange;
+    background-color: constants.$dark-orange;
     span {
       color: constants.$light-green;
     }

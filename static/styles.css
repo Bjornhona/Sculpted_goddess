@@ -89,6 +89,13 @@ h3 {
   margin: 0;
 }
 
+h4 {
+  font-size: 1.1vw;
+  font-family: "Open Sans semibold";
+  color: #454444;
+  text-transform: uppercase;
+}
+
 p {
   font-size: 0.9vw;
   line-height: 0.9vw;
@@ -122,6 +129,10 @@ button {
   text-transform: uppercase;
   border: 1.5px solid #FFFFFF;
   border-radius: 5px;
+}
+
+.container {
+  padding: 5vw 5vw 7vw 5vw;
 }
 
 /* --- navigation --- */
@@ -210,7 +221,7 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   justify-content: flex-end;
 }
 .healthy-recipes .healthy-recipes-box {
-  background-color: #FFB55F;
+  background-color: #FD8902;
 }
 .healthy-recipes .healthy-recipes-box span {
   color: #ADFCAE;
@@ -391,12 +402,12 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
 
 /* --- header section --- */
 .eat-healthy-header {
-  background: radial-gradient(closest-side, #EFB6DD, #EFB6DD, #D993C8);
+  background: radial-gradient(closest-side, #FFB55F, #FFB55F, #FD8902);
   height: 35vw;
   overflow: hidden;
 }
 .eat-healthy-header span {
-  color: #FDFD97;
+  color: #ADFCAE;
 }
 .eat-healthy-header .eat-healthy-header-image {
   height: 40vw;
@@ -408,18 +419,136 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   bottom: -10vw;
 }
 .eat-healthy-header .eat-healthy-header-box {
-  margin: 7vw 0 0 22vw;
+  margin: 3vw 0 0 22vw;
   z-index: 100;
+}
+.eat-healthy-header .eat-healthy-header-box input {
+  font-size: 1.1vw;
+  font-family: "Open Sans semibold";
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
+  width: 100%;
+  padding-right: 1.5vw;
+}
+.eat-healthy-header .eat-healthy-header-box ::placeholder {
+  color: #FFFFFF;
+  opacity: 0.6;
+}
+.eat-healthy-header .eat-healthy-header-box textarea:focus, .eat-healthy-header .eat-healthy-header-box input:focus {
+  outline: none;
+}
+.eat-healthy-header .eat-healthy-header-box .search {
+  font-size: 1.1vw;
+  display: flex;
+  border: 1.5px solid #FFFFFF;
+  border-radius: 5px;
+}
+.eat-healthy-header .eat-healthy-header-box .search .search-icon {
+  padding: 0.8vw 1.5vw;
 }
 
 /* --- main section --- */
 .eat-healthy {
-  background-color: blue;
+  background-color: #E6E6E6;
+}
+.eat-healthy h3 {
+  padding-top: 0;
+  color: #454444;
 }
 
-.ingredients {
-  background-color: white;
+.featured-recipes-area {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.featured-recipes-area .small-recipe-container {
+  margin: 1.2vw;
+  color: #454444;
+}
+.featured-recipes-area .small-recipe-container .small-recipe-image {
+  height: 14vw;
+  width: 20vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border-radius: 1vw 1vw 0 0;
+}
+.featured-recipes-area .small-recipe-container .small-recipe-image img {
+  max-width: 100%;
+}
+.featured-recipes-area .small-recipe-container .small-recipe-text {
+  background-color: #FFFFFF;
+  height: 15vw;
+  width: 20vw;
+  border-radius: 0 0 1vw 1vw;
+  padding: 1vw;
+}
+.featured-recipes-area .small-recipe-container .small-recipe-text .recipe-content {
+  padding-left: 1vw;
+}
+.featured-recipes-area .small-recipe-container .small-recipe-text .recipe-content h3 {
+  height: 4.8vw;
+  overflow: hidden;
+}
+.featured-recipes-area .small-recipe-container .small-recipe-text .save-recipe {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #B5B5B5;
+  padding: 1vw;
+}
+.featured-recipes-area .small-recipe-container .small-recipe-text .save-recipe h3 {
+  padding: 0 0 0 1vw;
+}
+.featured-recipes-area .small-recipe-container .small-recipe-text .save-recipe .search-icon {
+  font-size: 1.8vw;
+  color: #F747AD;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 200;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgba(255, 255, 255, 0.6);
+  /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
   color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */

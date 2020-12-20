@@ -130,11 +130,15 @@ def eat_healthy():
     
     if response.status_code == 200:
         hits = response.json()["hits"]
+        count = response.json()["count"]
     else:
         hits = []
+        count = 0
+
     def rounded(r):
         return round(r)
-    return render_template("eat_healthy.html", hits=hits, round=rounded)
+        
+    return render_template("eat_healthy.html", hits=hits, count=count, round=rounded)
 
 
 @app.route("/get_toned")

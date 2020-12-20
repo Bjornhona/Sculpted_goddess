@@ -1,8 +1,8 @@
 ## Sculpting Goddess
-Sculpting Goddess - A web application that helps women sculpt and take care of their bodies in a healthy way. Keeps track and helps by creating healthy habits regarding bothe exercise suggestions and healthy recipes.
+Sculpting Goddess - A web application that helps women sculpt and take care of their bodies in a healthy way. Keeps track and helps by creating healthy habits regarding bothe exercise suggestions and healthy recipes. It helps to plan what you eat daily in accordance to dietary needs.
 
 ## Motivation
-This is a web application that calculates how far away I am from financial freedom. It will save and invest as much of my income as possible so that I don’t need to work for money. It is also my Final Project as part of the Harvard course CS50x on edX, Introduction to Computer Science.
+This is a web application that helps me set up meal plans to achieve my personal fitness goals. It is also my Final Project as part of the Harvard course CS50x on edX, Introduction to Computer Science.
 
 ## Build status
 Build status of continus integration i.e. travis, appveyor etc. Ex. - 
@@ -25,8 +25,8 @@ Include logo/demo screenshot etc.
 - Javascipt
 - HTML
 - SCSS
-- SQL
 - Flexbox
+- SQL
 
 <b>Other tools used<b>
 - Visual Studio Code
@@ -58,7 +58,7 @@ Let people know how they can contribute into your project. A [contributing guide
 
 ## Credits
 Thank you very much to David J. Malan for great explanations during all of his teaching sessions and also to the rest of the team at Harvard CS50 for a very professional build up couse.
-I found good inspiration for this particular project online, great thanks to FIREcalc and cFIREsim.
+I found good inspiration for this particular project online, great thanks to https://dribbble.com/shots/7087226-Meal-Planning-Web-App-Design/attachments/88969?mode=media by Kyle Torres.
 
 #### Anything else that seems useful
 
