@@ -1,5 +1,5 @@
 /* --- reusables --- */
-.eat-healthy-header, .contact-us, .weightloss-program, .healthy-recipes, .training-plan, .carousel {
+.manage-weight-header, .eat-healthy-header, .contact-us, .weightloss-program, .healthy-recipes, .training-plan, .carousel {
   display: flex;
   align-items: center;
   padding: 6vw 0;
@@ -9,7 +9,7 @@
   left: 0;
 }
 
-.eat-healthy-header .eat-healthy-header-box, .contact-us .contact-us-box, .healthy-recipes .healthy-recipes-box, .training-plan .training-plan-box, .carousel .carousel-box {
+.manage-weight-header .manage-weight-header-box, .eat-healthy-header .eat-healthy-header-box, .contact-us .contact-us-box, .healthy-recipes .healthy-recipes-box, .training-plan .training-plan-box, .carousel .carousel-box {
   padding: 3.5vw 5vw;
   width: 55vw;
   z-index: 100;
@@ -647,6 +647,99 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
 .modal .modal-content .modal-bottom .content-box .nutrients-box {
   display: flex;
   justify-content: space-between;
+}
+
+/* --- header section --- */
+.manage-weight-header {
+  background: radial-gradient(closest-side, #EFB6DD, #EFB6DD, #D993C8);
+  height: 35vw;
+  overflow: hidden;
+}
+.manage-weight-header span {
+  color: #FDFD97;
+}
+.manage-weight-header .manage-weight-header-image {
+  height: 35vw;
+}
+.manage-weight-header .manage-weight-header-image img {
+  max-height: 35vw;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.manage-weight-header .manage-weight-header-box {
+  width: 65vw;
+  margin: 7vw 0 0 15vw;
+}
+
+/* --- main section --- */
+.manage-weight-main {
+  background-color: #E6E6E6;
+  padding: 3vw 7vw;
+  color: #454444;
+}
+.manage-weight-main .main-header-text {
+  background-color: #37969A;
+  color: #FFFFFF;
+  border-radius: 0.5vw 0.5vw 0 0;
+  padding: 2vw;
+  text-align: center;
+}
+.manage-weight-main .main-header-text h2 span {
+  color: #ADFCAE;
+}
+.manage-weight-main .main-header-text h3 {
+  padding: 1vw 0 0 0;
+}
+.manage-weight-main .main-content {
+  background-color: #FFFFFF;
+  padding: 3vw 7vw;
+}
+.manage-weight-main .main-content h3 {
+  padding: 0;
+}
+.manage-weight-main .main-content .gender-box .gender-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.manage-weight-main .main-content .gender-box .gender-container input {
+  width: 2vw;
+  height: 2vw;
+}
+.manage-weight-main .main-content .gender-box .gender-container .text-box {
+  text-align: center;
+}
+.manage-weight-main .main-content .gender-box .gender-container .text-box h3 {
+  line-height: 1.4vw;
+  padding-bottom: 1vw;
+}
+.manage-weight-main .main-content .gender-box .gender-container .male-input {
+  position: absolute;
+  top: 2vw;
+  left: 6vw;
+}
+.manage-weight-main .main-content .gender-box .gender-container .female-input {
+  position: absolute;
+  top: 2vw;
+  right: 26vw;
+}
+.manage-weight-main .main-content .gender-box .gender-container .male, .manage-weight-main .main-content .gender-box .gender-container .female {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 35vw;
+  background-color: #E6E6E6;
+  padding: 1vw 3vw 1vw 13vw;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 4.5vw;
+}
+.manage-weight-main .main-content .gender-box .gender-container .male-input:checked ~ .male {
+  background-color: #56BBBF;
+}
+.manage-weight-main .main-content .gender-box .gender-container .female-input:checked ~ .female {
+  background-color: #EFB6DD;
 }
 
 /*# sourceMappingURL=styles.css.map */

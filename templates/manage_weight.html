@@ -3,5 +3,81 @@
 {% block title %}Manage weight{% endblock %}
 
 {% block main %}
-  <h1>Manage weight</h1>
+<header class="manage-weight-header">
+  <div class="manage-weight-header-box">
+    <h1><span>Weightloss</span> Program</h1>
+    <div class="text-box">
+      <h3>We help you create your personally adapted meal plans so that you can achieve your goals.</h3>
+    </div>
+  </div>
+  <div class="manage-weight-header-image">
+    <img src="static/images/manage-weight.png" alt="Manage weight" />
+  </div>
+</header>
+<main class="manage-weight-main">
+  <div class="main-header-text">
+    <h2><span>Introduce</span> your data</h2>
+    <h3>To calculate your dietary needs</h3>
+  </div>
+  <form class="main-content">
+    <div class="gender-box">
+      <h3>Gender</h3>
+      <div class="gender-container">
+        <input class="male-input" type="radio" id="male" name="gender" value="male">
+        <label class="male" for="male">
+          <i class="fas fa-male"></i>
+          <div class="text-box">
+            <h3>I am</h3>
+            <h2>male</h2>
+          </div>
+        </label>
+        <input class="female-input" type="radio" id="female" name="gender" value="female">
+        <label class="female" for="female">
+          <i class="fas fa-female"></i>
+          <div class="text-box">
+            <h3>I am</h3>
+            <h2>female</h2>
+          </div>
+        </label>
+      </div>
+    </div>
+    <div class="weight-height-age">
+      <h3>Weight</h3>
+      <h3>Height</h3>
+      <h3>Age</h3>
+    </div>
+    <div class="activity-level">
+      <h3>Activity level</h3>
+      <div class="activity-options-container">
+        <input type="radio" id="sedentary" name="activity-level" value=1.2>
+        <label class="container" for="sedentary">
+          <span class="checkmark"></span>
+        </label>
+        
+        <input type="radio" id="lightly-active" name="activity-level" value=1.375>
+        <label class="container" for="lightly-active">
+          <span class="checkmark"></span>
+        </label>
+        
+        <input type="radio" id="moderately-active" name="activity-level" value=1.55>
+        <label class="container" for="moderately-active">
+          <span class="checkmark"></span>
+        </label>
+        
+        <input type="radio" id="very-active" name="activity-level" value=1.725>
+        <label class="container" for="very-active">
+          <span class="checkmark"></span>
+        </label>
+
+        <input type="radio" id="extra-active" name="activity-level" value=1.9>
+        <label class="container" for="extra-active">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <p>sedentary</p>
+      <p>extra active</p>
+    </div>
+    <button>Calculate calorie intake</button>
+  </form>
+</main>
 {% endblock %}

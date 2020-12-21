@@ -1,0 +1,104 @@
+@use "constants";
+
+/* --- header section --- */
+
+.manage-weight-header {
+  @extend %shared-box;
+  background: radial-gradient(closest-side, constants.$medium-pink, constants.$medium-pink, constants.$dark-pink);
+  height: 35vw;
+  overflow: hidden;
+  span {
+    color: constants.$yellow;
+  }
+  .manage-weight-header-image {
+    height: 35vw;
+    img {
+      max-height: 35vw;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  .manage-weight-header-box {
+    @extend %shared-box-content;
+    width: 65vw;
+    margin: 7vw 0 0 15vw;
+  }
+}
+
+/* --- main section --- */
+
+.manage-weight-main {
+  background-color: constants.$light-grey;
+  padding: 3vw 7vw;
+  color: constants.$dark-grey;
+  .main-header-text {
+    background-color: constants.$dark-blue;
+    color: constants.$white;
+    border-radius: 0.5vw 0.5vw 0 0;
+    padding: 2vw;
+    text-align: center;
+    h2 {
+      span {
+        color: constants.$light-green;
+      }
+    }
+    h3 {
+      padding: 1vw 0 0 0;
+    }
+  }
+  .main-content {
+    background-color: constants.$white;
+    padding: 3vw 7vw;
+    h3 {
+      padding: 0;
+    }
+    .gender-box {
+      .gender-container {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        input {
+          width: 2vw;
+          height: 2vw;
+          // border: solid white;
+          // border-width: 0 3px 3px 0;
+        }
+        .text-box {
+          text-align: center;
+          h3 {
+            line-height: constants.$font-h3-size;
+            padding-bottom: 1vw;
+          }
+        }
+        .male-input {
+          position: absolute;
+          top: 2vw;
+          left: 6vw;
+        }
+        .female-input {
+          position: absolute;
+          top: 2vw;
+          right: 26vw;
+        }
+        .male, .female {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 35vw;
+          background-color: constants.$light-grey;
+          padding: 1vw 3vw 1vw 13vw;
+          cursor: pointer;
+          color: constants.$white;
+          font-size: constants.$font-h1-size;
+        }
+        .male-input:checked ~ .male {
+          background-color: constants.$light-blue;
+        }
+        .female-input:checked ~ .female {
+          background-color: constants.$medium-pink;
+        }
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@
     <div class="eat-healthy-header-box">
       <h1><span>Healthy</span> Recipes</h1>
       <div class="text-box">
-        <h3>We help you create your personally adapted meal plans so that you can achieve your goals.</h3>
+        <h3>We help you find your prefered recipes so that you can add them to your meal plans.</h3>
         <form action="/eat_healthy" method="POST">
           <div class="search">
             <div class="search-icon"><i class="fas fa-search"></i></div>
@@ -21,7 +21,7 @@
     </div>
   </header>
   <div class="eat-healthy container">
-    <h3>Featured Meals - {{search_word}} - {{count}} recipes found</h3>
+    <h3>Search words: {{search_word}} - {{count}} recipes found</h3>
     <div class="featured-recipes-area">
       {% for row in hits: %}
         <div class="small-recipe-container">
