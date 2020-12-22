@@ -102,6 +102,55 @@
       {% endif %}
     </div>
   </form>
+
+  <div class="main-header-text main-two-header-text">
+    <h2><span>Set your</span> goal</h2>
+    <h3>To calculate your macronutrient ratio</h3>
+  </div>
+  <form class="main-content" id="macronutrientRatio" action="/manage_weight_form_view" method="POST">
+    <div class="action-box">
+      <h3>Desired action</h3>
+      <div class="action-container">
+        <div>
+          <input class="gain-input" type="radio" id="gain" name="action" onclick="manageMacro()" value="gain" required>
+          <label class="gain" for="gain">
+            <i class="fas fa-dumbbell"></i>
+            <div class="text-box">
+              <h3>I want to</h3>
+              <h2>gain muscle</h2>
+            </div>
+          </label>
+        </div>
+        <div>
+          <input class="lose-input" type="radio" id="lose" name="action" onclick="manageMacro()" value="lose">
+          <label class="lose" for="lose">
+            <i class="fas fa-weight"></i>
+            <div class="text-box">
+              <h3>I want to</h3>
+              <h2>lose weight</h2>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="desired-weight-container">
+      <div class="weight">
+        <h3>Desired weight</h3>
+        <input type="number" id="desiredWeight" name="desiredWeight" onkeyup="manageMacro()" placeholder="0" min="0" max="300" required/>
+        <h3 class="unit">kg</h3>
+      </div>
+    </div> 
+    <div class="calculate-makro">
+      <button disabled type="submit" id="macro-button">Show my makro needs</button>
+    </div>
+  </form>
+
+  {% if tdee != '' %}
+    <h3>Congratulations, here is your macronutrient summary!</h3>
+    <h3>{{prot}}</h3>
+    <h3>{{fat}}</h3>
+    <h3>{{carbs}}</h3>
+  {% endif %}
 </main>
 {% endblock %}
 

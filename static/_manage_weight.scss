@@ -50,13 +50,14 @@
   .main-content {
     background-color: constants.$white;
     padding: 3vw 7vw 5vw 7vw;
+    margin-bottom: 3vw;
     h3 {
       padding: 0;
       font-weight: 900;
     }
-    .gender-box {
+    .gender-box, .action-box {
       padding-bottom: 3vw;
-      .gender-container {
+      .gender-container, .action-container {
         display: flex;
         justify-content: space-between;
         input {
@@ -72,7 +73,7 @@
             padding-bottom: 1vw;
           }
         }
-        .male, .female {
+        .male, .female, .gain, .lose {
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -83,18 +84,30 @@
           color: constants.$white;
           font-size: constants.$font-h1-size;
         }
+        .gain, .lose {
+          font-size: constants.$font-h2-size;
+        }
         .male-input:checked ~ .male {
           background-color: constants.$light-blue;
         }
         .female-input:checked ~ .female {
           background-color: constants.$dark-pink;
         }
+        .gain_input:checked ~ .gain {
+          background-color: constants.$dark-green;
+        }
+        .lose_input:checked ~ .lose {
+          background-color: constants.$aqua;
+        }
       }
     }
-    .weight-height-age-container {
+    .weight-height-age-container, .desired-weight-container {
       display: flex;
       justify-content: space-between;
       padding-bottom: 3vw;
+    }
+    .desired-weight-container {
+      justify-content: center;
     }
     .activity-options-container {
       display: flex;
@@ -156,6 +169,16 @@
       background-color: constants.$light-orange;
       border-color: constants.$light-orange;
     }
+    .calculate-makro {
+      button:enabled {
+        border-color: constants.$fuccia;
+        background-color: constants.$fuccia;
+      }
+      button:enabled:hover {
+        background-color: constants.$dark-pink;
+        border-color: constants.$dark-pink;
+      }
+    }
     .weight, .height, .age {
       position: relative;
       input {
@@ -180,7 +203,7 @@
         left: 5.5vw;
       }
     }
-    .calculate-calories {
+    .calculate-calories, .calculate-makro {
       display: flex;
       justify-content: space-between;
       h3 {
@@ -190,6 +213,18 @@
         span {
           font-weight: 900;
         }
+      }
+    }
+    .calculate-makro {
+      justify-content: center;
+    }
+  }
+
+  .main-two-header-text {
+    background-color: constants.$purple;
+    h2 {
+      span {
+        color: constants.$yellow;
       }
     }
   }

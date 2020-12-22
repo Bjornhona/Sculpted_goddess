@@ -691,35 +691,36 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
 .manage-weight-main .main-header-text h3 {
   padding: 1vw 0 0 0;
 }
-.manage-weight-main .main-content {
+.manage-weight-main #dietaryNeeds, .manage-weight-main #macronutrientRatio {
   background-color: #FFFFFF;
   padding: 3vw 7vw 5vw 7vw;
+  margin-bottom: 3vw;
 }
-.manage-weight-main .main-content h3 {
+.manage-weight-main #dietaryNeeds h3, .manage-weight-main #macronutrientRatio h3 {
   padding: 0;
   font-weight: 900;
 }
-.manage-weight-main .main-content .gender-box {
+.manage-weight-main #dietaryNeeds .gender-box, .manage-weight-main #dietaryNeeds .action-box, .manage-weight-main #macronutrientRatio .gender-box, .manage-weight-main #macronutrientRatio .action-box {
   padding-bottom: 3vw;
 }
-.manage-weight-main .main-content .gender-box .gender-container {
+.manage-weight-main #dietaryNeeds .gender-box .gender-container, .manage-weight-main #dietaryNeeds .gender-box .action-container, .manage-weight-main #dietaryNeeds .action-box .gender-container, .manage-weight-main #dietaryNeeds .action-box .action-container, .manage-weight-main #macronutrientRatio .gender-box .gender-container, .manage-weight-main #macronutrientRatio .gender-box .action-container, .manage-weight-main #macronutrientRatio .action-box .gender-container, .manage-weight-main #macronutrientRatio .action-box .action-container {
   display: flex;
   justify-content: space-between;
 }
-.manage-weight-main .main-content .gender-box .gender-container input {
+.manage-weight-main #dietaryNeeds .gender-box .gender-container input, .manage-weight-main #dietaryNeeds .gender-box .action-container input, .manage-weight-main #dietaryNeeds .action-box .gender-container input, .manage-weight-main #dietaryNeeds .action-box .action-container input, .manage-weight-main #macronutrientRatio .gender-box .gender-container input, .manage-weight-main #macronutrientRatio .gender-box .action-container input, .manage-weight-main #macronutrientRatio .action-box .gender-container input, .manage-weight-main #macronutrientRatio .action-box .action-container input {
   position: absolute;
   opacity: 0;
   height: 0;
   width: 0;
 }
-.manage-weight-main .main-content .gender-box .gender-container .text-box {
+.manage-weight-main #dietaryNeeds .gender-box .gender-container .text-box, .manage-weight-main #dietaryNeeds .gender-box .action-container .text-box, .manage-weight-main #dietaryNeeds .action-box .gender-container .text-box, .manage-weight-main #dietaryNeeds .action-box .action-container .text-box, .manage-weight-main #macronutrientRatio .gender-box .gender-container .text-box, .manage-weight-main #macronutrientRatio .gender-box .action-container .text-box, .manage-weight-main #macronutrientRatio .action-box .gender-container .text-box, .manage-weight-main #macronutrientRatio .action-box .action-container .text-box {
   text-align: center;
 }
-.manage-weight-main .main-content .gender-box .gender-container .text-box h3 {
+.manage-weight-main #dietaryNeeds .gender-box .gender-container .text-box h3, .manage-weight-main #dietaryNeeds .gender-box .action-container .text-box h3, .manage-weight-main #dietaryNeeds .action-box .gender-container .text-box h3, .manage-weight-main #dietaryNeeds .action-box .action-container .text-box h3, .manage-weight-main #macronutrientRatio .gender-box .gender-container .text-box h3, .manage-weight-main #macronutrientRatio .gender-box .action-container .text-box h3, .manage-weight-main #macronutrientRatio .action-box .gender-container .text-box h3, .manage-weight-main #macronutrientRatio .action-box .action-container .text-box h3 {
   line-height: 1.4vw;
   padding-bottom: 1vw;
 }
-.manage-weight-main .main-content .gender-box .gender-container .male, .manage-weight-main .main-content .gender-box .gender-container .female {
+.manage-weight-main #dietaryNeeds .gender-box .gender-container .male, .manage-weight-main #dietaryNeeds .gender-box .gender-container .female, .manage-weight-main #dietaryNeeds .gender-box .gender-container .gain, .manage-weight-main #dietaryNeeds .gender-box .gender-container .lose, .manage-weight-main #dietaryNeeds .gender-box .action-container .male, .manage-weight-main #dietaryNeeds .gender-box .action-container .female, .manage-weight-main #dietaryNeeds .gender-box .action-container .gain, .manage-weight-main #dietaryNeeds .gender-box .action-container .lose, .manage-weight-main #dietaryNeeds .action-box .gender-container .male, .manage-weight-main #dietaryNeeds .action-box .gender-container .female, .manage-weight-main #dietaryNeeds .action-box .gender-container .gain, .manage-weight-main #dietaryNeeds .action-box .gender-container .lose, .manage-weight-main #dietaryNeeds .action-box .action-container .male, .manage-weight-main #dietaryNeeds .action-box .action-container .female, .manage-weight-main #dietaryNeeds .action-box .action-container .gain, .manage-weight-main #dietaryNeeds .action-box .action-container .lose, .manage-weight-main #macronutrientRatio .gender-box .gender-container .male, .manage-weight-main #macronutrientRatio .gender-box .gender-container .female, .manage-weight-main #macronutrientRatio .gender-box .gender-container .gain, .manage-weight-main #macronutrientRatio .gender-box .gender-container .lose, .manage-weight-main #macronutrientRatio .gender-box .action-container .male, .manage-weight-main #macronutrientRatio .gender-box .action-container .female, .manage-weight-main #macronutrientRatio .gender-box .action-container .gain, .manage-weight-main #macronutrientRatio .gender-box .action-container .lose, .manage-weight-main #macronutrientRatio .action-box .gender-container .male, .manage-weight-main #macronutrientRatio .action-box .gender-container .female, .manage-weight-main #macronutrientRatio .action-box .gender-container .gain, .manage-weight-main #macronutrientRatio .action-box .gender-container .lose, .manage-weight-main #macronutrientRatio .action-box .action-container .male, .manage-weight-main #macronutrientRatio .action-box .action-container .female, .manage-weight-main #macronutrientRatio .action-box .action-container .gain, .manage-weight-main #macronutrientRatio .action-box .action-container .lose {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -730,18 +731,30 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   color: #FFFFFF;
   font-size: 4.5vw;
 }
-.manage-weight-main .main-content .gender-box .gender-container .male-input:checked ~ .male {
+.manage-weight-main #dietaryNeeds .gender-box .gender-container .gain, .manage-weight-main #dietaryNeeds .gender-box .gender-container .lose, .manage-weight-main #dietaryNeeds .gender-box .action-container .gain, .manage-weight-main #dietaryNeeds .gender-box .action-container .lose, .manage-weight-main #dietaryNeeds .action-box .gender-container .gain, .manage-weight-main #dietaryNeeds .action-box .gender-container .lose, .manage-weight-main #dietaryNeeds .action-box .action-container .gain, .manage-weight-main #dietaryNeeds .action-box .action-container .lose, .manage-weight-main #macronutrientRatio .gender-box .gender-container .gain, .manage-weight-main #macronutrientRatio .gender-box .gender-container .lose, .manage-weight-main #macronutrientRatio .gender-box .action-container .gain, .manage-weight-main #macronutrientRatio .gender-box .action-container .lose, .manage-weight-main #macronutrientRatio .action-box .gender-container .gain, .manage-weight-main #macronutrientRatio .action-box .gender-container .lose, .manage-weight-main #macronutrientRatio .action-box .action-container .gain, .manage-weight-main #macronutrientRatio .action-box .action-container .lose {
+  font-size: 2.5vw;
+}
+.manage-weight-main #dietaryNeeds .gender-box .gender-container .male-input:checked ~ .male, .manage-weight-main #dietaryNeeds .gender-box .action-container .male-input:checked ~ .male, .manage-weight-main #dietaryNeeds .action-box .gender-container .male-input:checked ~ .male, .manage-weight-main #dietaryNeeds .action-box .action-container .male-input:checked ~ .male, .manage-weight-main #macronutrientRatio .gender-box .gender-container .male-input:checked ~ .male, .manage-weight-main #macronutrientRatio .gender-box .action-container .male-input:checked ~ .male, .manage-weight-main #macronutrientRatio .action-box .gender-container .male-input:checked ~ .male, .manage-weight-main #macronutrientRatio .action-box .action-container .male-input:checked ~ .male {
   background-color: #56BBBF;
 }
-.manage-weight-main .main-content .gender-box .gender-container .female-input:checked ~ .female {
+.manage-weight-main #dietaryNeeds .gender-box .gender-container .female-input:checked ~ .female, .manage-weight-main #dietaryNeeds .gender-box .action-container .female-input:checked ~ .female, .manage-weight-main #dietaryNeeds .action-box .gender-container .female-input:checked ~ .female, .manage-weight-main #dietaryNeeds .action-box .action-container .female-input:checked ~ .female, .manage-weight-main #macronutrientRatio .gender-box .gender-container .female-input:checked ~ .female, .manage-weight-main #macronutrientRatio .gender-box .action-container .female-input:checked ~ .female, .manage-weight-main #macronutrientRatio .action-box .gender-container .female-input:checked ~ .female, .manage-weight-main #macronutrientRatio .action-box .action-container .female-input:checked ~ .female {
   background-color: #D993C8;
 }
-.manage-weight-main .main-content .weight-height-age-container {
+.manage-weight-main #dietaryNeeds .gender-box .gender-container .gain_input:checked ~ .gain, .manage-weight-main #dietaryNeeds .gender-box .action-container .gain_input:checked ~ .gain, .manage-weight-main #dietaryNeeds .action-box .gender-container .gain_input:checked ~ .gain, .manage-weight-main #dietaryNeeds .action-box .action-container .gain_input:checked ~ .gain, .manage-weight-main #macronutrientRatio .gender-box .gender-container .gain_input:checked ~ .gain, .manage-weight-main #macronutrientRatio .gender-box .action-container .gain_input:checked ~ .gain, .manage-weight-main #macronutrientRatio .action-box .gender-container .gain_input:checked ~ .gain, .manage-weight-main #macronutrientRatio .action-box .action-container .gain_input:checked ~ .gain {
+  background-color: #82EB84;
+}
+.manage-weight-main #dietaryNeeds .gender-box .gender-container .lose_input:checked ~ .lose, .manage-weight-main #dietaryNeeds .gender-box .action-container .lose_input:checked ~ .lose, .manage-weight-main #dietaryNeeds .action-box .gender-container .lose_input:checked ~ .lose, .manage-weight-main #dietaryNeeds .action-box .action-container .lose_input:checked ~ .lose, .manage-weight-main #macronutrientRatio .gender-box .gender-container .lose_input:checked ~ .lose, .manage-weight-main #macronutrientRatio .gender-box .action-container .lose_input:checked ~ .lose, .manage-weight-main #macronutrientRatio .action-box .gender-container .lose_input:checked ~ .lose, .manage-weight-main #macronutrientRatio .action-box .action-container .lose_input:checked ~ .lose {
+  background-color: #4ED2D6;
+}
+.manage-weight-main #dietaryNeeds .weight-height-age-container, .manage-weight-main #dietaryNeeds .desired-weight-container, .manage-weight-main #macronutrientRatio .weight-height-age-container, .manage-weight-main #macronutrientRatio .desired-weight-container {
   display: flex;
   justify-content: space-between;
   padding-bottom: 3vw;
 }
-.manage-weight-main .main-content .activity-options-container {
+.manage-weight-main #dietaryNeeds .desired-weight-container, .manage-weight-main #macronutrientRatio .desired-weight-container {
+  justify-content: center;
+}
+.manage-weight-main #dietaryNeeds .activity-options-container, .manage-weight-main #macronutrientRatio .activity-options-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -749,21 +762,21 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   height: 1vw;
   margin: 2vw 0;
 }
-.manage-weight-main .main-content .activity-options-container .container {
+.manage-weight-main #dietaryNeeds .activity-options-container .container, .manage-weight-main #macronutrientRatio .activity-options-container .container {
   position: relative;
   cursor: pointer;
   padding: 0;
   margin-bottom: 3vw;
   margin-right: 3vw;
 }
-.manage-weight-main .main-content .activity-options-container .container input {
+.manage-weight-main #dietaryNeeds .activity-options-container .container input, .manage-weight-main #macronutrientRatio .activity-options-container .container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
   width: 0;
 }
-.manage-weight-main .main-content .activity-options-container .checkmark {
+.manage-weight-main #dietaryNeeds .activity-options-container .checkmark, .manage-weight-main #macronutrientRatio .activity-options-container .checkmark {
   position: absolute;
   top: 0;
   left: 0;
@@ -773,45 +786,53 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   border-radius: 50%;
   border: solid #4ED2D6;
 }
-.manage-weight-main .main-content .activity-options-container .container:hover input ~ .checkmark {
+.manage-weight-main #dietaryNeeds .activity-options-container .container:hover input ~ .checkmark, .manage-weight-main #macronutrientRatio .activity-options-container .container:hover input ~ .checkmark {
   background-color: #E6E6E6;
 }
-.manage-weight-main .main-content .activity-options-container .container input:checked ~ .checkmark {
+.manage-weight-main #dietaryNeeds .activity-options-container .container input:checked ~ .checkmark, .manage-weight-main #macronutrientRatio .activity-options-container .container input:checked ~ .checkmark {
   background-color: #37969A;
 }
-.manage-weight-main .main-content .label-text {
+.manage-weight-main #dietaryNeeds .label-text, .manage-weight-main #macronutrientRatio .label-text {
   display: flex;
   justify-content: space-between;
   padding-bottom: 3vw;
 }
-.manage-weight-main .main-content .label-text h4 {
+.manage-weight-main #dietaryNeeds .label-text h4, .manage-weight-main #macronutrientRatio .label-text h4 {
   margin: 0;
 }
-.manage-weight-main .main-content button:disabled, .manage-weight-main .main-content button[disabled] {
+.manage-weight-main #dietaryNeeds button:disabled, .manage-weight-main #dietaryNeeds button[disabled], .manage-weight-main #macronutrientRatio button:disabled, .manage-weight-main #macronutrientRatio button[disabled] {
   color: #B5B5B5;
   border-color: #B5B5B5;
   background-color: #FFFFFF;
 }
-.manage-weight-main .main-content button:enabled {
+.manage-weight-main #dietaryNeeds button:enabled, .manage-weight-main #macronutrientRatio button:enabled {
   color: #FFFFFF;
   border-color: #FD8902;
   background-color: #FD8902;
 }
-.manage-weight-main .main-content button:enabled:hover {
+.manage-weight-main #dietaryNeeds button:enabled:hover, .manage-weight-main #macronutrientRatio button:enabled:hover {
   background-color: #FFB55F;
   border-color: #FFB55F;
 }
-.manage-weight-main .main-content .weight, .manage-weight-main .main-content .height, .manage-weight-main .main-content .age {
+.manage-weight-main #dietaryNeeds .calculate-makro button:enabled, .manage-weight-main #macronutrientRatio .calculate-makro button:enabled {
+  border-color: #F747AD;
+  background-color: #F747AD;
+}
+.manage-weight-main #dietaryNeeds .calculate-makro button:enabled:hover, .manage-weight-main #macronutrientRatio .calculate-makro button:enabled:hover {
+  background-color: #D993C8;
+  border-color: #D993C8;
+}
+.manage-weight-main #dietaryNeeds .weight, .manage-weight-main #dietaryNeeds .height, .manage-weight-main #dietaryNeeds .age, .manage-weight-main #macronutrientRatio .weight, .manage-weight-main #macronutrientRatio .height, .manage-weight-main #macronutrientRatio .age {
   position: relative;
 }
-.manage-weight-main .main-content .weight input, .manage-weight-main .main-content .height input, .manage-weight-main .main-content .age input {
+.manage-weight-main #dietaryNeeds .weight input, .manage-weight-main #dietaryNeeds .height input, .manage-weight-main #dietaryNeeds .age input, .manage-weight-main #macronutrientRatio .weight input, .manage-weight-main #macronutrientRatio .height input, .manage-weight-main #macronutrientRatio .age input {
   border: 1px solid #B5B5B5;
   font-size: 1.4vw;
   height: 6vw;
   padding: 2vw;
   width: 15vw;
 }
-.manage-weight-main .main-content .weight .unit, .manage-weight-main .main-content .height .unit, .manage-weight-main .main-content .age .unit {
+.manage-weight-main #dietaryNeeds .weight .unit, .manage-weight-main #dietaryNeeds .height .unit, .manage-weight-main #dietaryNeeds .age .unit, .manage-weight-main #macronutrientRatio .weight .unit, .manage-weight-main #macronutrientRatio .height .unit, .manage-weight-main #macronutrientRatio .age .unit {
   position: absolute;
   display: block;
   left: 7vw;
@@ -820,20 +841,29 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   font-weight: 400;
   color: #B5B5B5;
 }
-.manage-weight-main .main-content .age .unit {
+.manage-weight-main #dietaryNeeds .age .unit, .manage-weight-main #macronutrientRatio .age .unit {
   left: 5.5vw;
 }
-.manage-weight-main .main-content .calculate-calories {
+.manage-weight-main #dietaryNeeds .calculate-calories, .manage-weight-main #dietaryNeeds .calculate-makro, .manage-weight-main #macronutrientRatio .calculate-calories, .manage-weight-main #macronutrientRatio .calculate-makro {
   display: flex;
   justify-content: space-between;
 }
-.manage-weight-main .main-content .calculate-calories h3 {
+.manage-weight-main #dietaryNeeds .calculate-calories h3, .manage-weight-main #dietaryNeeds .calculate-makro h3, .manage-weight-main #macronutrientRatio .calculate-calories h3, .manage-weight-main #macronutrientRatio .calculate-makro h3 {
   font-weight: 400;
   width: 30vw;
   text-align: right;
 }
-.manage-weight-main .main-content .calculate-calories h3 span {
+.manage-weight-main #dietaryNeeds .calculate-calories h3 span, .manage-weight-main #dietaryNeeds .calculate-makro h3 span, .manage-weight-main #macronutrientRatio .calculate-calories h3 span, .manage-weight-main #macronutrientRatio .calculate-makro h3 span {
   font-weight: 900;
+}
+.manage-weight-main #dietaryNeeds .calculate-makro, .manage-weight-main #macronutrientRatio .calculate-makro {
+  justify-content: center;
+}
+.manage-weight-main .main-two-header-text {
+  background-color: #924ED6;
+}
+.manage-weight-main .main-two-header-text h2 span {
+  color: #FDFD97;
 }
 
 /*# sourceMappingURL=styles.css.map */

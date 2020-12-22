@@ -154,10 +154,8 @@ def get_toned():
 def manage_weight():
     """Show manage_weight page"""
     if request.method == "GET":
-        # dietary_needs = False;
         tdee = ''
     else:
-        # dietary_needs = True;
         gender = request.form.get("gender")
         weight = request.form.get("weight")
         height = request.form.get("height")
@@ -171,6 +169,22 @@ def manage_weight():
         tdee = round(float(caloriesPerDay) * float(activity))
 
     return render_template("manage_weight.html", tdee=tdee)
+
+@app.route("/manage_weight_form_view", methods=["POST"])
+@login_required
+def manage_weight_form_view():
+    """Handles the submit of the second form in manage_weight page"""
+    action = request.form.get("action")
+    desiredWeight = request.form.get("desiredWeight")
+    print(action)
+    print(desiredWeight)
+
+    # if action = ...
+    # prot = 0.4 * tdee
+    # fat = 30 * tdee
+    # carbs = 30 * tdee
+
+    return redirect("/manage_weight") #, prot=prot, fat=fat, carbs=carbs)
 
 @app.route("/contact_us")
 def contact_us():

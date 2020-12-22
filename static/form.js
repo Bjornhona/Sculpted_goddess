@@ -16,14 +16,26 @@ const getRadioVal = (form, name) => {
 
 // Checks if all form fields are filled in and if so then enables the submit button
 let manage = () => { 
-  const gender = getRadioVal(document.getElementById('dietaryNeeds'), 'gender' );
-  const activity = getRadioVal(document.getElementById('dietaryNeeds'), 'activity' );
+    const gender = getRadioVal(document.getElementById('dietaryNeeds'), 'gender');
+    const activity = getRadioVal(document.getElementById('dietaryNeeds'), 'activity');
+    let button = document.getElementById('submit-button');
 
-  let button = document.getElementById('submit-button');
     if (gender !== '' && weight.value !== '' && height.value !== '' && age.value !== '' && activity !== '') {
         button.disabled = false;
     }
     else {
         button.disabled = true;
+    }
+}
+
+let manageMacro = () => {
+    const action = getRadioVal(document.getElementById('macronutrientRatio'), 'action');
+    let macroButton = document.getElementById('macro-button');
+    
+    if (action !== '' && desiredWeight.value !== '') {
+        macroButton.disabled = false;
+    }
+    else {
+        macroButton.disabled = true;
     }
 }
