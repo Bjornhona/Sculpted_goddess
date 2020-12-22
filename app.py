@@ -32,6 +32,10 @@ Session(app)
 # Configure SQLAlchemy Library to use SQLite database
 engine = create_engine("sqlite:///beautygifts.db", echo=True)
 
+# My functions
+def rounded(r):
+    return round(r)
+
 @app.route("/")
 def index():
     """Show home page"""
@@ -135,9 +139,6 @@ def eat_healthy():
     else:
         hits = []
         count = 0
-
-    def rounded(r):
-        return round(r)
         
     return render_template("eat_healthy.html", hits=hits, count=count, round=rounded, search_word=search_word)
 
@@ -148,11 +149,28 @@ def get_toned():
     """Show get_toned page"""
     return render_template("get_toned.html")
 
-@app.route("/manage_weight")
+@app.route("/manage_weight", methods=["GET", "POST"])
 @login_required
 def manage_weight():
     """Show manage_weight page"""
-    return render_template("manage_weight.html")
+    if request.method == "GET":
+        # dietary_needs = False;
+        tdee = ''
+    else:
+        # dietary_needs = True;
+        gender = request.form.get("gender")
+        weight = request.form.get("weight")
+        height = request.form.get("height")
+        age = request.form.get("age")
+        activity = request.form.get("activity")
+
+        # Calculate the Mifflin-St. Jeor equation:
+        caloriesPerDay = 10 * float(weight) + 6.25 * float(height) - 5 * float(age) + float(gender)
+
+        # Calculates the TDEE:
+        tdee = round(float(caloriesPerDay) * float(activity))
+
+    return render_template("manage_weight.html", tdee=tdee)
 
 @app.route("/contact_us")
 def contact_us():

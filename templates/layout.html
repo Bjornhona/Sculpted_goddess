@@ -5,14 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="/static/favicon.ico" rel="icon">
     <link href="/static/styles.css" rel="stylesheet">
-    {% block style %}
-    {% endblock %}
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
     <script src="https://developer.edamam.com/attribution/badge.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
   </head>
@@ -51,28 +45,28 @@
       {% endblock %}
     </main>
     {% if not (request.path.endswith("login") or request.path.endswith("register")) %}
-    <footer>
-      <div class="upper-footer">
-        <a class="navbar-brand" href="/">Sculpted Goddess</a>
-        <ul class="social-media">
-          <li><i class="fab fa-facebook-square"></i></li>
-          <li><i class="fab fa-instagram"></i></li>
-          <li><i class="fab fa-linkedin"></i></li>
-        </ul>
-        <ul>
-          <li><a href="/about_us">about us</a></li>
-          <li><a href="/eat_healthy">eat healthy</a></li>
-          <li><a href="/get_toned">get toned</a></li>
-          <li><a href="/manage_weight">manage weight</a></li>
-          <li><a href="/contact_us">contact us</a></li>
-        </ul>
-      </div>
-      <div class="lower-footer">
-        <p>MADE WITH <span><i class="fas fa-heart"></i></span> BY <a href="https://www.graphicsbyasa.com/" target="_blank">Graphics by Åsa</a></p>
-        <div id="edamam-badge" data-color="badge"></div>
-      </div>
-    </footer>
-    {% endif %}z
+      <footer>
+        <div class="upper-footer">
+          <a class="navbar-brand" href="/">Sculpted Goddess</a>
+          <ul class="social-media">
+            <li><i class="fab fa-facebook-square"></i></li>
+            <li><i class="fab fa-instagram"></i></li>
+            <li><i class="fab fa-linkedin"></i></li>
+          </ul>
+          <ul>
+            <li><a href="/about_us">about us</a></li>
+            <li><a href="/eat_healthy">eat healthy</a></li>
+            <li><a href="/get_toned">get toned</a></li>
+            <li><a href="/manage_weight">manage weight</a></li>
+            <li><a href="/contact_us">contact us</a></li>
+          </ul>
+        </div>
+        <div class="lower-footer">
+          <p>MADE WITH <span><i class="fas fa-heart"></i></span> BY <a href="https://www.graphicsbyasa.com/" target="_blank">Graphics by Åsa</a></p>
+          <div id="edamam-badge" data-color="badge"></div>
+        </div>
+      </footer>
+    {% endif %}
     <scripts>
       {% block script %}
       {% endblock %}

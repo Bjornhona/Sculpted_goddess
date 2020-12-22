@@ -788,7 +788,6 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   margin: 0;
 }
 .manage-weight-main .main-content button:disabled, .manage-weight-main .main-content button[disabled] {
-  margin: 0 auto;
   color: #B5B5B5;
   border-color: #B5B5B5;
   background-color: #FFFFFF;
@@ -800,6 +799,7 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
 }
 .manage-weight-main .main-content button:enabled:hover {
   background-color: #FFB55F;
+  border-color: #FFB55F;
 }
 .manage-weight-main .main-content .weight, .manage-weight-main .main-content .height, .manage-weight-main .main-content .age {
   position: relative;
@@ -822,6 +822,18 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
 }
 .manage-weight-main .main-content .age .unit {
   left: 5.5vw;
+}
+.manage-weight-main .main-content .calculate-calories {
+  display: flex;
+  justify-content: space-between;
+}
+.manage-weight-main .main-content .calculate-calories h3 {
+  font-weight: 400;
+  width: 30vw;
+  text-align: right;
+}
+.manage-weight-main .main-content .calculate-calories h3 span {
+  font-weight: 900;
 }
 
 /*# sourceMappingURL=styles.css.map */

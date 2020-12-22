@@ -19,12 +19,12 @@
     <h2><span>Introduce</span> your data</h2>
     <h3>To calculate your dietary needs</h3>
   </div>
-  <form class="main-content" id="dietaryNeeds">
+  <form class="main-content" id="dietaryNeeds" action="/manage_weight" method="POST">
     <div class="gender-box">
       <h3>Gender</h3>
       <div class="gender-container">
         <div>
-          <input class="male-input" type="radio" id="male" name="gender" onclick="manage()" value=5 required>
+          <input class="male-input" type="radio" id="male" name="gender" onclick="manage()" value="5" required>
           <label class="male" for="male">
             <i class="fas fa-male"></i>
             <div class="text-box">
@@ -34,7 +34,7 @@
           </label>
         </div>
         <div>
-          <input class="female-input" type="radio" id="female" name="gender" onclick="manage()" value=(-161)>
+          <input class="female-input" type="radio" id="female" name="gender" onclick="manage()" value="-161">
           <label class="female" for="female">
             <i class="fas fa-female"></i>
             <div class="text-box">
@@ -48,17 +48,17 @@
     <div class="weight-height-age-container">
       <div class="weight">
         <h3>Weight</h3>
-        <input type="number" id="weight" onkeyup="manage()" value="weight" placeholder="0" min="0" max="300" required/>
+        <input type="number" id="weight" name="weight" onkeyup="manage()" placeholder="0" min="0" max="300" required/>
         <h3 class="unit">kg</h3>
       </div>
       <div class="height">
         <h3>Height</h3>
-        <input type="number" id="height" onkeyup="manage()" value="height" placeholder="0" min="0" max="300" required/>
+        <input type="number" id="height" name="height" onkeyup="manage()" placeholder="0" min="0" max="300" required/>
         <h3 class="unit">cm</h3>
       </div>
       <div class="age">
         <h3>Age</h3>
-        <input type="number" id="age" onkeyup="manage()" value="age" placeholder="0" min="0" max="130" required/>
+        <input type="number" id="age" name="age" onkeyup="manage()" placeholder="0" min="0" max="130" required/>
         <h3 class="unit">years</h3>
       </div>
     </div>
@@ -66,27 +66,27 @@
       <h3>Activity level</h3>
       <div class="activity-options-container" id="level">
         <label class="container" for="sedentary">
-          <input type="radio" id="sedentary" name="activity" onclick="manage()" value="1.2" required>
+          <input type="radio" id="sedentary" name="activity" onclick="manage()" value=1.2 required>
           <span class="checkmark"></span>
         </label>
         
         <label class="container" for="lightly-active">
-          <input type="radio" id="lightly-active" name="activity" onclick="manage()" value="1.375">
+          <input type="radio" id="lightly-active" name="activity" onclick="manage()" value=1.375>
           <span class="checkmark"></span>
         </label>
         
         <label class="container" for="moderately-active">
-          <input type="radio" id="moderately-active" name="activity" onclick="manage()" value="1.55">
+          <input type="radio" id="moderately-active" name="activity" onclick="manage()" value=1.55>
           <span class="checkmark"></span>
         </label>
         
         <label class="container" for="very-active">
-          <input type="radio" id="very-active" name="activity" onclick="manage()" value="1.725">
+          <input type="radio" id="very-active" name="activity" onclick="manage()" value=1.725>
           <span class="checkmark"></span>
         </label>
 
         <label class="container" for="extra-active">
-          <input type="radio" id="extra-active" name="activity" onclick="manage()" value="1.9">
+          <input type="radio" id="extra-active" name="activity" onclick="manage()" value=1.9>
           <span class="checkmark"></span>
         </label>
       </div>
@@ -95,7 +95,12 @@
         <h4>extra active</h4>
       </div>
     </div>
-    <button disabled type="submit" id="submit-button">Calculate calorie intake</button>
+    <div class="calculate-calories">
+      <button disabled type="submit" id="submit-button">Calculate calorie intake</button>
+      {% if tdee != '' %}
+        <h3>Congratulations, your total number of calories burned in a day is <span>{{tdee}}</span> cal!</h3>
+      {% endif %}
+    </div>
   </form>
 </main>
 {% endblock %}

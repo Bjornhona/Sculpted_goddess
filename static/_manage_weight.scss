@@ -143,7 +143,6 @@
       }
     }
     button:disabled, button[disabled] {
-      margin: 0 auto;
       color: constants.$medium-grey;
       border-color: constants.$medium-grey;
       background-color: constants.$white;
@@ -155,6 +154,7 @@
     }
     button:enabled:hover {
       background-color: constants.$light-orange;
+      border-color: constants.$light-orange;
     }
     .weight, .height, .age {
       position: relative;
@@ -178,6 +178,18 @@
     .age {
       .unit {
         left: 5.5vw;
+      }
+    }
+    .calculate-calories {
+      display: flex;
+      justify-content: space-between;
+      h3 {
+        font-weight: 400;
+        width: 30vw;
+        text-align: right;
+        span {
+          font-weight: 900;
+        }
       }
     }
   }

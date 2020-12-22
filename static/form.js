@@ -4,7 +4,7 @@ const getRadioVal = (form, name) => {
   let radios = form.elements[name];
   
   // loops through list of radio buttons
-  for (let i=0, len=radios.length; i<len; i++) {
+  for (let i=0; i < radios.length; i++) {
       if (radios[i].checked) {
           val = radios[i].value;
           break;
@@ -17,10 +17,10 @@ const getRadioVal = (form, name) => {
 // Checks if all form fields are filled in and if so then enables the submit button
 let manage = () => { 
   const gender = getRadioVal(document.getElementById('dietaryNeeds'), 'gender' );
-  const level = getRadioVal(document.getElementById('dietaryNeeds'), 'activity' );
+  const activity = getRadioVal(document.getElementById('dietaryNeeds'), 'activity' );
 
   let button = document.getElementById('submit-button');
-    if (gender != '' && weight.value != '' && height.value != '' && age.value != '' && level != '') {
+    if (gender !== '' && weight.value !== '' && height.value !== '' && age.value !== '' && activity !== '') {
         button.disabled = false;
     }
     else {
