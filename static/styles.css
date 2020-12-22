@@ -693,19 +693,24 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
 }
 .manage-weight-main .main-content {
   background-color: #FFFFFF;
-  padding: 3vw 7vw;
+  padding: 3vw 7vw 5vw 7vw;
 }
 .manage-weight-main .main-content h3 {
   padding: 0;
+  font-weight: 900;
+}
+.manage-weight-main .main-content .gender-box {
+  padding-bottom: 3vw;
 }
 .manage-weight-main .main-content .gender-box .gender-container {
   display: flex;
   justify-content: space-between;
-  position: relative;
 }
 .manage-weight-main .main-content .gender-box .gender-container input {
-  width: 2vw;
-  height: 2vw;
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
 }
 .manage-weight-main .main-content .gender-box .gender-container .text-box {
   text-align: center;
@@ -714,23 +719,13 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   line-height: 1.4vw;
   padding-bottom: 1vw;
 }
-.manage-weight-main .main-content .gender-box .gender-container .male-input {
-  position: absolute;
-  top: 2vw;
-  left: 6vw;
-}
-.manage-weight-main .main-content .gender-box .gender-container .female-input {
-  position: absolute;
-  top: 2vw;
-  right: 26vw;
-}
 .manage-weight-main .main-content .gender-box .gender-container .male, .manage-weight-main .main-content .gender-box .gender-container .female {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 35vw;
-  background-color: #E6E6E6;
-  padding: 1vw 3vw 1vw 13vw;
+  width: 34vw;
+  background-color: #B5B5B5;
+  padding: 1vw 3vw;
   cursor: pointer;
   color: #FFFFFF;
   font-size: 4.5vw;
@@ -739,7 +734,94 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   background-color: #56BBBF;
 }
 .manage-weight-main .main-content .gender-box .gender-container .female-input:checked ~ .female {
-  background-color: #EFB6DD;
+  background-color: #D993C8;
+}
+.manage-weight-main .main-content .weight-height-age-container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 3vw;
+}
+.manage-weight-main .main-content .activity-options-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4ED2D6;
+  height: 1vw;
+  margin: 2vw 0;
+}
+.manage-weight-main .main-content .activity-options-container .container {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 3vw;
+  margin-right: 3vw;
+}
+.manage-weight-main .main-content .activity-options-container .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.manage-weight-main .main-content .activity-options-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3vw;
+  width: 3vw;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  border: solid #4ED2D6;
+}
+.manage-weight-main .main-content .activity-options-container .container:hover input ~ .checkmark {
+  background-color: #E6E6E6;
+}
+.manage-weight-main .main-content .activity-options-container .container input:checked ~ .checkmark {
+  background-color: #37969A;
+}
+.manage-weight-main .main-content .label-text {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 3vw;
+}
+.manage-weight-main .main-content .label-text h4 {
+  margin: 0;
+}
+.manage-weight-main .main-content button:disabled, .manage-weight-main .main-content button[disabled] {
+  margin: 0 auto;
+  color: #B5B5B5;
+  border-color: #B5B5B5;
+  background-color: #FFFFFF;
+}
+.manage-weight-main .main-content button:enabled {
+  color: #FFFFFF;
+  border-color: #FD8902;
+  background-color: #FD8902;
+}
+.manage-weight-main .main-content button:enabled:hover {
+  background-color: #FFB55F;
+}
+.manage-weight-main .main-content .weight, .manage-weight-main .main-content .height, .manage-weight-main .main-content .age {
+  position: relative;
+}
+.manage-weight-main .main-content .weight input, .manage-weight-main .main-content .height input, .manage-weight-main .main-content .age input {
+  border: 1px solid #B5B5B5;
+  font-size: 1.4vw;
+  height: 6vw;
+  padding: 2vw;
+  width: 15vw;
+}
+.manage-weight-main .main-content .weight .unit, .manage-weight-main .main-content .height .unit, .manage-weight-main .main-content .age .unit {
+  position: absolute;
+  display: block;
+  left: 7vw;
+  top: 4vw;
+  z-index: 9;
+  font-weight: 400;
+  color: #B5B5B5;
+}
+.manage-weight-main .main-content .age .unit {
+  left: 5.5vw;
 }
 
 /*# sourceMappingURL=styles.css.map */

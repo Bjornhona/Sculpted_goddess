@@ -49,20 +49,21 @@
   }
   .main-content {
     background-color: constants.$white;
-    padding: 3vw 7vw;
+    padding: 3vw 7vw 5vw 7vw;
     h3 {
       padding: 0;
+      font-weight: 900;
     }
     .gender-box {
+      padding-bottom: 3vw;
       .gender-container {
         display: flex;
         justify-content: space-between;
-        position: relative;
         input {
-          width: 2vw;
-          height: 2vw;
-          // border: solid white;
-          // border-width: 0 3px 3px 0;
+          position: absolute;
+          opacity: 0;
+          height: 0;
+          width: 0;
         }
         .text-box {
           text-align: center;
@@ -71,23 +72,13 @@
             padding-bottom: 1vw;
           }
         }
-        .male-input {
-          position: absolute;
-          top: 2vw;
-          left: 6vw;
-        }
-        .female-input {
-          position: absolute;
-          top: 2vw;
-          right: 26vw;
-        }
         .male, .female {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          width: 35vw;
-          background-color: constants.$light-grey;
-          padding: 1vw 3vw 1vw 13vw;
+          width: 34vw;
+          background-color: constants.$medium-grey;
+          padding: 1vw 3vw;
           cursor: pointer;
           color: constants.$white;
           font-size: constants.$font-h1-size;
@@ -96,8 +87,97 @@
           background-color: constants.$light-blue;
         }
         .female-input:checked ~ .female {
-          background-color: constants.$medium-pink;
+          background-color: constants.$dark-pink;
         }
+      }
+    }
+    .weight-height-age-container {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 3vw;
+    }
+    .activity-options-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: constants.$aqua;
+      height: 1vw;
+      margin: 2vw 0;
+      .container {
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+        margin-bottom: 3vw;
+        margin-right: 3vw;
+      }
+      .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 3vw;
+        width: 3vw;
+        background-color: constants.$white;
+        border-radius: 50%;
+        border: solid constants.$aqua;
+      }
+      .container:hover input ~ .checkmark {
+        background-color: constants.$light-grey;
+      }
+      .container input:checked ~ .checkmark {
+        background-color: constants.$dark-blue;
+      }
+    }
+    .label-text {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 3vw;
+      h4 {
+        margin: 0;
+      }
+    }
+    button:disabled, button[disabled] {
+      margin: 0 auto;
+      color: constants.$medium-grey;
+      border-color: constants.$medium-grey;
+      background-color: constants.$white;
+    }
+    button:enabled {
+      color: constants.$white;
+      border-color: constants.$dark-orange;
+      background-color: constants.$dark-orange;
+    }
+    button:enabled:hover {
+      background-color: constants.$light-orange;
+    }
+    .weight, .height, .age {
+      position: relative;
+      input {
+        border: 1px solid constants.$medium-grey;
+        font-size: constants.$font-h3-size;
+        height: 6vw;
+        padding: 2vw;
+        width: 15vw;
+      }
+      .unit {
+        position: absolute;
+        display: block;
+        left: 7vw;
+        top: 4vw;
+        z-index: 9;
+        font-weight: 400;
+        color: constants.$medium-grey;
+      }
+    }
+    .age {
+      .unit {
+        left: 5.5vw;
       }
     }
   }
