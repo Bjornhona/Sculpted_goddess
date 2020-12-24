@@ -169,33 +169,72 @@ def manage_weight():
         caloriesPerDay = 10 * float(weight) + 6.25 * float(height) - 5 * float(age) + float(gender)
 
         # Calculates the TDEE:
-        tdee = round(float(caloriesPerDay) * float(activity))
-        return render_template("manage_weight.html", _anchor="dietaryNeedsContainer", tdee=tdee, weight=weight, height=height, age=age)
+        tdee = float(caloriesPerDay) * float(activity)
+        session['tdee'] = tdee
+
+        return render_template("manage_weight.html", _anchor="dietaryNeedsContainer", tdee=round(tdee), weight=weight, height=height, age=age)
 
 @app.route("/manage_weight/macronutrients", methods=["POST"])
 @login_required
 def macronutrients():
     """Handles the submit of the second form in manage_weight page"""
+
+    # Import all data
     action = request.form.get("action")
     desiredWeight = request.form.get("desiredWeight")
     currentWeight = session['currentWeight']
     height = session['height']
+    tdee = round(session['tdee'])
 
-    print(action)
-    print(desiredWeight)
-    print(currentWeight)
-    print(height)
-
+    # Calculate Body Mass Index (BMI) and it's result
     bmi = round((float(currentWeight) / (float(height)/100)**2), 1)
-    print(bmi)
 
-    # if action = ...
-    # prot = 0.4 * tdee
-    # fat = 30 * tdee
-    # carbs = 30 * tdee
+    def getBmiResult():
+        if (bmi >= 30.0):
+            return "Obese"
+        elif (bmi < 30.0 and bmi >= 25.0):
+            return "Overweight"
+        elif (bmi < 25.0 and bmi >= 18.5):
+            return "Normal"
+        else:
+            return "Underweight"
 
-    # return redirect(url_for("manage_weight", weight=currentWeight, bmi=bmi) + '#macronutrientSummary') #, prot=prot, fat=fat, carbs=carbs)
-    return render_template("manage_weight.html", _anchor="macronutrientSummary", weight=currentWeight, desiredWeight=desiredWeight, bmi=bmi)
+    bmiResult = getBmiResult()
+
+    # Calculate recommended daily calorie intake depending on goal
+    def calcDailyCal():
+        if (action == "lose"):
+            return tdee - 500
+        elif (action == "gain"):
+            return tdee + 100
+        else:
+            return tdee
+    
+    recommendedCalIntake = calcDailyCal()
+
+    # Calculates 30 day milestone
+    if (action == "lose"):
+        milestoneWeight = round(float(currentWeight) - (0.453592 / 7 * 30))
+    elif (action == "gain"):
+        milestoneWeight = round(float(currentWeight) + (0.5))
+    else:
+        milestoneWeight = currentWeight
+
+    # Calculates Recommended Macronutrients in grams depending on goal
+    if (action == "lose"):
+        prot = recommendedCalIntake * 0.40 / 4
+        fat = recommendedCalIntake * 0.35 / 9
+        carbs = recommendedCalIntake * 0.25 / 4
+    elif (action == "gain"):
+        prot = recommendedCalIntake * 0.25 / 4
+        fat = recommendedCalIntake * 0.30 / 9
+        carbs = recommendedCalIntake * 0.45 / 4
+    else:
+        prot = recommendedCalIntake * 0.22 / 4
+        fat = recommendedCalIntake * 0.24 / 9
+        carbs = recommendedCalIntake * 0.54 / 4
+
+    return render_template("manage_weight.html", _anchor="macronutrientSummary", weight=currentWeight, desiredWeight=desiredWeight, bmi=bmi, tdee=tdee, recommendedCalIntake=recommendedCalIntake, bmiResult=bmiResult, milestoneWeight=milestoneWeight, prot=round(prot, 2), fat=round(fat, 2), carbs=round(carbs, 2))
 
 @app.route("/contact_us")
 def contact_us():

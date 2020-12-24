@@ -233,11 +233,21 @@
 /* --- macronutrient summary section --- */
 
 .macronutrient-summary {
-  padding: 6vw 0;
+  padding: 6vw 4.5vw;
   width: 100vw;
   position: relative;  background: radial-gradient(closest-side, constants.$light-orange, constants.$light-orange, constants.$dark-orange);
   color: constants.$dark-grey;
   h3 {
     padding: 0;
+  }
+  .macronutrient-summary-box {
+    display: flex;
+    justify-content: space-between;
+  }
+  .macro-card {
+    background-color: constants.$white;
+    border-radius: 0.5vw;
+    width: 25%;
+    margin: 0 1.5vw;
   }
 }

@@ -866,7 +866,7 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
 
 /* --- macronutrient summary section --- */
 .macronutrient-summary {
-  padding: 6vw 0;
+  padding: 6vw 4.5vw;
   width: 100vw;
   position: relative;
   background: radial-gradient(closest-side, #FFB55F, #FFB55F, #FD8902);
@@ -874,6 +874,16 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
 }
 .macronutrient-summary h3 {
   padding: 0;
+}
+.macronutrient-summary .macronutrient-summary-box {
+  display: flex;
+  justify-content: space-between;
+}
+.macronutrient-summary .macro-card {
+  background-color: #FFFFFF;
+  border-radius: 0.5vw;
+  width: 25%;
+  margin: 0 1.5vw;
 }
 
 /*# sourceMappingURL=styles.css.map */
