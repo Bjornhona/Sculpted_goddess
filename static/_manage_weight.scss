@@ -26,7 +26,7 @@
   }
 }
 
-/* --- main section --- */
+/* --- forms sections --- */
 
 .manage-weight-main {
   background-color: constants.$light-grey;
@@ -93,10 +93,10 @@
         .female-input:checked ~ .female {
           background-color: constants.$dark-pink;
         }
-        .gain_input:checked ~ .gain {
+        .gain-input:checked ~ .gain {
           background-color: constants.$dark-green;
         }
-        .lose_input:checked ~ .lose {
+        .lose-input:checked ~ .lose {
           background-color: constants.$aqua;
         }
       }
@@ -227,5 +227,17 @@
         color: constants.$yellow;
       }
     }
+  }
+}
+
+/* --- macronutrient summary section --- */
+
+.macronutrient-summary {
+  padding: 6vw 0;
+  width: 100vw;
+  position: relative;  background: radial-gradient(closest-side, constants.$light-orange, constants.$light-orange, constants.$dark-orange);
+  color: constants.$dark-grey;
+  h3 {
+    padding: 0;
   }
 }

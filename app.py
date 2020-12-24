@@ -1,7 +1,7 @@
 import requests
 from sqlalchemy import create_engine, select
 
-from flask import Flask, flash, jsonify, redirect, render_template, request, session
+from flask import Flask, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
@@ -155,36 +155,47 @@ def manage_weight():
     """Show manage_weight page"""
     if request.method == "GET":
         tdee = ''
+        return render_template("manage_weight.html", tdee=tdee, weight="0", height="0", age="0")
     else:
         gender = request.form.get("gender")
         weight = request.form.get("weight")
         height = request.form.get("height")
         age = request.form.get("age")
         activity = request.form.get("activity")
+        session['currentWeight'] = weight
+        session['height'] = height
 
         # Calculate the Mifflin-St. Jeor equation:
         caloriesPerDay = 10 * float(weight) + 6.25 * float(height) - 5 * float(age) + float(gender)
 
         # Calculates the TDEE:
         tdee = round(float(caloriesPerDay) * float(activity))
+        return render_template("manage_weight.html", _anchor="dietaryNeedsContainer", tdee=tdee, weight=weight, height=height, age=age)
 
-    return render_template("manage_weight.html", tdee=tdee)
-
-@app.route("/manage_weight_form_view", methods=["POST"])
+@app.route("/manage_weight/macronutrients", methods=["POST"])
 @login_required
-def manage_weight_form_view():
+def macronutrients():
     """Handles the submit of the second form in manage_weight page"""
     action = request.form.get("action")
     desiredWeight = request.form.get("desiredWeight")
+    currentWeight = session['currentWeight']
+    height = session['height']
+
     print(action)
     print(desiredWeight)
+    print(currentWeight)
+    print(height)
+
+    bmi = round((float(currentWeight) / (float(height)/100)**2), 1)
+    print(bmi)
 
     # if action = ...
     # prot = 0.4 * tdee
     # fat = 30 * tdee
     # carbs = 30 * tdee
 
-    return redirect("/manage_weight") #, prot=prot, fat=fat, carbs=carbs)
+    # return redirect(url_for("manage_weight", weight=currentWeight, bmi=bmi) + '#macronutrientSummary') #, prot=prot, fat=fat, carbs=carbs)
+    return render_template("manage_weight.html", _anchor="macronutrientSummary", weight=currentWeight, desiredWeight=desiredWeight, bmi=bmi)
 
 @app.route("/contact_us")
 def contact_us():
