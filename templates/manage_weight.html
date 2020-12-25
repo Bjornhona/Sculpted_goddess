@@ -11,109 +11,111 @@
     </div>
   </div>
   <div class="manage-weight-header-image">
-    <img id="header-image" src="manage_weight.png" alt="Manage weight" />
+    <img id="header-image" src="static/images/manage_weight.png" alt="Manage weight" />
   </div>
 </header>
 
 <main>
-  <div class="manage-weight-main">
 
     <!-- Calculate Dietary Needs Form -->
-    <div class="main-header-text" id="dietaryNeedsContainer">
-      <h2><span>Introduce</span> your data</h2>
-      <h3>To calculate your dietary needs</h3>
-    </div>
-    <form class="main-content" id="dietaryNeeds" action="/manage_weight" method="POST">
-      <div class="gender-box">
-        <h3>Gender</h3>
-        <div class="gender-container">
-          <div>
-            <input class="male-input" type="radio" id="male" name="gender" onclick="manage()" value="5" required>
-            <label class="male" for="male">
-              <i class="fas fa-male"></i>
-              <div class="text-box">
-                <h3>I am</h3>
-                <h2>male</h2>
-              </div>
-            </label>
-          </div>
-          <div>
-            <input class="female-input" type="radio" id="female" name="gender" onclick="manage()" value="-161">
-            <label class="female" for="female">
-              <i class="fas fa-female"></i>
-              <div class="text-box">
-                <h3>I am</h3>
-                <h2>female</h2>
-              </div>
-            </label>
-          </div>
-        </div>
+    {% if not tdee %}
+    <div class="manage-weight-main">
+      <div class="main-header-text" id="dietaryNeedsContainer">
+        <h2><span>Introduce</span> your data</h2>
+        <h3>To calculate your dietary needs</h3>
       </div>
-      <div class="weight-height-age-container">
-        <div class="weight">
-          <h3>Weight</h3>
-          <input type="number" id="weight" name="weight" onkeyup="manage()" placeholder="{{weight}}" min="0" max="300" required/>
-          <h3 class="unit">kg</h3>
+      <form class="main-content" id="dietaryNeeds" action="/manage_weight" method="POST">
+        <div class="gender-box">
+          <h3>Gender</h3>
+          <div class="gender-container">
+            <div>
+              <input class="male-input" type="radio" id="male" name="gender" onclick="manage()" value="5" required>
+              <label class="male" for="male">
+                <i class="fas fa-male"></i>
+                <div class="text-box">
+                  <h3>I am</h3>
+                  <h2>male</h2>
+                </div>
+              </label>
+            </div>
+            <div>
+              <input class="female-input" type="radio" id="female" name="gender" onclick="manage()" value="-161">
+              <label class="female" for="female">
+                <i class="fas fa-female"></i>
+                <div class="text-box">
+                  <h3>I am</h3>
+                  <h2>female</h2>
+                </div>
+              </label>
+            </div>
+          </div>
         </div>
-        <div class="height">
-          <h3>Height</h3>
-          <input type="number" id="height" name="height" onkeyup="manage()" placeholder="{{height}}" min="0" max="300" required/>
-          <h3 class="unit">cm</h3>
+        <div class="weight-height-age-container">
+          <div class="weight">
+            <h3>Weight</h3>
+            <input type="number" id="weight" name="weight" onkeyup="manage()" placeholder="0" min="0" max="300" required/>
+            <h3 class="unit">kg</h3>
+          </div>
+          <div class="height">
+            <h3>Height</h3>
+            <input type="number" id="height" name="height" onkeyup="manage()" placeholder="0" min="0" max="300" required/>
+            <h3 class="unit">cm</h3>
+          </div>
+          <div class="age">
+            <h3>Age</h3>
+            <input type="number" id="age" name="age" onkeyup="manage()" placeholder="0" min="0" max="130" required/>
+            <h3 class="unit">years</h3>
+          </div>
         </div>
-        <div class="age">
-          <h3>Age</h3>
-          <input type="number" id="age" name="age" onkeyup="manage()" placeholder="{{age}}" min="0" max="130" required/>
-          <h3 class="unit">years</h3>
-        </div>
-      </div>
-      <div class="activity-level">
-        <h3>Activity level</h3>
-        <div class="activity-options-container" id="level">
-          <label class="container" for="sedentary">
-            <input type="radio" id="sedentary" name="activity" onclick="manage()" value=1.2 required>
-            <span class="checkmark"></span>
-          </label>
-          
-          <label class="container" for="lightly-active">
-            <input type="radio" id="lightly-active" name="activity" onclick="manage()" value=1.375>
-            <span class="checkmark"></span>
-          </label>
-          
-          <label class="container" for="moderately-active">
-            <input type="radio" id="moderately-active" name="activity" onclick="manage()" value=1.55>
-            <span class="checkmark"></span>
-          </label>
-          
-          <label class="container" for="very-active">
-            <input type="radio" id="very-active" name="activity" onclick="manage()" value=1.725>
-            <span class="checkmark"></span>
-          </label>
+        <div class="activity-level">
+          <h3>Activity level</h3>
+          <div class="activity-options-container" id="level">
+            <label class="container" for="sedentary">
+              <input type="radio" id="sedentary" name="activity" onclick="manage()" value=1.2 required>
+              <span class="checkmark"></span>
+            </label>
+            
+            <label class="container" for="lightly-active">
+              <input type="radio" id="lightly-active" name="activity" onclick="manage()" value=1.375>
+              <span class="checkmark"></span>
+            </label>
+            
+            <label class="container" for="moderately-active">
+              <input type="radio" id="moderately-active" name="activity" onclick="manage()" value=1.55>
+              <span class="checkmark"></span>
+            </label>
+            
+            <label class="container" for="very-active">
+              <input type="radio" id="very-active" name="activity" onclick="manage()" value=1.725>
+              <span class="checkmark"></span>
+            </label>
 
-          <label class="container" for="extra-active">
-            <input type="radio" id="extra-active" name="activity" onclick="manage()" value=1.9>
-            <span class="checkmark"></span>
-          </label>
+            <label class="container" for="extra-active">
+              <input type="radio" id="extra-active" name="activity" onclick="manage()" value=1.9>
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="label-text">
+            <h4>sedentary</h4>
+            <h4>extra active</h4>
+          </div>
         </div>
-        <div class="label-text">
-          <h4>sedentary</h4>
-          <h4>extra active</h4>
+        <div class="calculate-calories">
+          <button disabled type="submit" id="submit-button">Calculate calorie intake</button>
         </div>
-      </div>
-      <div class="calculate-calories">
-        <button disabled type="submit" id="submit-button">Calculate calorie intake</button>
-        {% if tdee != '' %}
-          <h3>Congratulations, your total number of calories burned in a day is <span>{{tdee}}</span> cal!</h3>
-        {% endif %}
-      </div>
-    </form>
+      </form>
+    </div>
+    {% endif %}
 
     <!-- Desired Weight Form -->
-    {% if tdee %}
+    {% if tdee and not calVal%}
+    <div class="manage-weight-main">
       <div class="main-header-text main-two-header-text" id="desiredWeightContainer">
         <h2><span>Set your</span> goal</h2>
         <h3>To calculate your macronutrient ratio</h3>
       </div>
       <form class="main-content" id="macronutrientRatio" action="/manage_weight/macronutrients" method="POST">
+        <h3>Congratulations, your total number of calories burned in a day is <span>{{tdee}}</span> cal!</h3>
 
         <div class="action-box">
           <h3>Desired action</h3>
@@ -144,7 +146,7 @@
         <div class="desired-weight-container">
           <div class="weight">
             <h3>Desired weight</h3>
-            <input type="number" id="desiredWeight" name="desiredWeight" onkeyup="manageMacro()" placeholder="{{desiredWeight}}" min="0" max="300" required/>
+            <input type="number" id="desiredWeight" name="desiredWeight" onkeyup="manageMacro('{{weight}}')" placeholder="0" min="0" max="300" required/>
             <h3 class="unit">kg</h3>
           </div>
         </div> 
@@ -153,8 +155,8 @@
           <button disabled type="submit" id="macro-button">Show my makro needs</button>
         </div>
       </form>
-    {% endif %}
-  </div>
+    </div>
+  {% endif %}
 
   <!-- Macronutrient Summary -->
   {% if calVal %}
@@ -266,19 +268,37 @@
       }
     }
     window.onload = () => {
-      let imageSrc = document.getElementById('header-image')
+      let imageSrc = document.getElementById('header-image');
       let formSrc = document.getElementById('form-source');
       imageSrc.setAttribute("src", getCurrentUrlToImage());
       formSrc.setAttribute("src", getCurrentUrlToImage());
     }
   </script>
   <script>
+    // Sets 'min' or 'max' value to current weight if previous action is chosen.
+    let manageDesiredWeight = () => {
+      const action = getRadioVal(document.getElementById('macronutrientRatio'), 'action');
+      // const currentWeight = document.getElementById('weight').placeholder;
+      const currentWeight = "{{weight}}";
+
+      if (action === 'gain') {
+          document.getElementById('desiredWeight').setAttribute("min", currentWeight);
+          document.getElementById('desiredWeight').setAttribute("max", "300");
+      } else if (action === 'lose') {
+          document.getElementById('desiredWeight').setAttribute("min", "0");
+          document.getElementById('desiredWeight').setAttribute("max", currentWeight);
+      }
+    }
+  </script>
+  <script>
+    if (typeof firstCircle !== "undefined") {
       document.getElementById('firstCircle').style.strokeDashoffset = "{% if bmiVal is defined %}{{bmiVal * 57}}{% endif %}vw";
       document.getElementById('secondCircle').style.strokeDashoffset = "{% if calVal is defined %}{{calVal * 57}}{% endif %}vw";
       document.getElementById('thirdCircle').style.strokeDashoffset = "{% if mlstVal is defined %}{{mlstVal * 57}}{% endif %}vw";
       document.getElementById('bar1').style.width = "{% if carbsVal is defined %}{{carbsVal}}{% endif %}%";
       document.getElementById('bar2').style.width = "{% if protVal is defined %}{{protVal}}{% endif %}%";
       document.getElementById('bar3').style.width = "{% if fatVal is defined %}{{fatVal}}{% endif %}%";
+    }
   </script>
   <script id="form-source" src="static/form.js"></script>
 {% endblock %}

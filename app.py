@@ -154,8 +154,7 @@ def get_toned():
 def manage_weight():
     """Show manage_weight page"""
     if request.method == "GET":
-        tdee = ''
-        return render_template("manage_weight.html", tdee=tdee, weight="0", height="0", age="0")
+        return render_template("manage_weight.html")
     else:
         gender = request.form.get("gender")
         weight = request.form.get("weight")
@@ -172,7 +171,7 @@ def manage_weight():
         tdee = float(caloriesPerDay) * float(activity)
         session['tdee'] = tdee
 
-        return render_template("manage_weight.html", _anchor="dietaryNeedsContainer", tdee=round(tdee), weight=weight, height=height, age=age)
+        return render_template("manage_weight.html", _anchor="dietaryNeedsContainer", tdee=round(tdee), weight=weight)
 
 @app.route("/manage_weight/macronutrients", methods=["POST"])
 @login_required
@@ -234,7 +233,7 @@ def macronutrients():
         fat = recommendedCalIntake * 0.24 / 9
         carbs = recommendedCalIntake * 0.54 / 4
 
-    # Calculates the circulat progress bars values in vw
+    # Calculates the circular progress bars values in vw
     if (action == "lose"):
         calVal = recommendedCalIntake * 100 / tdee
         mlstVal = float(desiredWeight) * 100 / float(currentWeight)
@@ -249,7 +248,7 @@ def macronutrients():
     carbsVal = carbs * 4 * 100 / recommendedCalIntake
 
     return render_template("manage_weight.html", _anchor="macronutrientSummary", weight=currentWeight, desiredWeight=desiredWeight, 
-        bmi=bmi, tdee=tdee, recommendedCalIntake=recommendedCalIntake, bmiResult=bmiResult, milestoneWeight=milestoneWeight, 
+        bmi=bmi, recommendedCalIntake=recommendedCalIntake, bmiResult=bmiResult, milestoneWeight=milestoneWeight, 
         prot=round(prot, 2), fat=round(fat, 2), carbs=round(carbs, 2), 
         calVal=calVal, mlstVal=mlstVal, bmiVal=bmiVal, 
         carbsVal=carbsVal, protVal=protVal, fatVal=fatVal)

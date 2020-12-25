@@ -28,20 +28,6 @@ let manage = () => {
     }
 }
 
-// Sets 'min' or 'max' value to current weight if previous action is chosen.
-let manageDesiredWeight = () => {
-    const action = getRadioVal(document.getElementById('macronutrientRatio'), 'action');
-    const currentWeight = document.getElementById('weight').placeholder;
-
-    if (action === 'gain') {
-        document.getElementById('desiredWeight').setAttribute("min", currentWeight);
-        document.getElementById('desiredWeight').setAttribute("max", "300");
-    } else if (action === 'lose') {
-        document.getElementById('desiredWeight').setAttribute("min", "0");
-        document.getElementById('desiredWeight').setAttribute("max", currentWeight);
-    }
-}
-
 let manageMacro = (carbsVal, protVal, fatVal) => {
     manageDesiredWeight();
     const action = getRadioVal(document.getElementById('macronutrientRatio'), 'action');
