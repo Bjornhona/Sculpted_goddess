@@ -235,10 +235,12 @@
 .macronutrient-summary {
   padding: 6vw 4.5vw;
   width: 100vw;
-  position: relative;  background: radial-gradient(closest-side, constants.$light-orange, constants.$light-orange, constants.$dark-orange);
+  position: relative;
+  background: radial-gradient(closest-side, constants.$light-orange, constants.$light-orange, constants.$dark-orange);
   color: constants.$dark-grey;
   h3 {
-    padding: 0;
+    padding: 0 0 3vw 1.5vw;
+    font-weight: 900;
   }
   .macronutrient-summary-box {
     display: flex;
@@ -249,5 +251,74 @@
     border-radius: 0.5vw;
     width: 25%;
     margin: 0 1.5vw;
+    padding: 2vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    transform: 0.5s;
+    h3 {
+      font-weight: 400;
+      padding: 0 0 1vw 0;
+    }
+    .card-circle {
+      h3 {
+        padding: 0;
+      }
+      h4 {
+        color: constants.$dark-blue;
+        margin: 0;
+      }
+      .percent {
+        margin: 0;
+        padding: 0;
+        svg {
+          position: relative;
+          width: 20vw;
+          height: 20vw;
+          z-index: 1000;
+          circle {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: constants.$light-grey;
+            stroke-width: 10;
+            stroke-linecap: round;
+            transform: translate(1.3vw, 1vw);
+          }
+          circle:nth-child(2) {
+            stroke-dasharray: 220;
+            stroke-dashoffset: 220;
+          }
+        }
+        .number {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          h3 span{
+            font-weight: 900;
+          }
+        }
+      }
+    }
+  }
+  .macro-card:nth-child(1) svg circle:nth-child(2) {
+    stroke: constants.$fuccia;
+  }
+  .macro-card:nth-child(2) svg circle:nth-child(2) {
+    stroke: constants.$aqua;
+  }
+  .macro-card:nth-child(3) svg circle:nth-child(2) {
+    stroke: constants.$dark-green;
   }
 }

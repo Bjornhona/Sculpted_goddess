@@ -873,7 +873,8 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   color: #454444;
 }
 .macronutrient-summary h3 {
-  padding: 0;
+  padding: 0 0 3vw 1.5vw;
+  font-weight: 900;
 }
 .macronutrient-summary .macronutrient-summary-box {
   display: flex;
@@ -884,6 +885,73 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   border-radius: 0.5vw;
   width: 25%;
   margin: 0 1.5vw;
+  padding: 2vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  transform: 0.5s;
+}
+.macronutrient-summary .macro-card h3 {
+  font-weight: 400;
+  padding: 0 0 1vw 0;
+}
+.macronutrient-summary .macro-card .card-circle h3 {
+  padding: 0;
+}
+.macronutrient-summary .macro-card .card-circle h4 {
+  color: #37969A;
+  margin: 0;
+}
+.macronutrient-summary .macro-card .card-circle .percent {
+  margin: 0;
+  padding: 0;
+}
+.macronutrient-summary .macro-card .card-circle .percent svg {
+  position: relative;
+  width: 20vw;
+  height: 20vw;
+  z-index: 1000;
+}
+.macronutrient-summary .macro-card .card-circle .percent svg circle {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: #E6E6E6;
+  stroke-width: 10;
+  stroke-linecap: round;
+  transform: translate(1.3vw, 1vw);
+}
+.macronutrient-summary .macro-card .card-circle .percent svg circle:nth-child(2) {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+}
+.macronutrient-summary .macro-card .card-circle .percent .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.macronutrient-summary .macro-card .card-circle .percent .number h3 span {
+  font-weight: 900;
+}
+.macronutrient-summary .macro-card:nth-child(1) svg circle:nth-child(2) {
+  stroke: #F747AD;
+}
+.macronutrient-summary .macro-card:nth-child(2) svg circle:nth-child(2) {
+  stroke: #4ED2D6;
+}
+.macronutrient-summary .macro-card:nth-child(3) svg circle:nth-child(2) {
+  stroke: #82EB84;
 }
 
 /*# sourceMappingURL=styles.css.map */

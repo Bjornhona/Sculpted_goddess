@@ -156,35 +156,65 @@
 
   <!-- Macronutrient Summary -->
   <div class="macronutrient-summary" id="macronutrientSummary">
-    <h3>Congratulations, here is your macronutrient summary!</h3>
+    <h3>Congratulations, here is your Macronutrient Summary!</h3>
     <div class="macronutrient-summary-box">
 
       <div class="macro-card">
-        Body Mass Index (BMI)
-        {{bmi}}
-        kg/m2
-        Your BMI:
-        {{bmiResult}}
+        <h3>Body Mass Index (BMI)</h3>
+        <div class="card-circle">
+          <div class="percent">
+            <svg>
+              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70"></circle>
+            </svg>
+            <div class="number">
+              <h3><span>{{bmi}}</span></h3>
+              <h3>kg/m2</h3>
+            </div>
+          </div>
+          <h3>Your BMI:</h3>
+          <h4>{{bmiResult}}</h4>
+        </div>
       </div>
 
       <div class="macro-card">
-        Calorie intake (per day)
-        {{recommendedCalIntake}}
-        Calories
-        To reach final weight:
-        {{desiredWeight}} kg
+        <h3>Calorie intake (per day)</h3>
+        <div class="card-circle">
+          <div class="percent">
+            <svg>
+              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70"></circle>
+            </svg>
+            <div class="number">
+              <h3><span>{{recommendedCalIntake}}</span></h3>
+              <h3>Calories</h3>
+            </div>
+          </div>
+          <h3>To reach final weight:</h3>
+          <h4>{{desiredWeight}} kg</h4>
+        </div>
       </div>
 
       <div class="macro-card">
-        30 Day Milestone
-        {{milestoneWeight}}
-        kg
-        To reach milestone:
-        {{milestoneWeight}} kg
+        <h3>30 Day Milestone</h3>
+        <div class="card-circle">
+          <div class="percent">
+            <svg>
+              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70"></circle>
+            </svg>
+            <div class="number">
+              <h3><span>{{milestoneWeight}}</span></h3>
+              <h3>kg</h3>
+            </div>
+          </div>
+          <h3>To reach milestone:</h3>
+          <h4>{{milestoneWeight}} kg</h4>
+        </div>
       </div>
 
       <div class="macro-card">
-        Macronutrient Goals
+        <h3>Macronutrient Goals</h3>
         Suggested daily intake
         <h3>Carbs - {{carbs}} g</h3>
         <h3>Proteins - {{prot}} g</h3>
