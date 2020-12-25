@@ -234,7 +234,25 @@ def macronutrients():
         fat = recommendedCalIntake * 0.24 / 9
         carbs = recommendedCalIntake * 0.54 / 4
 
-    return render_template("manage_weight.html", _anchor="macronutrientSummary", weight=currentWeight, desiredWeight=desiredWeight, bmi=bmi, tdee=tdee, recommendedCalIntake=recommendedCalIntake, bmiResult=bmiResult, milestoneWeight=milestoneWeight, prot=round(prot, 2), fat=round(fat, 2), carbs=round(carbs, 2))
+    # Calculates the circulat progress bars values in vw
+    if (action == "lose"):
+        calVal = recommendedCalIntake * 100 / tdee
+        mlstVal = float(desiredWeight) * 100 / float(currentWeight)
+    elif (action == "gain"):
+        calVal = tdee * 100 / recommendedCalIntake
+        mlstVal = float(currentWeight) * 100 / float(desiredWeight)
+    bmiVal = bmi * 100 / 60
+
+    # Calculates the linear progress bars values in percentage
+    protVal = prot * 4 * 100 / recommendedCalIntake
+    fatVal = fat * 9 * 100 / recommendedCalIntake
+    carbsVal = carbs * 4 * 100 / recommendedCalIntake
+
+    return render_template("manage_weight.html", _anchor="macronutrientSummary", weight=currentWeight, desiredWeight=desiredWeight, 
+        bmi=bmi, tdee=tdee, recommendedCalIntake=recommendedCalIntake, bmiResult=bmiResult, milestoneWeight=milestoneWeight, 
+        prot=round(prot, 2), fat=round(fat, 2), carbs=round(carbs, 2), 
+        calVal=calVal, mlstVal=mlstVal, bmiVal=bmiVal, 
+        carbsVal=carbsVal, protVal=protVal, fatVal=fatVal)
 
 @app.route("/contact_us")
 def contact_us():

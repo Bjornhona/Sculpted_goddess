@@ -873,7 +873,7 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   color: #454444;
 }
 .macronutrient-summary h3 {
-  padding: 0 0 3vw 1.5vw;
+  padding: 0 0 3vw 0;
   font-weight: 900;
 }
 .macronutrient-summary .macronutrient-summary-box {
@@ -883,21 +883,23 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
 .macronutrient-summary .macro-card {
   background-color: #FFFFFF;
   border-radius: 0.5vw;
-  width: 25%;
-  margin: 0 1.5vw;
+  width: 22vw;
   padding: 2vw;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   overflow: hidden;
   transform: 0.5s;
 }
 .macronutrient-summary .macro-card h3 {
+  padding: 0;
   font-weight: 400;
-  padding: 0 0 1vw 0;
+}
+.macronutrient-summary .macro-card h3 span {
+  font-weight: 900;
 }
 .macronutrient-summary .macro-card .card-circle h3 {
   padding: 0;
@@ -907,13 +909,16 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   margin: 0;
 }
 .macronutrient-summary .macro-card .card-circle .percent {
-  margin: 0;
+  margin: 1vw 0;
   padding: 0;
+  width: 20vw;
+  height: 20vw;
+  position: relative;
 }
 .macronutrient-summary .macro-card .card-circle .percent svg {
   position: relative;
-  width: 20vw;
-  height: 20vw;
+  width: 100%;
+  height: 100%;
   z-index: 1000;
 }
 .macronutrient-summary .macro-card .card-circle .percent svg circle {
@@ -923,11 +928,10 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   stroke: #E6E6E6;
   stroke-width: 10;
   stroke-linecap: round;
-  transform: translate(1.3vw, 1vw);
 }
 .macronutrient-summary .macro-card .card-circle .percent svg circle:nth-child(2) {
-  stroke-dasharray: 220;
-  stroke-dashoffset: 220;
+  stroke-dasharray: 57vw;
+  stroke-dashoffset: 57vw;
 }
 .macronutrient-summary .macro-card .card-circle .percent .number {
   position: absolute;
@@ -944,14 +948,46 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
 .macronutrient-summary .macro-card .card-circle .percent .number h3 span {
   font-weight: 900;
 }
-.macronutrient-summary .macro-card:nth-child(1) svg circle:nth-child(2) {
+.macronutrient-summary .macro-card .bar-holder {
+  width: 100%;
+  background-color: #e7e7e7;
+  border-radius: 20px;
+  margin: 0.5vw auto;
+}
+.macronutrient-summary .macro-card .bar-holder .bar {
+  border-radius: 20px;
+  height: 1vw;
+}
+.macronutrient-summary .macro-card .bar-holder .bar-1 {
+  width: 20%;
+  background-image: linear-gradient(100deg, #F747AD, #FD8902);
+}
+.macronutrient-summary .macro-card .bar-holder .bar-2 {
+  width: 40%;
+  background-image: linear-gradient(100deg, #4ED2D6, #924ED6);
+}
+.macronutrient-summary .macro-card .bar-holder .bar-3 {
+  width: 60%;
+  background-image: linear-gradient(100deg, #37969A, #82EB84);
+}
+.macronutrient-summary .macro-card .progress-bar-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.macronutrient-summary .macro-card:nth-child(1) .card-circle .percent svg circle:nth-child(2) {
   stroke: #F747AD;
+  stroke-dashoffset: 55vw;
 }
-.macronutrient-summary .macro-card:nth-child(2) svg circle:nth-child(2) {
+.macronutrient-summary .macro-card:nth-child(2) .card-circle .percent svg circle:nth-child(2) {
   stroke: #4ED2D6;
+  stroke-dashoffset: 25vw;
 }
-.macronutrient-summary .macro-card:nth-child(3) svg circle:nth-child(2) {
+.macronutrient-summary .macro-card:nth-child(3) .card-circle .percent svg circle:nth-child(2) {
   stroke: #82EB84;
+  stroke-dashoffset: 5vw;
 }
 
 /*# sourceMappingURL=styles.css.map */

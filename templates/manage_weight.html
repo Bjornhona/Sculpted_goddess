@@ -108,6 +108,7 @@
     </form>
 
     <!-- Desired Weight Form -->
+    {% if tdee %}
       <div class="main-header-text main-two-header-text" id="desiredWeightContainer">
         <h2><span>Set your</span> goal</h2>
         <h3>To calculate your macronutrient ratio</h3>
@@ -152,77 +153,103 @@
           <button disabled type="submit" id="macro-button">Show my makro needs</button>
         </div>
       </form>
+    {% endif %}
   </div>
 
   <!-- Macronutrient Summary -->
-  <div class="macronutrient-summary" id="macronutrientSummary">
-    <h3>Congratulations, here is your Macronutrient Summary!</h3>
-    <div class="macronutrient-summary-box">
+  {% if calVal %}
+    <div class="macronutrient-summary" id="macronutrientSummary">
+      <h3>Congratulations, here is your Macronutrient Summary!</h3>
+      <div class="macronutrient-summary-box">
 
-      <div class="macro-card">
-        <h3>Body Mass Index (BMI)</h3>
-        <div class="card-circle">
-          <div class="percent">
-            <svg>
-              <circle cx="70" cy="70" r="70"></circle>
-              <circle cx="70" cy="70" r="70"></circle>
-            </svg>
-            <div class="number">
-              <h3><span>{{bmi}}</span></h3>
-              <h3>kg/m2</h3>
+        <div class="macro-card">
+          <h3>Body Mass Index (BMI)</h3>
+          <div class="card-circle">
+            <div class="percent">
+              <svg>
+                <circle cx="50%" cy="50%" r="45%"></circle>
+                <circle id="firstCircle" cx="50%" cy="50%" r="45%"></circle>
+              </svg>
+              <div class="number">
+                <h3><span>{{bmi}}</span></h3>
+                <h3>kg/m2</h3>
+              </div>
+            </div>
+            <h3>Your BMI:</h3>
+            <h4>{{bmiResult}}</h4>
+          </div>
+        </div>
+
+        <div class="macro-card">
+          <h3>Calorie intake (per day)</h3>
+          <div class="card-circle">
+            <div class="percent">
+              <svg>
+                <circle cx="50%" cy="50%" r="45%"></circle>
+                <circle id="secondCircle" cx="50%" cy="50%" r="45%"></circle>
+              </svg>
+              <div class="number">
+                <h3><span>{{recommendedCalIntake}}</span></h3>
+                <h3>Calories</h3>
+              </div>
+            </div>
+            <h3>To reach final weight:</h3>
+            <h4>{{desiredWeight}} kg</h4>
+          </div>
+        </div>
+
+        <div class="macro-card">
+          <h3>30 Day Milestone</h3>
+          <div class="card-circle">
+            <div class="percent">
+              <svg>
+                <circle cx="50%" cy="50%" r="45%"></circle>
+                <circle id="thirdCircle" cx="50%" cy="50%" r="45%"></circle>
+              </svg>
+              <div class="number">
+                <h3><span>{{milestoneWeight}}</span></h3>
+                <h3>kg</h3>
+              </div>
+            </div>
+            <h3>To reach milestone:</h3>
+            <h4>{{milestoneWeight}} kg</h4>
+          </div>
+        </div>
+
+        <div class="macro-card">
+          <div>
+            <h3><span>Macronutrient Goals</span></h3>
+            <h3>Suggested daily intake</h3>
+          </div>
+
+          <div class="progress-bar-container">
+            <div>
+              <h3>Carbs - {{carbs}} g</h3>
+              <div class="bar-holder">
+                <div id="bar1" class="bar bar-1"></div>
+              </div>
+            </div>
+
+            <div>
+              <h3>Proteins - {{prot}} g</h3>
+              <div class="bar-holder">
+                <div id="bar2" class="bar bar-2"></div>
+              </div>
+            </div>
+
+            <div>
+              <h3>Fats - {{fat}} g</h3>
+              <div class="bar-holder">
+                <div id="bar3" class="bar bar-3"></div>
+              </div>
             </div>
           </div>
-          <h3>Your BMI:</h3>
-          <h4>{{bmiResult}}</h4>
+
         </div>
-      </div>
 
-      <div class="macro-card">
-        <h3>Calorie intake (per day)</h3>
-        <div class="card-circle">
-          <div class="percent">
-            <svg>
-              <circle cx="70" cy="70" r="70"></circle>
-              <circle cx="70" cy="70" r="70"></circle>
-            </svg>
-            <div class="number">
-              <h3><span>{{recommendedCalIntake}}</span></h3>
-              <h3>Calories</h3>
-            </div>
-          </div>
-          <h3>To reach final weight:</h3>
-          <h4>{{desiredWeight}} kg</h4>
-        </div>
       </div>
-
-      <div class="macro-card">
-        <h3>30 Day Milestone</h3>
-        <div class="card-circle">
-          <div class="percent">
-            <svg>
-              <circle cx="70" cy="70" r="70"></circle>
-              <circle cx="70" cy="70" r="70"></circle>
-            </svg>
-            <div class="number">
-              <h3><span>{{milestoneWeight}}</span></h3>
-              <h3>kg</h3>
-            </div>
-          </div>
-          <h3>To reach milestone:</h3>
-          <h4>{{milestoneWeight}} kg</h4>
-        </div>
-      </div>
-
-      <div class="macro-card">
-        <h3>Macronutrient Goals</h3>
-        Suggested daily intake
-        <h3>Carbs - {{carbs}} g</h3>
-        <h3>Proteins - {{prot}} g</h3>
-        <h3>Fats - {{fat}} g</h3>
-      </div>
-
     </div>
-  </div>
+  {% endif %}
 </main>
 {% endblock %}
 
@@ -244,6 +271,14 @@
       imageSrc.setAttribute("src", getCurrentUrlToImage());
       formSrc.setAttribute("src", getCurrentUrlToImage());
     }
+  </script>
+  <script>
+      document.getElementById('firstCircle').style.strokeDashoffset = "{% if bmiVal is defined %}{{bmiVal * 57}}{% endif %}vw";
+      document.getElementById('secondCircle').style.strokeDashoffset = "{% if calVal is defined %}{{calVal * 57}}{% endif %}vw";
+      document.getElementById('thirdCircle').style.strokeDashoffset = "{% if mlstVal is defined %}{{mlstVal * 57}}{% endif %}vw";
+      document.getElementById('bar1').style.width = "{% if carbsVal is defined %}{{carbsVal}}{% endif %}%";
+      document.getElementById('bar2').style.width = "{% if protVal is defined %}{{protVal}}{% endif %}%";
+      document.getElementById('bar3').style.width = "{% if fatVal is defined %}{{fatVal}}{% endif %}%";
   </script>
   <script id="form-source" src="static/form.js"></script>
 {% endblock %}

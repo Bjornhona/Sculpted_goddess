@@ -33,8 +33,6 @@ let manageDesiredWeight = () => {
     const action = getRadioVal(document.getElementById('macronutrientRatio'), 'action');
     const currentWeight = document.getElementById('weight').placeholder;
 
-    console.log(currentWeight);
-
     if (action === 'gain') {
         document.getElementById('desiredWeight').setAttribute("min", currentWeight);
         document.getElementById('desiredWeight').setAttribute("max", "300");
@@ -44,7 +42,7 @@ let manageDesiredWeight = () => {
     }
 }
 
-let manageMacro = () => {
+let manageMacro = (carbsVal, protVal, fatVal) => {
     manageDesiredWeight();
     const action = getRadioVal(document.getElementById('macronutrientRatio'), 'action');
     let macroButton = document.getElementById('macro-button');

@@ -239,7 +239,7 @@
   background: radial-gradient(closest-side, constants.$light-orange, constants.$light-orange, constants.$dark-orange);
   color: constants.$dark-grey;
   h3 {
-    padding: 0 0 3vw 1.5vw;
+    padding: 0 0 3vw 0;
     font-weight: 900;
   }
   .macronutrient-summary-box {
@@ -249,20 +249,22 @@
   .macro-card {
     background-color: constants.$white;
     border-radius: 0.5vw;
-    width: 25%;
-    margin: 0 1.5vw;
+    width: 22vw;
     padding: 2vw;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     overflow: hidden;
     transform: 0.5s;
     h3 {
+      padding: 0;
       font-weight: 400;
-      padding: 0 0 1vw 0;
+      span {
+        font-weight: 900;
+      }
     }
     .card-circle {
       h3 {
@@ -273,12 +275,15 @@
         margin: 0;
       }
       .percent {
-        margin: 0;
+        margin: 1vw 0;
         padding: 0;
+        width: 20vw;
+        height: 20vw;
+        position: relative;
         svg {
           position: relative;
-          width: 20vw;
-          height: 20vw;
+          width: 100%;
+          height: 100%;
           z-index: 1000;
           circle {
             width: 100%;
@@ -287,11 +292,10 @@
             stroke: constants.$light-grey;
             stroke-width: 10;
             stroke-linecap: round;
-            transform: translate(1.3vw, 1vw);
           }
           circle:nth-child(2) {
-            stroke-dasharray: 220;
-            stroke-dashoffset: 220;
+            stroke-dasharray: 57vw;
+            stroke-dashoffset: 57vw;
           }
         }
         .number {
@@ -311,14 +315,46 @@
         }
       }
     }
+    .bar-holder {
+      width: 100%;
+      background-color: rgb(231, 231, 231);
+      border-radius: 20px;
+      margin: 0.5vw auto; 
+      .bar {
+        border-radius: 20px;
+        height: 1vw;
+      }
+      .bar-1 {
+        width: 20%;
+        background-image: linear-gradient(100deg, constants.$fuccia, constants.$dark-orange);
+      }
+      .bar-2 {
+        width: 40%;
+        background-image: linear-gradient(100deg, constants.$aqua, constants.$purple);
+      }
+      .bar-3 {
+        width: 60%;
+        background-image: linear-gradient(100deg, constants.$dark-blue, constants.$dark-green);
+      }
+    }
+    .progress-bar-container {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
   }
-  .macro-card:nth-child(1) svg circle:nth-child(2) {
+  .macro-card:nth-child(1) .card-circle .percent svg circle:nth-child(2) {
     stroke: constants.$fuccia;
+    stroke-dashoffset: 55vw;
   }
-  .macro-card:nth-child(2) svg circle:nth-child(2) {
+  .macro-card:nth-child(2) .card-circle .percent svg circle:nth-child(2) {
     stroke: constants.$aqua;
+    stroke-dashoffset: 25vw;
   }
-  .macro-card:nth-child(3) svg circle:nth-child(2) {
+  .macro-card:nth-child(3) .card-circle .percent svg circle:nth-child(2) {
     stroke: constants.$dark-green;
+    stroke-dashoffset: 5vw;
   }
 }
