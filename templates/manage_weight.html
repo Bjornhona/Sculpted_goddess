@@ -16,9 +16,8 @@
 </header>
 
 <main>
-
     <!-- Calculate Dietary Needs Form -->
-    {% if not tdee %}
+    {% if not tdee and not calVal %}
     <div class="manage-weight-main">
       <div class="main-header-text" id="dietaryNeedsContainer">
         <h2><span>Introduce</span> your data</h2>
@@ -108,7 +107,7 @@
     {% endif %}
 
     <!-- Desired Weight Form -->
-    {% if tdee and not calVal%}
+    {% if tdee and not calVal %}
     <div class="manage-weight-main">
       <div class="main-header-text main-two-header-text" id="desiredWeightContainer">
         <h2><span>Set your</span> goal</h2>
@@ -278,7 +277,6 @@
     // Sets 'min' or 'max' value to current weight if previous action is chosen.
     let manageDesiredWeight = () => {
       const action = getRadioVal(document.getElementById('macronutrientRatio'), 'action');
-      // const currentWeight = document.getElementById('weight').placeholder;
       const currentWeight = "{{weight}}";
 
       if (action === 'gain') {
