@@ -16,8 +16,8 @@
 </header>
 
 <main>
-    <!-- Calculate Dietary Needs Form -->
-    {% if not tdee and not calVal %}
+  <!-- Calculate Dietary Needs Form -->
+  {% if not tdee and not calVal %}
     <div class="manage-weight-main">
       <div class="main-header-text" id="dietaryNeedsContainer">
         <h2><span>Introduce</span> your data</h2>
@@ -25,7 +25,7 @@
       </div>
       <form class="main-content" id="dietaryNeeds" action="/manage_weight" method="POST">
         <div class="gender-box">
-          <h3>Gender</h3>
+          <h3><span>Gender</span></h3>
           <div class="gender-container">
             <div>
               <input class="male-input" type="radio" id="male" name="gender" onclick="manage()" value="5" required>
@@ -51,23 +51,23 @@
         </div>
         <div class="weight-height-age-container">
           <div class="weight">
-            <h3>Weight</h3>
+            <h3><span>Weight</span></h3>
             <input type="number" id="weight" name="weight" onkeyup="manage()" placeholder="0" min="0" max="300" required/>
             <h3 class="unit">kg</h3>
           </div>
           <div class="height">
-            <h3>Height</h3>
+            <h3><span>Height</span></h3>
             <input type="number" id="height" name="height" onkeyup="manage()" placeholder="0" min="0" max="300" required/>
             <h3 class="unit">cm</h3>
           </div>
           <div class="age">
-            <h3>Age</h3>
+            <h3><span>Age</span></h3>
             <input type="number" id="age" name="age" onkeyup="manage()" placeholder="0" min="0" max="130" required/>
             <h3 class="unit">years</h3>
           </div>
         </div>
         <div class="activity-level">
-          <h3>Activity level</h3>
+          <h3><span>Activity level</span></h3>
           <div class="activity-options-container" id="level">
             <label class="container" for="sedentary">
               <input type="radio" id="sedentary" name="activity" onclick="manage()" value=1.2 required>
@@ -104,10 +104,10 @@
         </div>
       </form>
     </div>
-    {% endif %}
+  {% endif %}
 
-    <!-- Desired Weight Form -->
-    {% if tdee and not calVal %}
+  <!-- Desired Weight Form -->
+  {% if tdee and not calVal %}
     <div class="manage-weight-main">
       <div class="main-header-text main-two-header-text" id="desiredWeightContainer">
         <h2><span>Set your</span> goal</h2>
@@ -117,7 +117,7 @@
         <h3>Congratulations, your total number of calories burned in a day is <span>{{tdee}}</span> cal!</h3>
 
         <div class="action-box">
-          <h3>Desired action</h3>
+          <h3><span>Desired action</span></h3>
           <div class="action-container">
             <div>
               <input class="gain-input" type="radio" id="gain" name="action" onclick="manageMacro()" value="gain" required>
@@ -144,7 +144,7 @@
 
         <div class="desired-weight-container">
           <div class="weight">
-            <h3>Desired weight</h3>
+            <h3><span>Desired weight</span></h3>
             <input type="number" id="desiredWeight" name="desiredWeight" onkeyup="manageMacro('{{weight}}')" placeholder="0" min="0" max="300" required/>
             <h3 class="unit">kg</h3>
           </div>
@@ -159,98 +159,110 @@
 
   <!-- Macronutrient Summary -->
   {% if calVal %}
-    <div class="macronutrient-summary" id="macronutrientSummary">
-      <h3>Congratulations, here is your Macronutrient Summary!</h3>
-      <div class="macronutrient-summary-box">
+    <div class="manage-weight-main-cards">
+      <div class="main-header-text main-three-header-text">
+        <h2><span>Macronutrient</span> summary</h2>
+        <h3>To use as a guide when you plan your meals</h3>
+      </div>
 
-        <div class="macro-card">
-          <h3>Body Mass Index (BMI)</h3>
-          <div class="card-circle">
-            <div class="percent">
-              <svg>
-                <circle cx="50%" cy="50%" r="45%"></circle>
-                <circle id="firstCircle" cx="50%" cy="50%" r="45%"></circle>
-              </svg>
-              <div class="number">
-                <h3><span>{{bmi}}</span></h3>
-                <h3>kg/m2</h3>
+      <div class="macronutrient-summary" id="macronutrientSummary">
+        <h3>Congratulations, here is your Macronutrient Summary!</h3>
+        <div class="macronutrient-summary-box">
+
+          <div class="macro-card">
+            <h3>Body Mass Index (BMI)</h3>
+            <div class="card-circle">
+              <div class="percent">
+                <svg>
+                  <circle cx="50%" cy="50%" r="45%"></circle>
+                  <circle id="firstCircle" cx="50%" cy="50%" r="45%"></circle>
+                </svg>
+                <div class="number">
+                  <h3><span>{{bmi}}</span></h3>
+                  <h3>kg/m2</h3>
+                </div>
               </div>
+              <h3>Your BMI:</h3>
+              <h4>{{bmiResult}}</h4>
             </div>
-            <h3>Your BMI:</h3>
-            <h4>{{bmiResult}}</h4>
           </div>
-        </div>
 
-        <div class="macro-card">
-          <h3>Calorie intake (per day)</h3>
-          <div class="card-circle">
-            <div class="percent">
-              <svg>
-                <circle cx="50%" cy="50%" r="45%"></circle>
-                <circle id="secondCircle" cx="50%" cy="50%" r="45%"></circle>
-              </svg>
-              <div class="number">
-                <h3><span>{{recommendedCalIntake}}</span></h3>
-                <h3>Calories</h3>
+          <div class="macro-card">
+            <h3>Calorie intake (per day)</h3>
+            <div class="card-circle">
+              <div class="percent">
+                <svg>
+                  <circle cx="50%" cy="50%" r="45%"></circle>
+                  <circle id="secondCircle" cx="50%" cy="50%" r="45%"></circle>
+                </svg>
+                <div class="number">
+                  <h3><span>{{recommendedCalIntake}}</span></h3>
+                  <h3>Calories</h3>
+                </div>
               </div>
+              <h3>To reach final weight:</h3>
+              <h4>{{desiredWeight}} kg</h4>
             </div>
-            <h3>To reach final weight:</h3>
-            <h4>{{desiredWeight}} kg</h4>
           </div>
-        </div>
 
-        <div class="macro-card">
-          <h3>30 Day Milestone</h3>
-          <div class="card-circle">
-            <div class="percent">
-              <svg>
-                <circle cx="50%" cy="50%" r="45%"></circle>
-                <circle id="thirdCircle" cx="50%" cy="50%" r="45%"></circle>
-              </svg>
-              <div class="number">
-                <h3><span>{{milestoneWeight}}</span></h3>
-                <h3>kg</h3>
+          <div class="macro-card">
+            <h3>30 Day Milestone</h3>
+            <div class="card-circle">
+              <div class="percent">
+                <svg>
+                  <circle cx="50%" cy="50%" r="45%"></circle>
+                  <circle id="thirdCircle" cx="50%" cy="50%" r="45%"></circle>
+                </svg>
+                <div class="number">
+                  <h3><span>{{milestoneWeight}}</span></h3>
+                  <h3>kg</h3>
+                </div>
               </div>
+              <h3>To reach milestone:</h3>
+              <h4>{{milestoneWeight}} kg</h4>
             </div>
-            <h3>To reach milestone:</h3>
-            <h4>{{milestoneWeight}} kg</h4>
-          </div>
-        </div>
-
-        <div class="macro-card">
-          <div>
-            <h3><span>Macronutrient Goals</span></h3>
-            <h3>Suggested daily intake</h3>
           </div>
 
-          <div class="progress-bar-container">
+          <div class="macro-card">
             <div>
-              <h3>Carbs - {{carbs}} g</h3>
-              <div class="bar-holder">
-                <div id="bar1" class="bar bar-1"></div>
+              <h3><span>Macronutrient Goals</span></h3>
+              <h3>Suggested daily intake</h3>
+            </div>
+
+            <div class="progress-bar-container">
+              <div>
+                <h3>Carbs - {{carbs}} g</h3>
+                <div class="bar-holder">
+                  <div id="bar1" class="bar bar-1"></div>
+                </div>
+              </div>
+
+              <div>
+                <h3>Proteins - {{prot}} g</h3>
+                <div class="bar-holder">
+                  <div id="bar2" class="bar bar-2"></div>
+                </div>
+              </div>
+
+              <div>
+                <h3>Fats - {{fat}} g</h3>
+                <div class="bar-holder">
+                  <div id="bar3" class="bar bar-3"></div>
+                </div>
               </div>
             </div>
 
-            <div>
-              <h3>Proteins - {{prot}} g</h3>
-              <div class="bar-holder">
-                <div id="bar2" class="bar bar-2"></div>
-              </div>
-            </div>
-
-            <div>
-              <h3>Fats - {{fat}} g</h3>
-              <div class="bar-holder">
-                <div id="bar3" class="bar bar-3"></div>
-              </div>
-            </div>
           </div>
 
         </div>
-
+        <div class="continue-buttons">
+          <a href="/manage_weight"><button class="new-search-button">New search</button></a>
+          <a href="/manage_weight/save_macros"><button class="save-data-button">Save data</button></a>
+        </div>
       </div>
     </div>
   {% endif %}
+
 </main>
 {% endblock %}
 

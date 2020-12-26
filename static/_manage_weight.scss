@@ -28,7 +28,7 @@
 
 /* --- forms sections --- */
 
-.manage-weight-main {
+.manage-weight-main, .manage-weight-main-cards {
   background-color: constants.$light-grey;
   padding: 3vw 7vw;
   color: constants.$dark-grey;
@@ -52,8 +52,10 @@
     padding: 3vw 7vw 5vw 7vw;
     margin-bottom: 3vw;
     h3 {
-      padding: 0;
-      font-weight: 900;
+      padding: 0 0 1vw 0;
+      span {
+        font-weight: 900;
+      }
     }
     .gender-box, .action-box {
       padding-bottom: 3vw;
@@ -105,9 +107,6 @@
       display: flex;
       justify-content: space-between;
       padding-bottom: 3vw;
-    }
-    .desired-weight-container {
-      justify-content: center;
     }
     .activity-options-container {
       display: flex;
@@ -192,15 +191,16 @@
         position: absolute;
         display: block;
         left: 7vw;
-        top: 4vw;
-        z-index: 9;
+        top: 5.3vw;
+        z-index: 19;
         font-weight: 400;
         color: constants.$medium-grey;
+        padding: 0;
       }
     }
     .age {
       .unit {
-        left: 5.5vw;
+        left: 6vw;
       }
     }
     .calculate-calories, .calculate-makro {
@@ -215,9 +215,6 @@
         }
       }
     }
-    .calculate-makro {
-      justify-content: center;
-    }
   }
 
   .main-two-header-text {
@@ -228,18 +225,30 @@
       }
     }
   }
+  .main-three-header-text {
+    background-color: constants.$dark-blue;
+    h2 {
+      span {
+        color: constants.$light-pink;
+      }
+    }
+  }
+}
+.manage-weight-main-cards {
+  background-color: constants.$white;
+  padding: 3vw;
 }
 
 /* --- macronutrient summary section --- */
 
 .macronutrient-summary {
-  padding: 6vw 4.5vw;
-  width: 100vw;
+  padding: 3vw 1vw 5vw 1vw;
   position: relative;
-  background: radial-gradient(closest-side, constants.$light-orange, constants.$light-orange, constants.$dark-orange);
+  background: constants.$light-green;
   color: constants.$dark-grey;
+  border-radius: 0 0 0.5vw 0.5vw;
   h3 {
-    padding: 0 0 3vw 0;
+    padding: 0 0 1.5vw 0;
     font-weight: 900;
   }
   .macronutrient-summary-box {
@@ -356,5 +365,28 @@
   .macro-card:nth-child(3) .card-circle .percent svg circle:nth-child(2) {
     stroke: constants.$dark-green;
     stroke-dashoffset: 5vw;
+  }
+  .continue-buttons {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    .new-search-button {
+      color: constants.$fuccia;
+      background-color: constants.$light-pink;
+      border: 1.5px solid constants.$fuccia;
+      margin: 3vw 3vw 0 3vw;
+    }
+    .new-search-button:hover {
+      background-color: constants.$medium-pink;
+    }
+    .save-data-button {
+      background-color: constants.$fuccia;
+      border: 1.5px solid constants.$fuccia;
+      margin: 3vw 3vw 0 3vw;
+    }
+    .save-data-button:hover {
+      background-color: constants.$dark-pink;
+      border: 1.5px solid constants.$dark-pink;
+    }
   }
 }

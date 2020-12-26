@@ -171,7 +171,7 @@ def manage_weight():
         tdee = float(caloriesPerDay) * float(activity)
         session['tdee'] = tdee
 
-        return render_template("manage_weight.html", _anchor="dietaryNeedsContainer", tdee=round(tdee), weight=weight)
+        return render_template("manage_weight.html", tdee=round(tdee), weight=weight)
 
 @app.route("/manage_weight/macronutrients", methods=["POST"])
 @login_required
@@ -247,11 +247,18 @@ def macronutrients():
     fatVal = fat * 9 * 100 / recommendedCalIntake
     carbsVal = carbs * 4 * 100 / recommendedCalIntake
 
-    return render_template("manage_weight.html", _anchor="macronutrientSummary", weight=currentWeight, desiredWeight=desiredWeight, 
+    return render_template("manage_weight.html", weight=currentWeight, desiredWeight=desiredWeight, 
         bmi=bmi, recommendedCalIntake=recommendedCalIntake, bmiResult=bmiResult, milestoneWeight=milestoneWeight, 
         prot=round(prot, 2), fat=round(fat, 2), carbs=round(carbs, 2), 
         calVal=calVal, mlstVal=mlstVal, bmiVal=bmiVal, 
         carbsVal=carbsVal, protVal=protVal, fatVal=fatVal)
+
+@app.route("/manage_weight/save_macros")
+@login_required
+def save_macros():
+    """Saves macronutrient data of the macro summay calculations in manage_weight"""
+
+    return redirect("/")
 
 @app.route("/contact_us")
 def contact_us():
