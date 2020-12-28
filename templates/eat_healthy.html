@@ -30,7 +30,7 @@
         <h3><span>Search words:</span> {{search_word}}</h3>
         <h3>{{count}} recipes found</h3>
       </div>
-      <form submit='/show-saved' method="POST">
+      <form action='/show_saved_recipes' method="POST">
         <button type="submit" class="show-saved-button" id="show-saved" onclick=showSaved()>show saved</button>
       </form>
     </div>
@@ -43,15 +43,14 @@
               <h3>{{row["recipe"]["label"]}}</h3>
               <h4>{{round(row["recipe"]["totalNutrients"]["ENERC_KCAL"]["quantity"]/row["recipe"]["yield"])}} {{row["recipe"]["totalNutrients"]["ENERC_KCAL"]["unit"]}}/Serving</h4>
             </div>
-            <form action="/save_recipe" method="POST">
-              <label>
+            <form action="/save_recipe" method="POST" class="save-recipe">
                 <input type="hidden" value="{{row.recipe.uri}}" name="recipeId">
-                <div class="icon-container">
-                  <div class="save-icon"><i class="far fa-bookmark"></i></div>
-                  <h3>Save recipe</h3>
-                </div>
-              </label>
-              <input type="submit" value="Save test">
+                <button type="submit">
+                  <div class="icon-container">
+                    <div class="save-icon"><i class="far fa-bookmark"></i></div>
+                    <h3>Save recipe</h3>
+                  </div>
+                </button>
             </form>
           </div>
         </div>

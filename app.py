@@ -131,24 +131,52 @@ def about_us():
 @login_required
 def eat_healthy():
     """Select and show recipes from Edamam API"""
+
     if request.method == "GET":
-        search_word = "chicken"
+        print('Entered GET')
+
+        # Check if any arguments in session and add values
+        if session.get('search_word'):
+        # if session.get('search_word') is not None:
+        #     if session['search_word'] == True:
+            search_word = session['search_word']
+            hits = session['hits']
+            count = session['count']
+        else:
+            search_word = "chicken"
+            hits = []
+            count = 0
+
+            # Check if any arguments in session and add values
+            response = requests.get("https://api.edamam.com/search?q=" + search_word + "&app_id=a8f807ca&app_key=9e763f1edd4c3c936eb2506f1dbdddf5&from=0&to=12&calories=591-722")
+
+            if response.status_code == 200:
+                hits = response.json()["hits"]
+                count = response.json()["count"]
+
     else:
+        print('Entered POST')
+
         search_word = request.form.get("search_word")
 
-    response = requests.get("https://api.edamam.com/search?q=" + search_word + "&app_id=a8f807ca&app_key=9e763f1edd4c3c936eb2506f1dbdddf5&from=0&to=12&calories=591-722")
-    
-    if response.status_code == 200:
-        hits = response.json()["hits"]
-        count = response.json()["count"]
-    else:
-        hits = []
-        count = 0
+        # Check if any arguments in session and add values
+        if session.get('hits'):
+            hits = session['hits']
+            count = session['count']
+        else:
+            hits = []
+            count = 0
 
-    # Save search data in session
+        response = requests.get("https://api.edamam.com/search?q=" + search_word + "&app_id=a8f807ca&app_key=9e763f1edd4c3c936eb2506f1dbdddf5&from=0&to=12&calories=591-722")
+
+        if response.status_code == 200:
+            hits = response.json()["hits"]
+            count = response.json()["count"]
+
+    # Save current data in session
+    session['search_word'] = search_word
     session['hits'] = hits
     session['count'] = count
-    session['search_word'] = search_word 
         
     return render_template("eat_healthy.html", hits=hits, round=rounded, count=count, search_word=search_word)
 
@@ -322,16 +350,10 @@ def save_recipe():
 
     # Get the recipeId
     recipeId = request.form.get("recipeId")
-    print(recipeId)
 
     # Check if already saved in DB recipes table
     isSavedResp = engine.execute("SELECT COUNT(*) FROM recipes WHERE user_id=:user_id AND recipe_id=:recipe_id", user_id=session['user_id'], recipe_id=recipeId);
     isSaved = isSavedResp.fetchall()[0][0]
-
-    # Get the last search data from session
-    search_word = session['search_word']
-    hits = session['hits']
-    count = session['count']
 
     # Saves the recipe and search in recipes table in DB if not already saved. Else it is deleted from recipes table.
     if isSaved == 0:
@@ -339,29 +361,38 @@ def save_recipe():
     else:
         engine.execute("DELETE FROM recipes WHERE user_id=:user_id AND recipe_id=:recipe_id", user_id=session['user_id'], recipe_id=recipeId);
 
-    return redirect(url_for('eat_healthy', hits=hits, round=rounded, count=count, search_word=search_word))
+    return redirect(url_for('eat_healthy'))
 
 @app.route('/show_saved_recipes', methods=['POST'])
+@login_required
 def show_saved_recipes():
 
-    saved_recipes = engine.execute("SELECT * FROM recipes WHERE user_id = session['user_id']")
-    count = count(saved_recipes)
-    hits=[]
+    hits = []
+    recipeCount = 0
 
-    for recipe in saved_recipes:
-        recipe_id = recipe.recipe_id
+    saved_recipes = engine.execute("SELECT * FROM recipes WHERE user_id=:user_id", user_id=session['user_id'])
 
-        # Convert the id into a link
-        r_id=urllib.parse.quote('recipe_id', safe='')
+    if not saved_recipes:
+        return apology("You have no recipes saved")
+    else:
+        for row in saved_recipes:
+            recipeCount += 1
 
-        # Get data
-        response = requests.get("https://api.edamam.com/search?r=" + r_id + "&app_id=a8f807ca&app_key=9e763f1edd4c3c936eb2506f1dbdddf5&from=0&to=12&calories=591-722")
+            recipe_id = row.recipe_id
 
-        # Add recipe to hits list
-        if response.status_code == 200:
-            print("There was this great recipe response, for once... yaaay!")
-            hits.append(response.json())
+            # Convert the id into a link
+            r_id=urllib.parse.quote(recipe_id, safe='')
 
-    print(hits)
+            # Get data for this recipe from Edamam API
+            response = requests.get("https://api.edamam.com/search?r=" + r_id + "&app_id=a8f807ca&app_key=9e763f1edd4c3c936eb2506f1dbdddf5&from=0&to=12&calories=591-722")
 
-    return redirect(url_for('eat_healthy', hits=hits, round=rounded, count=count, search_word="Saved recipes"))
+            # Add recipe to hits list
+            if response.status_code == 200:
+                recVal = {"recipe": response.json()[0]}
+                hits.append(recVal)
+
+    session['hits'] = hits
+    session['count'] = recipeCount
+    session['search_word'] = "Saved recipes"
+
+    return redirect(url_for('eat_healthy'))

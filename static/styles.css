@@ -475,6 +475,10 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   background-color: #EFB6DD;
 }
 
+.save-recipe button {
+  all: unset;
+}
+
 .icon-container {
   display: flex;
   align-items: center;
