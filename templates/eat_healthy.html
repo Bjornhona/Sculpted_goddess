@@ -2,6 +2,9 @@
 
 {% block title %}Eat healthy{% endblock %}
 
+{% block headerScript %}
+{% endblock %}
+
 {% block main %}
   <header class="eat-healthy-header">
     <div class="eat-healthy-header-box">
@@ -20,8 +23,17 @@
       <img src="static/images/tomato.png" alt="Tomato" />
     </div>
   </header>
+
   <div class="eat-healthy container">
-    <h3>Search words: {{search_word}} - {{count}} recipes found</h3>
+    <div class="container-action">
+      <div>
+        <h3><span>Search words:</span> {{search_word}}</h3>
+        <h3>{{count}} recipes found</h3>
+      </div>
+      <form submit='/show-saved' method="POST">
+        <button type="submit" class="show-saved-button" id="show-saved" onclick=showSaved()>show saved</button>
+      </form>
+    </div>
     <div class="featured-recipes-area">
       {% for row in hits: %}
         <div class="small-recipe-container">
@@ -31,10 +43,16 @@
               <h3>{{row["recipe"]["label"]}}</h3>
               <h4>{{round(row["recipe"]["totalNutrients"]["ENERC_KCAL"]["quantity"]/row["recipe"]["yield"])}} {{row["recipe"]["totalNutrients"]["ENERC_KCAL"]["unit"]}}/Serving</h4>
             </div>
-            <div class="icon-container">
-              <div class="search-icon"><i class="far fa-bookmark"></i></div>
-              <h3>Save recipe</h3>
-            </div>
+            <form action="/save_recipe" method="POST">
+              <label>
+                <input type="hidden" value="{{row.recipe.uri}}" name="recipeId">
+                <div class="icon-container">
+                  <div class="save-icon"><i class="far fa-bookmark"></i></div>
+                  <h3>Save recipe</h3>
+                </div>
+              </label>
+              <input type="submit" value="Save test">
+            </form>
           </div>
         </div>
 
@@ -67,10 +85,10 @@
               </div>
               <div class="modal-header-right">
                 <div class="icon-container">
-                  <div class="search-icon"><i class="far fa-bookmark"></i></div>
+                  <div class="save-icon"><i class="far fa-bookmark"></i></div>
                   <h3>Save recipe</h3>
                 </div>
-                <button>add to meal plan</button>
+                <!-- <button>add to meal plan</button> -->
               </div>
             </div>
             <div class="large-recipe-image"><img src={{row["recipe"]["image"]}} alt="recipe"/></div>

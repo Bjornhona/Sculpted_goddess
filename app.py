@@ -1,13 +1,15 @@
 import requests
 from sqlalchemy import create_engine, select
-
 from flask import Flask, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
-
+from datetime import datetime
 from helpers import login_required, apology
+import uuid
+import urllib
+
 
 # Configure application
 app = Flask(__name__)
@@ -30,7 +32,10 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure SQLAlchemy Library to use SQLite database
-engine = create_engine("sqlite:///beautygifts.db", echo=True)
+engine = create_engine("sqlite:///sculptedgoddess.db", echo=True)
+
+# Create unique id's
+id = uuid.uuid1()
 
 # My functions
 def rounded(r):
@@ -139,8 +144,13 @@ def eat_healthy():
     else:
         hits = []
         count = 0
+
+    # Save search data in session
+    session['hits'] = hits
+    session['count'] = count
+    session['search_word'] = search_word 
         
-    return render_template("eat_healthy.html", hits=hits, count=count, round=rounded, search_word=search_word)
+    return render_template("eat_healthy.html", hits=hits, round=rounded, count=count, search_word=search_word)
 
 
 @app.route("/get_toned")
@@ -161,8 +171,13 @@ def manage_weight():
         height = request.form.get("height")
         age = request.form.get("age")
         activity = request.form.get("activity")
+
+        # Save all entered data in session
+        session['gender'] = gender
         session['currentWeight'] = weight
         session['height'] = height
+        session['age'] = age
+        session['activity'] = activity
 
         # Calculate the Mifflin-St. Jeor equation:
         caloriesPerDay = 10 * float(weight) + 6.25 * float(height) - 5 * float(age) + float(gender)
@@ -184,6 +199,10 @@ def macronutrients():
     currentWeight = session['currentWeight']
     height = session['height']
     tdee = round(session['tdee'])
+
+    # Save action goal and desired weight in session
+    session['goal'] = action
+    session['desiredWeight'] = desiredWeight
 
     # Calculate Body Mass Index (BMI) and it's result
     bmi = round((float(currentWeight) / (float(height)/100)**2), 1)
@@ -233,6 +252,12 @@ def macronutrients():
         fat = recommendedCalIntake * 0.24 / 9
         carbs = recommendedCalIntake * 0.54 / 4
 
+    # Saves macronutrient values in session as cals/day
+    session['calInt'] = recommendedCalIntake
+    session['calProt'] = prot * 4
+    session['calFat'] = fat * 9
+    session['calCarbs'] = carbs * 4
+
     # Calculates the circular progress bars values in vw
     if (action == "lose"):
         calVal = recommendedCalIntake * 100 / tdee
@@ -256,7 +281,32 @@ def macronutrients():
 @app.route("/manage_weight/save_macros")
 @login_required
 def save_macros():
-    """Saves macronutrient data of the macro summay calculations in manage_weight"""
+    """Saves macronutrient data of the macro summary calculations in history"""
+
+    # Get todays date and time
+    time = datetime.now()
+
+    # Latest Macronutrient data is updated in DB
+    new_calInt = session['calInt']
+    new_calProt = session['calProt']
+    new_calFat = session['calFat']
+    new_calCarbs = session['calCarbs']
+
+    engine.execute("INSERT INTO macros (user_id, calInt, calProt, calFat, calCarbs) VALUES (:user_id, :calInt, :calProt, :calFat, :calCarbs) \
+        ON CONFLICT(user_id) DO UPDATE SET calInt=:calInt, calProt=:calProt, calFat=:calFat, calCarbs=:calCarbs WHERE user_id=:user_id", \
+        user_id=session['user_id'], calInt=new_calInt, calProt=new_calProt, calFat=new_calFat, calCarbs=new_calCarbs)
+
+    # Is added to the history array in DB
+    if session['gender'] == (-161):
+        gender = "female"
+    else:
+        gender = "male"
+
+    # Add history data to history table in DB
+    engine.execute("INSERT INTO history (data_id, user_id, gender, weight, height, age, activity, goal, desiredWeight, time) \
+        VALUES (:data_id, :user_id, :gender, :weight, :height, :age, :activity, :goal, :desiredWeight, :time)", \
+        data_id = id.hex, user_id = session['user_id'], gender = gender, weight = session['currentWeight'], height = session['height'], \
+        age = session['age'], activity = session['activity'], goal = session['goal'], desiredWeight = session['desiredWeight'], time = time)
 
     return redirect("/")
 
@@ -264,3 +314,54 @@ def save_macros():
 def contact_us():
     """Show contact page"""
     return render_template("contact_us.html")
+
+@app.route('/save_recipe', methods=['POST'])
+@login_required
+def save_recipe():
+    """Saves recipes in eat_healthy page by their id"""
+
+    # Get the recipeId
+    recipeId = request.form.get("recipeId")
+    print(recipeId)
+
+    # Check if already saved in DB recipes table
+    isSavedResp = engine.execute("SELECT COUNT(*) FROM recipes WHERE user_id=:user_id AND recipe_id=:recipe_id", user_id=session['user_id'], recipe_id=recipeId);
+    isSaved = isSavedResp.fetchall()[0][0]
+
+    # Get the last search data from session
+    search_word = session['search_word']
+    hits = session['hits']
+    count = session['count']
+
+    # Saves the recipe and search in recipes table in DB if not already saved. Else it is deleted from recipes table.
+    if isSaved == 0:
+        engine.execute("INSERT INTO recipes(recipe_id, user_id) VALUES(:recipe_id, :user_id)", recipe_id=recipeId, user_id=session['user_id'])
+    else:
+        engine.execute("DELETE FROM recipes WHERE user_id=:user_id AND recipe_id=:recipe_id", user_id=session['user_id'], recipe_id=recipeId);
+
+    return redirect(url_for('eat_healthy', hits=hits, round=rounded, count=count, search_word=search_word))
+
+@app.route('/show_saved_recipes', methods=['POST'])
+def show_saved_recipes():
+
+    saved_recipes = engine.execute("SELECT * FROM recipes WHERE user_id = session['user_id']")
+    count = count(saved_recipes)
+    hits=[]
+
+    for recipe in saved_recipes:
+        recipe_id = recipe.recipe_id
+
+        # Convert the id into a link
+        r_id=urllib.parse.quote('recipe_id', safe='')
+
+        # Get data
+        response = requests.get("https://api.edamam.com/search?r=" + r_id + "&app_id=a8f807ca&app_key=9e763f1edd4c3c936eb2506f1dbdddf5&from=0&to=12&calories=591-722")
+
+        # Add recipe to hits list
+        if response.status_code == 200:
+            print("There was this great recipe response, for once... yaaay!")
+            hits.append(response.json())
+
+    print(hits)
+
+    return redirect(url_for('eat_healthy', hits=hits, round=rounded, count=count, search_word="Saved recipes"))
