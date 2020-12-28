@@ -1,5 +1,5 @@
 /* --- reusables --- */
-.manage-weight-header, .eat-healthy-header, .contact-us, .weightloss-program, .healthy-recipes, .training-plan, .carousel {
+.about-us-header, .manage-weight-header, .eat-healthy-header, .contact-us, .weightloss-program, .healthy-recipes, .training-plan, .carousel {
   display: flex;
   align-items: center;
   padding: 6vw 0;
@@ -7,7 +7,7 @@
   position: relative;
 }
 
-.manage-weight-header .manage-weight-header-box, .eat-healthy-header .eat-healthy-header-box, .contact-us .contact-us-box, .healthy-recipes .healthy-recipes-box, .training-plan .training-plan-box, .carousel .carousel-box {
+.about-us-header .about-us-header-box, .manage-weight-header .manage-weight-header-box, .eat-healthy-header .eat-healthy-header-box, .contact-us .contact-us-box, .healthy-recipes .healthy-recipes-box, .training-plan .training-plan-box, .carousel .carousel-box {
   padding: 3.5vw 5vw;
   width: 55vw;
   z-index: 100;
@@ -1048,6 +1048,120 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
 .macronutrient-summary .continue-buttons .save-data-button:hover {
   background-color: #D993C8;
   border: 1.5px solid #D993C8;
+}
+
+/* --- header section --- */
+.about-us-header {
+  background: radial-gradient(closest-side, #82EB84, #82EB84, #6DCC6F);
+  height: 35vw;
+  overflow: hidden;
+}
+.about-us-header span {
+  color: #FAD5EE;
+}
+.about-us-header .about-us-header-image {
+  height: 28vw;
+}
+.about-us-header .about-us-header-image img {
+  max-height: 28vw;
+  position: absolute;
+  right: 16vw;
+  bottom: 0;
+}
+.about-us-header .about-us-header-box {
+  margin: 3vw 0 0 20vw;
+  z-index: 100;
+}
+.about-us-header .about-us-header-box input {
+  font-size: 1.1vw;
+  font-family: "Open Sans semibold";
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
+  width: 100%;
+  padding-right: 1.5vw;
+}
+.about-us-header .about-us-header-box ::placeholder {
+  color: #FFFFFF;
+  opacity: 0.6;
+}
+.about-us-header .about-us-header-box textarea:focus, .about-us-header .about-us-header-box input:focus {
+  outline: none;
+}
+.about-us-header .about-us-header-box .search {
+  font-size: 1.1vw;
+  display: flex;
+  border: 1.5px solid #FFFFFF;
+  border-radius: 5px;
+  height: 4vw;
+}
+.about-us-header .about-us-header-box .search .search-icon {
+  display: flex;
+  align-items: center;
+  padding: 0.8vw 1.5vw;
+}
+
+/* --- main section --- */
+.lifestyle .lifestyle-content-box {
+  display: flex;
+  align-items: center;
+  background-color: #FAD5EE;
+  margin: 6vw;
+  padding: 6vw;
+  position: relative;
+  height: 50vw;
+}
+.lifestyle .lifestyle-content-box .lifestyle-text-container {
+  position: relative;
+  z-index: 100;
+}
+.lifestyle .lifestyle-content-box .lifestyle-text-container h1 span {
+  color: #37969A;
+}
+.lifestyle .lifestyle-content-box .lifestyle-text-container h3 {
+  color: #454444;
+  max-width: 50%;
+}
+.lifestyle .lifestyle-content-box .about-us-main-image {
+  position: absolute;
+  top: 3vw;
+  right: 12vw;
+  height: 50vw;
+}
+.lifestyle .lifestyle-content-box .about-us-main-image img {
+  max-height: 50vw;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #B5B5B5;
+  padding: 6vw;
+}
+.service h1 span {
+  color: #ADFCAE;
+}
+.service h3 {
+  padding: 0.5vw;
+}
+.service h3 span {
+  font-weight: 900;
+}
+.service .service-container {
+  display: flex;
+  padding-top: 2vw;
+}
+.service .service-container .service-text-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1vw;
+}
+.service .service-container .service-text-box .service-icon {
+  font-size: 2.5vw;
+  color: #ADFCAE;
+  padding: 1vw;
 }
 
 /*# sourceMappingURL=styles.css.map */

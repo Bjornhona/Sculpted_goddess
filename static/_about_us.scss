@@ -1,0 +1,126 @@
+@use "constants";
+
+/* --- header section --- */
+
+.about-us-header {
+  @extend %shared-box;
+  background: radial-gradient(closest-side, constants.$dark-green, constants.$dark-green, constants.$forest-green);
+  height: 35vw;
+  overflow: hidden;
+  span {
+    color: constants.$light-pink;
+  }
+  .about-us-header-image {
+    height: 28vw;
+    img {
+      max-height: 28vw;
+      position: absolute;
+      right: 16vw;
+      bottom: 0;
+    }
+  }
+  .about-us-header-box {
+    @extend %shared-box-content;
+    margin: 3vw 0 0 20vw;
+    z-index: 100;
+    input {
+      font-size: constants.$font-button-size;
+      font-family: "Open Sans semibold";
+      background-color: transparent;
+      // text-transform: uppercase;
+      border: none;
+      color: constants.$white;
+      width: 100%;
+      padding-right: 1.5vw;
+    }
+    ::placeholder {
+      color: constants.$white;
+      opacity: 0.6;
+    }
+    textarea:focus, input:focus {
+      outline: none;
+    }
+    .search {
+      font-size: constants.$font-button-size;
+      display: flex;
+      border: 1.5px solid constants.$white;
+      border-radius: 5px;
+      height: 4vw;
+      .search-icon {
+        display: flex;
+        align-items: center;
+        padding: 0.8vw 1.5vw;
+      }
+    }
+  }
+}
+
+/* --- main section --- */
+
+.lifestyle {
+  .lifestyle-content-box {
+    display: flex;
+    align-items: center;
+    background-color: constants.$light-pink;
+    margin: 6vw;
+    padding: 6vw;
+    position: relative;
+    height: 50vw;
+    .lifestyle-text-container {
+      position: relative;
+      z-index: 100;
+      h1 {
+        span {
+          color: constants.$dark-blue;
+        }
+      }
+      h3 {
+        color: constants.$dark-grey;
+        max-width: 50%;
+      }
+    }
+    .about-us-main-image {
+      position: absolute;
+      top: 3vw;
+      right: 12vw;
+      height: 50vw;
+      img {
+        max-height: 50vw;
+      }
+    }
+  }
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: constants.$medium-grey;
+  padding: 6vw;
+  h1 {
+    span {
+      color: constants.$light-green;
+    }
+  }
+  h3 {
+    padding: 0.5vw;
+    span {
+      font-weight: 900;
+    }
+  }
+  .service-container {
+    display: flex;
+    padding-top: 2vw;
+    .service-text-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1vw;
+      .service-icon {
+        font-size: constants.$font-h2-size;
+        color: constants.$light-green;
+        padding: 1vw;
+      }
+    }
+  }
+}
