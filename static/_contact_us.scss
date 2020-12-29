@@ -34,25 +34,26 @@
     align-items: center;
     background-color: constants.$light-green;
     margin: 6vw;
-    padding: 6vw;
+    padding: 3vw;
     position: relative;
-    height: 50vw;
+    height: 55vw;
     .contact-us-main-image {
       position: absolute;
       top: 0;
       right: -3vw;
-      height: 50vw;
+      height: 55vw;
       img {
-        max-height: 50vw;
+        max-height: 55vw;
+        z-index: 200;
       }
     }
-    .login-left-container, .signup-right-container {
+    .contact-form-container {
       background-color: constants.$light-pink;
       width: 40vw;
       height: 100%;
       border-radius: 0.5vw;
       box-shadow: 0 3px 12px rgba(#000000, 0.3);
-      z-index: 100;
+      position: relative;
       h2 {
         background-color: constants.$dark-pink;
         border-radius: 0.5vw 0.5vw 0 0;
@@ -71,6 +72,7 @@
           color: constants.$medium-grey;
           opacity: 1;
           font-size: constants.$font-button-size;
+          font-family: "Open Sans", sans-serif;
         }
         div {
           display: flex;
@@ -81,11 +83,12 @@
             margin: 1vw 0;
             border-radius: 5px 0 0 5px;
           }
-          input {
+          input, textarea {
             border: none;
             border-radius: 0 5px 5px 0;
             padding: 1vw 2vw;
             margin: 1vw 0;
+            width: 22vw;
           }
         }
         button {
@@ -99,15 +102,10 @@
         }
       }
     }
-    .signup-link {
-      font-size: constants.$font-h3-size;
-      font-weight: 900;
-      text-transform: lowercase;
-    }
   }
 }
 
-.service {
+.our-contact {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,24 +116,30 @@
       color: constants.$light-green;
     }
   }
-  h3 {
-    padding: 0.5vw;
+  h3, h4 {
+    margin: 0;
+    padding: 0 0.5vw 0.5vw 0;
+    color: constants.$white;
     span {
       font-weight: 900;
     }
   }
-  .service-container {
+  .our-contact-container {
     display: flex;
-    padding-top: 2vw;
-    .service-text-box {
+    padding-top: 3vw;
+    .our-contact-text-box {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      justify-content: space-between;
       padding: 0 1vw;
-      .service-icon {
-        font-size: constants.$font-h2-size;
-        color: constants.$light-green;
-        padding: 1vw;
+      width: 30vw;
+      .our-contact-address-line{
+        display: flex;
+        .our-contact-icon {
+          font-size: constants.$font-h2-size;
+          color: constants.$light-green;
+          width: 10vw;
+        }
       }
     }
   }

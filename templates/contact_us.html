@@ -18,35 +18,53 @@
 <div class="contact-form">
   <div class="contact-form-content-box">
 
-    <div class="signup-right-container">
+    <div class="contact-form-container">
       <h2><span>Who's</span> there?</h2>
-      <form action="/register" method="POST">
+      <form action="mailto:info@graphicsbyasa.com" method="POST" enctype="text/plain">
         <div>
-          <span><i class="fas fa-envelope"></i></span><input autocomplete="off" autofocus type="text" name="username" placeholder="Username"/>
+          <span><i class="fas fa-user"></i></span><input autocomplete="off" autofocus type="text" name="name" placeholder="Name" required/>
         </div>
         <div>
-          <span><i class="fas fa-lock"></i></span><input type="text" name="password" placeholder="Password" />
+          <span><i class="fas fa-dumbbell"></i></span><input type="text" name="mail" placeholder="E-mail" required/>
         </div>
         <div>
-          <span><i class="fas fa-lock"></i></span><input type="text" name="confirmation" placeholder="Password (again)" />
+          <span><i class="fas fa-comment-dots"></i></span><textarea name="comment" placeholder="Message" rows="5" required></textarea>
         </div>
-        <button type="submit">Let me in</button>
+        <button type="submit">Let us know</button>
       </form>
     </div>
     <div class="contact-us-main-image"><img src="/static/images/contact-us2.png" alt="calling girl"/></div>
   </div>
 
-  <div class="service">
+  <div class="our-contact">
     <h1><span>Our</span> contact</h1>
-    <div class="service-container">
-      <div class="service-text-box">
-        <div class="service-icon"><i class="fas fa-utensils"></i></div>
-        <h3><span>Healthy recipes</span></h3>
-        <h3>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</h3>
+    <div class="our-contact-container">
+      <div class="our-contact-text-box">
+        <div class="our-contact-address-line">
+          <div class="our-contact-icon"><i class="fas fa-phone-square"></i></div>
+          <div>
+            <h3><span>Telephone</span></h3>
+            <h4>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</h4>
+          </div>
+        </div>
+        <div class="our-contact-address-line">
+          <div class="our-contact-icon"><i class="fas fa-at"></i></div>
+          <div>
+            <h3><span>E-mail</span></h3>
+            <h4>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</h4>
+          </div>
+        </div>
+        <div class="our-contact-address-line">
+          <div class="our-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h3><span>Address</span></h3>
+            <h4>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</h4>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="contact-us-map">
-      <img src="/static/images/map.png" alt="map of Barcelona"/>
+      <div class="contact-us-map">
+        <img src="/static/images/map.png" alt="map of Barcelona"/>
+      </div>
     </div>
   </div>
 </div>
