@@ -1,5 +1,5 @@
 /* --- reusables --- */
-.about-us-header, .manage-weight-header, .eat-healthy-header, .contact-us, .weightloss-program, .healthy-recipes, .training-plan, .carousel {
+.contact-us-header, .about-us-header, .manage-weight-header, .eat-healthy-header, .contact-us, .weightloss-program, .healthy-recipes, .training-plan, .carousel {
   display: flex;
   align-items: center;
   padding: 6vw 0;
@@ -7,7 +7,7 @@
   position: relative;
 }
 
-.about-us-header .about-us-header-box, .manage-weight-header .manage-weight-header-box, .eat-healthy-header .eat-healthy-header-box, .contact-us .contact-us-box, .healthy-recipes .healthy-recipes-box, .training-plan .training-plan-box, .carousel .carousel-box {
+.contact-us-header .contact-us-header-box, .about-us-header .about-us-header-box, .manage-weight-header .manage-weight-header-box, .eat-healthy-header .eat-healthy-header-box, .contact-us .contact-us-box, .healthy-recipes .healthy-recipes-box, .training-plan .training-plan-box, .carousel .carousel-box {
   padding: 3.5vw 5vw;
   width: 55vw;
   z-index: 100;
@@ -1072,34 +1072,6 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   margin: 3vw 0 0 20vw;
   z-index: 100;
 }
-.about-us-header .about-us-header-box input {
-  font-size: 1.1vw;
-  font-family: "Open Sans semibold";
-  background-color: transparent;
-  border: none;
-  color: #FFFFFF;
-  width: 100%;
-  padding-right: 1.5vw;
-}
-.about-us-header .about-us-header-box ::placeholder {
-  color: #FFFFFF;
-  opacity: 0.6;
-}
-.about-us-header .about-us-header-box textarea:focus, .about-us-header .about-us-header-box input:focus {
-  outline: none;
-}
-.about-us-header .about-us-header-box .search {
-  font-size: 1.1vw;
-  display: flex;
-  border: 1.5px solid #FFFFFF;
-  border-radius: 5px;
-  height: 4vw;
-}
-.about-us-header .about-us-header-box .search .search-icon {
-  display: flex;
-  align-items: center;
-  padding: 0.8vw 1.5vw;
-}
 
 /* --- main section --- */
 .lifestyle .lifestyle-content-box {
@@ -1162,6 +1134,147 @@ nav a:link, nav a:visited, .upper-footer a:link, .upper-footer a:visited {
   font-size: 2.5vw;
   color: #ADFCAE;
   padding: 1vw;
+}
+
+/* --- header section --- */
+.contact-us-header {
+  background: radial-gradient(closest-side, #A67FCE, #A67FCE, #924ED6);
+  height: 35vw;
+  overflow: hidden;
+}
+.contact-us-header span {
+  color: #FDFD97;
+}
+.contact-us-header .contact-us-header-image {
+  height: 32vw;
+}
+.contact-us-header .contact-us-header-image img {
+  max-height: 32vw;
+  position: absolute;
+  right: 20vw;
+  bottom: 0;
+}
+.contact-us-header .contact-us-header-box {
+  margin: 3vw 0 0 23vw;
+  z-index: 100;
+}
+
+/* --- main section --- */
+.contact-form .contact-form-content-box {
+  display: flex;
+  align-items: center;
+  background-color: #ADFCAE;
+  margin: 6vw;
+  padding: 6vw;
+  position: relative;
+  height: 50vw;
+}
+.contact-form .contact-form-content-box .contact-us-main-image {
+  position: absolute;
+  top: 0;
+  right: -3vw;
+  height: 50vw;
+}
+.contact-form .contact-form-content-box .contact-us-main-image img {
+  max-height: 50vw;
+}
+.contact-form .contact-form-content-box .login-left-container, .contact-form .contact-form-content-box .signup-right-container {
+  background-color: #FAD5EE;
+  width: 40vw;
+  height: 100%;
+  border-radius: 0.5vw;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+.contact-form .contact-form-content-box .login-left-container h2, .contact-form .contact-form-content-box .signup-right-container h2 {
+  background-color: #D993C8;
+  border-radius: 0.5vw 0.5vw 0 0;
+  padding: 3vw 0;
+  text-align: center;
+}
+.contact-form .contact-form-content-box .login-left-container h2 span, .contact-form .contact-form-content-box .signup-right-container h2 span {
+  color: #ADFCAE;
+}
+.contact-form .contact-form-content-box .login-left-container form, .contact-form .contact-form-content-box .signup-right-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3vw;
+}
+.contact-form .contact-form-content-box .login-left-container form ::placeholder, .contact-form .contact-form-content-box .signup-right-container form ::placeholder {
+  color: #B5B5B5;
+  opacity: 1;
+  font-size: 1.1vw;
+}
+.contact-form .contact-form-content-box .login-left-container form div, .contact-form .contact-form-content-box .signup-right-container form div {
+  display: flex;
+  flex-direction: row;
+}
+.contact-form .contact-form-content-box .login-left-container form div span, .contact-form .contact-form-content-box .signup-right-container form div span {
+  background-color: #D993C8;
+  padding: 1vw 2vw;
+  margin: 1vw 0;
+  border-radius: 5px 0 0 5px;
+}
+.contact-form .contact-form-content-box .login-left-container form div input, .contact-form .contact-form-content-box .signup-right-container form div input {
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 1vw 2vw;
+  margin: 1vw 0;
+}
+.contact-form .contact-form-content-box .login-left-container form button, .contact-form .contact-form-content-box .signup-right-container form button {
+  background-color: #D993C8;
+  border: 2px solid #D993C8;
+  margin: 3vw auto 1vw;
+}
+.contact-form .contact-form-content-box .login-left-container form button:hover, .contact-form .contact-form-content-box .signup-right-container form button:hover {
+  background-color: #EFB6DD;
+  border: 2px solid #FFFFFF;
+}
+.contact-form .contact-form-content-box .signup-link {
+  font-size: 1.4vw;
+  font-weight: 900;
+  text-transform: lowercase;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #B5B5B5;
+  padding: 6vw;
+}
+.service h1 span {
+  color: #ADFCAE;
+}
+.service h3 {
+  padding: 0.5vw;
+}
+.service h3 span {
+  font-weight: 900;
+}
+.service .service-container {
+  display: flex;
+  padding-top: 2vw;
+}
+.service .service-container .service-text-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1vw;
+}
+.service .service-container .service-text-box .service-icon {
+  font-size: 2.5vw;
+  color: #ADFCAE;
+  padding: 1vw;
+}
+.service .contact-us-map {
+  height: 20vw;
+}
+.service .contact-us-map img {
+  max-height: 20vw;
+  right: 20vw;
+  bottom: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

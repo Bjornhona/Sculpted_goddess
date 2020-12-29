@@ -3,5 +3,51 @@
 {% block title %}Contact us{% endblock %}
 
 {% block main %}
-  <h1>Contact us</h1>
+<header class="contact-us-header">
+  <div class="contact-us-header-box">
+    <h1><span>Contact</span> Us</h1>
+    <div class="text-box">
+      <h3>We help you find your prefered recipes so that you can add them to your meal plans.</h3>
+    </div>
+  </div>
+  <div class="contact-us-header-image">
+    <img src="static/images/contact-us1.png" alt="Running woman" />
+  </div>
+</header>
+
+<div class="contact-form">
+  <div class="contact-form-content-box">
+
+    <div class="signup-right-container">
+      <h2><span>Who's</span> there?</h2>
+      <form action="/register" method="POST">
+        <div>
+          <span><i class="fas fa-envelope"></i></span><input autocomplete="off" autofocus type="text" name="username" placeholder="Username"/>
+        </div>
+        <div>
+          <span><i class="fas fa-lock"></i></span><input type="text" name="password" placeholder="Password" />
+        </div>
+        <div>
+          <span><i class="fas fa-lock"></i></span><input type="text" name="confirmation" placeholder="Password (again)" />
+        </div>
+        <button type="submit">Let me in</button>
+      </form>
+    </div>
+    <div class="contact-us-main-image"><img src="/static/images/contact-us2.png" alt="calling girl"/></div>
+  </div>
+
+  <div class="service">
+    <h1><span>Our</span> contact</h1>
+    <div class="service-container">
+      <div class="service-text-box">
+        <div class="service-icon"><i class="fas fa-utensils"></i></div>
+        <h3><span>Healthy recipes</span></h3>
+        <h3>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</h3>
+      </div>
+    </div>
+    <div class="contact-us-map">
+      <img src="/static/images/map.png" alt="map of Barcelona"/>
+    </div>
+  </div>
+</div>
 {% endblock %}

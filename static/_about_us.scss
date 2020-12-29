@@ -23,35 +23,6 @@
     @extend %shared-box-content;
     margin: 3vw 0 0 20vw;
     z-index: 100;
-    input {
-      font-size: constants.$font-button-size;
-      font-family: "Open Sans semibold";
-      background-color: transparent;
-      // text-transform: uppercase;
-      border: none;
-      color: constants.$white;
-      width: 100%;
-      padding-right: 1.5vw;
-    }
-    ::placeholder {
-      color: constants.$white;
-      opacity: 0.6;
-    }
-    textarea:focus, input:focus {
-      outline: none;
-    }
-    .search {
-      font-size: constants.$font-button-size;
-      display: flex;
-      border: 1.5px solid constants.$white;
-      border-radius: 5px;
-      height: 4vw;
-      .search-icon {
-        display: flex;
-        align-items: center;
-        padding: 0.8vw 1.5vw;
-      }
-    }
   }
 }
 
