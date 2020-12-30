@@ -88,12 +88,22 @@
   display: flex;
   align-items: center;
   padding: 1vw;
+  width: 18vw;
   h3 {
     padding: 0 0 0 1vw;
   }
   .save-icon {
     font-size: 1.8vw;
     color: constants.$fuccia;
+  }
+}
+.icon-container:hover {
+  h3 {
+    color: constants.$medium-grey;
+  }
+  .save-icon {
+    font-size: 1.8vw;
+    color: constants.$dark-pink
   }
 }
 
@@ -105,31 +115,38 @@
     margin: 1vw;
     color: constants.$dark-grey;
     cursor: pointer;
-    .small-recipe-image {
-      height: 14vw;
-      width: 20vw;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      border-radius: 1vw 1vw 0 0;
-      img {
-        max-width: 100%;
-      }
-    }
-    .small-recipe-text {
-      background-color: constants.$white;
-      height: 15vw;
-      width: 20vw;
-      border-radius: 0 0 1vw 1vw;
-      padding: 1vw;
-      .recipe-content {
-        padding-left: 1vw;
-        h3 {
-          padding-top: 0;
-          height: 4.8vw;
-          overflow: hidden;
+    .recipe-selector {
+      .small-recipe-image {
+        height: 14vw;
+        width: 20vw;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        border-radius: 1vw 1vw 0 0;
+        img {
+          max-width: 100%;
         }
       }
+      .small-recipe-text {
+        background-color: constants.$white;
+        height: 10vw;
+        width: 20vw;
+        padding: 1vw 1vw 0;
+        .recipe-content {
+          padding-left: 1vw;
+          h3 {
+            padding-top: 0;
+            height: 4.8vw;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+    .save-recipe {
+      background-color: constants.$white;
+      height: 5vw;
+      border-radius: 0 0 1vw 1vw;
+      padding: 0 1vw 1vw;
       .icon-container {
         border-top: 1px solid constants.$medium-grey;
       }
@@ -213,14 +230,6 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-end;
-        button {
-          margin: 0 auto 0.5vw auto;
-          border: none;
-          background-color: constants.$dark-orange;
-        }
-        button:hover {
-          background-color: constants.$light-orange;
-        }
         .icon-container {
           justify-content: flex-end;
           padding: 0 0 1vw 0;
@@ -229,6 +238,14 @@
           }
           .save-icon {
             color: constants.$light-pink;
+          }
+        }
+        .icon-container:hover {
+          h3 {
+            color: constants.$light-grey;
+          }
+          .save-icon {
+            color: constants.$medium-pink;
           }
         }
       }

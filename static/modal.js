@@ -1,5 +1,5 @@
 // Get the buttons, modals and closing <span> element
-let buttons = document.getElementsByClassName("small-recipe-container");
+let buttons = document.getElementsByClassName("recipe-selector");
 let modals = document.getElementsByClassName("modal");
 let spans = document.getElementsByClassName("close");
 
@@ -20,9 +20,3 @@ for (let i=0; i<buttons.length; i++) {
     }
   }
 }
-
-// let show_saved = document.getElementById("show-saved");
-
-// show_saved.onclick = () => {
-
-// }
