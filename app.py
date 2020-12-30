@@ -166,7 +166,7 @@ def eat_healthy():
             search_word = "chicken"
 
     else:
-        # Searches hits from API that matches a search-word the user entered in the Search input field
+        # Search hits from API that matches a search-word the user entered in the Search input field
         search_word = request.form.get("search_word")
     hits = []
     count = 0
