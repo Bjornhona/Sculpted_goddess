@@ -45,9 +45,14 @@
             </div>
             <form action="/save_recipe" method="POST" class="save-recipe">
                 <input type="hidden" value="{{row.recipe.uri}}" name="recipeId">
+                <input type="hidden" value="{{search_word}}" name="searchWord">
                 <button type="submit">
                   <div class="icon-container">
-                    <div class="save-icon"><i class="far fa-bookmark"></i></div>
+                    {% if row.get('saved') is not none: %}
+                        <div class="save-icon"><i class="fas fa-bookmark"></i></div>
+                      {% else %}
+                        <div class="save-icon"><i class="far fa-bookmark"></i></div>
+                    {% endif %}
                     <h3>Save recipe</h3>
                   </div>
                 </button>
