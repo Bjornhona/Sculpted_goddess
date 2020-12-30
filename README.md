@@ -1,5 +1,5 @@
 ## Sculpted Goddess
- Sculpting Goddess is a web applilcation and a tool that helps women sculpt and take care of their bodies in a healthy way. It keeps track on personal data and calculates your macro daily needs as well as gives the opportunity to search and save favorite recipes in a large selection of healthy recipes. All recipes give nutritional information to help to plan what you eat daily in accordance to dietary needs.
+ Sculpting Goddess is a web application and a tool that helps women sculpt and take care of their bodies in a healthy way. It keeps track on personal data and calculates your Daily Macronutrient Needs as well as gives the opportunity to search and save favorite recipes in a large selection of healthy recipes. All recipes give nutritional information to help creating a meal plan in accordance to dietary needs.
 
 ## Motivation
 I was inspired to build this web application for the purpose of having a convenient tool to help me and other women sculpt and take care of their bodies in a healthy way. It helps me set up my personal meal plans so that I easier can achieve my fitness goals. It is also my Final Project as part of the Harvard course CS50x on edX, Introduction to Computer Science.
@@ -10,8 +10,7 @@ Design in Adobe XD
 [![Home Sculpted Goddess](https://github.com/Bjornhona/Sculpted_goddess/blob/master/static/images/screen_shot_2.png)](https://github.com/Bjornhona/Sculpted_goddess/blob/master/static/images/screen_shot_2.png)
 
 ## Tech/framework used
-Server-side rendering
-<b>Built with</b>
+<b>Server-side rendering, built with</b>
 - Python
 - Flask
 - Javascipt
@@ -67,6 +66,10 @@ The project offers a huge database of Recipes with their individual nutrition da
 ## API Reference
 Edamam recipe search API
 https://developer.edamam.com/edamam-docs-recipe-api
+
+## Git-hub Reference
+The reference for this project is publicly documented at Github 
+https://github.com/Bjornhona/Sculpted_goddess
 
 ## Credits
 Thank you very much to David J. Malan for great explanations during all of his teaching sessions and also to the rest of the team at Harvard CS50 for a very professional build up couse.
