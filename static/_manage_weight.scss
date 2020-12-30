@@ -89,6 +89,18 @@
         .gain, .lose {
           font-size: constants.$font-h2-size;
         }
+        .male-input:hover ~ .male {
+          background-color: constants.$aqua;
+        }
+        .female-input:hover ~ .female {
+          background-color: constants.$medium-pink;
+        }
+        .gain-input:hover ~ .gain {
+          background-color: constants.$light-green;
+        }
+        .lose-input:hover ~ .lose {
+          background-color: constants.$aqua;
+        }
         .male-input:checked ~ .male {
           background-color: constants.$light-blue;
         }
@@ -99,7 +111,7 @@
           background-color: constants.$dark-green;
         }
         .lose-input:checked ~ .lose {
-          background-color: constants.$aqua;
+          background-color: constants.$light-blue;
         }
       }
     }
