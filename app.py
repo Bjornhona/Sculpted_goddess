@@ -416,39 +416,6 @@ def save_macros():
     else:
         gender = "male"
 
-    # for i in range(MAX_ATTEMPTS):
-    #     sdata_id = os.urandom(8).decode('hex')
-    #     db.execute('SELECT COUNT(*) FROM sessions WHERE sid=?', (sid,))
-
-    #     if not db.fetchone()[0]:
-    #         # You can catch IntegrityError here and continue, but there are reasons
-    #         # to avoid this.
-    #         # db.execute('INSERT INTO sessions (sid) VALUES (?)', (sid,))
-
-    #         # Add history data to history table in DB
-    #         engine.execute("INSERT INTO history (data_id, user_id, gender, weight, height, age, activity, goal, desiredWeight, time) \
-    #             VALUES (:data_id, :user_id, :gender, :weight, :height, :age, :activity, :goal, :desiredWeight, :time)", \
-    #             data_id = uniqueId.hex, user_id = session['user_id'], gender = gender, weight = session['currentWeight'], height = session['height'], \
-    #             age = session['age'], activity = session['activity'], goal = session['goal'], desiredWeight = session['desiredWeight'], time = time)
-    #         break
-    #     else:
-    #         raise RuntimeError('Failed to generate unique ID')
-
-
-    #     for i in range(8):
-    #     data_id = os.urandom(8).hex
-    #     engine.execute('SELECT COUNT(*) FROM history WHERE data_id=:data_id', data_id=data_id);
-
-    #     if not engine.fetchone()[0]:
-    #         # Add history data to history table in DB
-    #         engine.execute("INSERT INTO history (data_id, user_id, gender, weight, height, age, activity, goal, desiredWeight, time) \
-    #             VALUES (:data_id, :user_id, :gender, :weight, :height, :age, :activity, :goal, :desiredWeight, :time)", \
-    #             data_id = data_id, user_id = session['user_id'], gender = gender, weight = session['currentWeight'], height = session['height'], \
-    #             age = session['age'], activity = session['activity'], goal = session['goal'], desiredWeight = session['desiredWeight'], time = time)
-    #         break
-    #     else:
-    #         raise RuntimeError('Failed to generate unique ID')
-
     # Add history data to history table in DB
     engine.execute("INSERT INTO history (data_id, user_id, gender, weight, height, age, activity, goal, desiredWeight, time) \
         VALUES (:data_id, :user_id, :gender, :weight, :height, :age, :activity, :goal, :desiredWeight, :time)", \
