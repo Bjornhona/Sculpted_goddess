@@ -33,10 +33,10 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure SQLAlchemy Library to use SQLite database
-engine = create_engine("sqlite:///sculptedgoddess.db", echo=True)
+engine = create_engine("sqlite:///sculptedgoddess.db", echo=True, pool_pre_ping=True)
 
 # Create unique id's
-id = uuid.uuid1()
+uniqueId = uuid.uuid1()
 
 # My functions
 def rounded(r):
@@ -411,15 +411,48 @@ def save_macros():
         user_id=session['user_id'], calInt=new_calInt, calProt=new_calProt, calFat=new_calFat, calCarbs=new_calCarbs)
 
     # Is added to the history array in DB
-    if session['gender'] == (-161):
+    if session['gender'] == "-161":
         gender = "female"
     else:
         gender = "male"
 
+    # for i in range(MAX_ATTEMPTS):
+    #     sdata_id = os.urandom(8).decode('hex')
+    #     db.execute('SELECT COUNT(*) FROM sessions WHERE sid=?', (sid,))
+
+    #     if not db.fetchone()[0]:
+    #         # You can catch IntegrityError here and continue, but there are reasons
+    #         # to avoid this.
+    #         # db.execute('INSERT INTO sessions (sid) VALUES (?)', (sid,))
+
+    #         # Add history data to history table in DB
+    #         engine.execute("INSERT INTO history (data_id, user_id, gender, weight, height, age, activity, goal, desiredWeight, time) \
+    #             VALUES (:data_id, :user_id, :gender, :weight, :height, :age, :activity, :goal, :desiredWeight, :time)", \
+    #             data_id = uniqueId.hex, user_id = session['user_id'], gender = gender, weight = session['currentWeight'], height = session['height'], \
+    #             age = session['age'], activity = session['activity'], goal = session['goal'], desiredWeight = session['desiredWeight'], time = time)
+    #         break
+    #     else:
+    #         raise RuntimeError('Failed to generate unique ID')
+
+
+    #     for i in range(8):
+    #     data_id = os.urandom(8).hex
+    #     engine.execute('SELECT COUNT(*) FROM history WHERE data_id=:data_id', data_id=data_id);
+
+    #     if not engine.fetchone()[0]:
+    #         # Add history data to history table in DB
+    #         engine.execute("INSERT INTO history (data_id, user_id, gender, weight, height, age, activity, goal, desiredWeight, time) \
+    #             VALUES (:data_id, :user_id, :gender, :weight, :height, :age, :activity, :goal, :desiredWeight, :time)", \
+    #             data_id = data_id, user_id = session['user_id'], gender = gender, weight = session['currentWeight'], height = session['height'], \
+    #             age = session['age'], activity = session['activity'], goal = session['goal'], desiredWeight = session['desiredWeight'], time = time)
+    #         break
+    #     else:
+    #         raise RuntimeError('Failed to generate unique ID')
+
     # Add history data to history table in DB
     engine.execute("INSERT INTO history (data_id, user_id, gender, weight, height, age, activity, goal, desiredWeight, time) \
         VALUES (:data_id, :user_id, :gender, :weight, :height, :age, :activity, :goal, :desiredWeight, :time)", \
-        data_id = id.hex, user_id = session['user_id'], gender = gender, weight = session['currentWeight'], height = session['height'], \
+        data_id = uniqueId.hex, user_id = session['user_id'], gender = gender, weight = session['currentWeight'], height = session['height'], \
         age = session['age'], activity = session['activity'], goal = session['goal'], desiredWeight = session['desiredWeight'], time = time)
 
     return redirect("/")
