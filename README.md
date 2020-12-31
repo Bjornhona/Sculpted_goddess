@@ -1,5 +1,5 @@
 ## Sculpted Goddess
- Sculpting Goddess is a web application and a tool that helps women sculpt and take care of their bodies in a healthy way. It keeps track on personal data and calculates your Daily Macronutrient Needs as well as gives the opportunity to search and save favorite recipes in a large selection of healthy recipes. All recipes give nutritional information to help creating a meal plan in accordance to dietary needs.
+ Sculpted Goddess is a web application and a tool that helps women sculpt and take care of their bodies in a healthy way. It keeps track on personal data and calculates your Total Daily Energy Expenditure and Daily Macronutrient Needs as well as gives the opportunity to search and save favorite recipes from a large selection of healthy recipes. All recipes give nutritional information to help creating a your meal plan in accordance to dietary needs.
 
 ## Motivation
 I was inspired to build this web application for the purpose of having a convenient tool to help me and other women sculpt and take care of their bodies in a healthy way. It helps me set up my personal meal plans so that I easier can achieve my fitness goals. It is also my Final Project as part of the Harvard course CS50x on edX, Introduction to Computer Science.
@@ -9,15 +9,18 @@ Design in Adobe XD
 [![Home Sculpted Goddess](https://github.com/Bjornhona/Sculpted_goddess/blob/master/static/images/screen_shot.png)](https://github.com/Bjornhona/Sculpted_goddess/blob/master/static/images/screen_shot.png)
 [![Home Sculpted Goddess](https://github.com/Bjornhona/Sculpted_goddess/blob/master/static/images/screen_shot_2.png)](https://github.com/Bjornhona/Sculpted_goddess/blob/master/static/images/screen_shot_2.png)
 
+## Presentation Movie on YouTube
+[![Presentation of Sculpted Goddess](https://youtu.be/Mhwk2NeAJAI)](https://youtu.be/Mhwk2NeAJAI)
+
 ## Tech/framework used
 <b>Server-side rendering, built with</b>
 - Python
 - Flask
 - Javascipt
+- SQL
 - HTML
 - SCSS
 - Flexbox
-- SQL
 
 <b>Other tools used<b>
 - Visual Studio Code
