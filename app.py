@@ -35,9 +35,6 @@ Session(app)
 # Configure SQLAlchemy Library to use SQLite database
 engine = create_engine("sqlite:///sculptedgoddess.db", echo=True, pool_pre_ping=True)
 
-# Create unique id's
-uniqueId = uuid.uuid1()
-
 # My functions
 def rounded(r):
     return round(r)
@@ -415,6 +412,9 @@ def save_macros():
         gender = "female"
     else:
         gender = "male"
+    
+    # Create a unique id
+    uniqueId = uuid.uuid1()
 
     # Add history data to history table in DB
     engine.execute("INSERT INTO history (data_id, user_id, gender, weight, height, age, activity, goal, desiredWeight, time) \
