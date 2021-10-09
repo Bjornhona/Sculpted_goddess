@@ -143,7 +143,7 @@ def eat_healthy():
                 count = request.args.get("count")
 
                 # Check what recipes this user have saved in DB recipes table
-                savedResp = engine.execute("SELECT * FROM recipes WHERE user_id=:user_id", user_id=session['user_id']);
+                savedResp = engine.execute("SELECT * FROM recipes WHERE user_id=:user_id", user_id=session['user_id'])
                 saved = savedResp.fetchall()
 
                 for row in saved:
@@ -158,7 +158,7 @@ def eat_healthy():
 
                 return render_template("eat_healthy.html", hits=hits, round=rounded, count=count, search_word=search_word)
             else:
-                search_word = latestSearchWord;
+                search_word = latestSearchWord
         else:
             search_word = "chicken"
 
@@ -182,7 +182,7 @@ def eat_healthy():
         count = responseJSON["count"]
 
     # Check what recipes this user have saved in DB recipes table
-    savedResp = engine.execute("SELECT * FROM recipes WHERE user_id=:user_id", user_id=session['user_id']);
+    savedResp = engine.execute("SELECT * FROM recipes WHERE user_id=:user_id", user_id=session['user_id'])
     saved = savedResp.fetchall()
 
     for row in saved:
@@ -247,14 +247,14 @@ def save_recipe():
     latestSearchWord = request.form.get("searchWord")
 
     # Check if already saved in DB recipes table
-    isSavedResp = engine.execute("SELECT COUNT(*) FROM recipes WHERE user_id=:user_id AND recipe_id=:recipe_id", user_id=session['user_id'], recipe_id=recipeId);
+    isSavedResp = engine.execute("SELECT COUNT(*) FROM recipes WHERE user_id=:user_id AND recipe_id=:recipe_id", user_id=session['user_id'], recipe_id=recipeId)
     isSaved = isSavedResp.fetchall()[0][0]
 
     # Saves the recipe and search in recipes table in DB if not already saved. Else it is deleted from recipes table.
     if isSaved == 0:
         engine.execute("INSERT INTO recipes(recipe_id, user_id) VALUES(:recipe_id, :user_id)", recipe_id=recipeId, user_id=session['user_id'])
     else:
-        engine.execute("DELETE FROM recipes WHERE user_id=:user_id AND recipe_id=:recipe_id", user_id=session['user_id'], recipe_id=recipeId);
+        engine.execute("DELETE FROM recipes WHERE user_id=:user_id AND recipe_id=:recipe_id", user_id=session['user_id'], recipe_id=recipeId)
 
     if latestSearchWord == "Saved recipes":
         return redirect(url_for('show_saved_recipes'))

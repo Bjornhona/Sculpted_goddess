@@ -28,7 +28,7 @@ Design in Adobe XD
 - Trello Board
 
 ## Features
-The project offers a huge database of Recipes with their individual nutrition data. The user is able to search for recipes and store their favourite ones for later. A macronutrient calculator is implemented that asks the user for personal data and goals and then suggests the macronutrient ratio and BMI, Body Mass Index, so that it will be easier to adapt the perfect meal plan. The project also contains a Contact Form where interested clients can email their contact data and send a message. The web application is open to enter and read for anyone, but it is necessary to sign up and be logged in to use it's main features.
+The project offers a huge database of Recipes with their individual nutrition data. The user is able to search for recipes and store their favorite ones for later. A macronutrient calculator is implemented that asks the user for personal data and goals and then suggests the macronutrient ratio and BMI, Body Mass Index, so that it will be easier to adapt the perfect meal plan. The project also contains a Contact Form where interested clients can email their contact data and send a message. The web application is open to enter and read for anyone, but it is necessary to sign up and be logged in to use it's main features.
 
 ## Code Example
 ```
@@ -39,7 +39,7 @@ The project offers a huge database of Recipes with their individual nutrition da
   response = None
 
   try:
-      response = requests.get("https://api.edamam.com/search?q=" + search_word + "&app_id=a8f562ca&app_key=9e763f1edd4c3c739eb2506f1dbfrgf5&from=0&to=12&calories=591-722")
+      response = requests.get("https://api.edamam.com/search?q=" + search_word + "&app_id=a8f562ca&app_key=<edamam_key>&from=0&to=12&calories=591-722")
   except HTTPError as http_err:
       print(f"HTTP error occurred: {http_err}")
   except Exception as err:
